@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Magazine-React-Redux/static/css/main.1a8af23f.css",
+    "main.js": "/Magazine-React-Redux/static/js/main.cae09de0.js",
+    "static/js/453.ed3810f9.chunk.js": "/Magazine-React-Redux/static/js/453.ed3810f9.chunk.js",
+    "index.html": "/Magazine-React-Redux/index.html",
+    "main.1a8af23f.css.map": "/Magazine-React-Redux/static/css/main.1a8af23f.css.map",
+    "main.cae09de0.js.map": "/Magazine-React-Redux/static/js/main.cae09de0.js.map",
+    "453.ed3810f9.chunk.js.map": "/Magazine-React-Redux/static/js/453.ed3810f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a8af23f.css",
+    "static/js/main.cae09de0.js"
+  ]
+}
