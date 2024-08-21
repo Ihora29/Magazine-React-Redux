@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.headerPanel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.brand {
+    width: 12%;
+    height: 80px;
+    padding: 5px;
+    background-color: #b5d8f7;
+}
+
+.productsPanel {
+    height: 80px;
+    width: 35%;
+    display: flex;
+    padding: 20px 10px 20px 10px;
+    justify-content: space-around;
+
+}
+
+.aboutUs {
+    width: 170px;
+    height: 140px;
+    border: 1px solid black;
+    position: absolute;
+
+    top: 70px;
+}
+
+
+
+.hamburger {
+    width: 50px;
+    height: 80px;
+    margin: 20px auto;
+}
+
+.phoneContact {
+    width: 12%;
+}
+
+.blockPhone {
+
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0 0 0;
+    border-radius: 10px;
+    background-color: #b5d8f7;
+}
+
+.weCall {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.workTime {
+    height: 25%;
+    width: 210px;
+    padding-top: 20px;
+
+}
+
+.userLogin {
+    width: 10%;
+    height: 80px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.userLogo {
+    width: 26px;
+    height: 26px;
+}
+
+.packageBuy {
+    width: 10%;
+    height: 80px;
+
+    position: relative;
+    background-color: #b5d8f7;
+    display: flex;
+    align-items: center;
+}
+
+.buyCount {
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    z-index: 1;
+    position: absolute;
+    left: 70px;
+    top: 10px;
+    font-size: 15px;
+    background-color: white;
+
+
+}
+
+.packageLogo {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px 0 30px;
+}
+
+.totalPrice {
+    margin-top: 10px;
+}
