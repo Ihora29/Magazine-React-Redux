@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.makeOrderContainer {
+    margin-top: 150px;
+}
+
+.canHelpContainer {
+    width: 500px;
+    height: 350px;
+    display: flex;
+    z-index: 99;
+    flex-direction: column;
+    background-color: aliceblue;
+    justify-content: space-around;
+    border-radius: 5px;
+    top: 150px;
+    left: 35%;
+    position: absolute;
+}
+
+.namePopUp {
+    display: block;
+    margin-top: 20px;
+}
+
+.inputContact {
+    width: 80%;
+    margin: 0 auto 30px;
+    height: 40px;
+    border: 1px solid #b5d8f7;
+}
+
+.btnContact {
+    width: 60%;
+    margin: 0 auto 20px;
+    height: 40px;
+    background-color: #b5d8f7;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.formBlock {
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+.closeImg {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.helpMessage {
+    font-size: 20px;
+    margin: 30px auto;
+}
+
+.closeImgBtn {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border: none;
+}
+
+.emptyContainer {
+    height: 290px;
+    background-color: #b5d8f7;
+    width: 350px;
+    margin: 20px auto;
+    display: flex;
+    border-radius: 17px;
+    flex-direction: column;
+}
+
+.emptyPicLink {
+    width: 140px;
+    height: 100px;
+}
+
+.menuLink {
+    margin: 30px auto 0;
+}
+
+.textClickOnMe {
+    margin: 20px auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: aliceblue;
+}
+
+h5 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.itemsContainer {
+    width: 50%;
+    min-height: 0px;
+    margin: 40px auto;
+
+}
+
+.MakeOrdertext {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.MakeOrdertext::after {
+    content: "";
+    width: 420px;
+    height: 5px;
+    background-color: #b5d8f7;
+    left: 38%;
+    position: absolute;
+}
+
+.orderPictire {
+    width: 140px;
+    height: 90px;
+    object-fit: contain;
+
+}
+
+.motiContainer {
+    width: 300px;
+    height: 190px;
+    border: 2px solid #b5d8f7;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.motiPicture {
+    width: 180px;
+    height: 100px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.motiPrice {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.orderCount {
+    width: 50px;
+    height: 30px;
+    border: 2px solid rgb(196, 195, 195);
+    margin: 7px 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+
+}
+
+.btnOrder {
+    width: 30%;
+    height: 85%;
+    border: none;
+    background-color: white;
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+.itemContainer {
+    display: flex;
+    margin: 5px auto 5px;
+    border-top: 2px solid #b5d8f7;
+    border-bottom: 2px solid #b5d8f7;
+    height: 100px;
+    justify-content: space-around;
+    position: relative;
+}
+
+.trashAndCounContainer {
+    display: flex;
+
+    padding-top: 25px;
+    position: absolute;
+    right: 5px;
+
+}
+
+.trashOrder {
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.trashOrder:hover {
+    cursor: pointer;
+}
+
+.orderName {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 25px auto;
+}
+
+.formOrderPromo {
+
+    width: 40%;
+
+    margin: 20px auto 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.salesContainer {
+    margin: 0 auto;
+    justify-content: space-between;
+    display: flex;
+
+
+}
+
+.selectSale {
+    margin: 5px 0 0 40px;
+    height: 40px;
+    border: 2px solid #002f57;
+    border-radius: 5px;
+}
+
+.promoKode {
+    margin: 5px 0 0 0px;
+}
+
+.promoInput {
+    height: 40px;
+    border: 2px solid #b5d8f7;
+    border-radius: 5px;
+    width: 110px;
+    font-size: 12px;
+}
+
+.promoInput:focus {
+    border: none;
+}
+
+.promoButton {
+    height: 40px;
+    width: 90px;
+    border-radius: 5px;
+    background-color: #b5d8f7;
+    color: black;
+    border: none;
+    margin-left: 2px;
+}
+
+.promoButton:hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.choosePribory {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 7px;
+}
+
+.numberBox {
+    width: 20px;
+    font-size: 16px;
+    height: 20px;
+    display: flex;
+    margin-top: 4px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: #b5d8f7;
+}
+
+.salesSelectsContainer {
+
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.selectSales {
+    height: 40px;
+    border: 2px solid #002f57;
+    border-radius: 5px;
+    width: 180px;
+}
+
+.checkBoxesContainer {
+    width: 70%;
+
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkContainer {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.deliveryBoxesContainer {
+    width: 70%;
+
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkDeliveryContainer {
+    width: 50%;
+
+    margin: 10px auto;
+    display: flex;
+    padding-left: 10%;
+}
+
+.deliveryPlaceContainer {
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homeContainer {
+    display: flex;
+
+}
+
+.homeInput {
+    width: 80%;
+    height: 42px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.mapContainer {
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+    margin: 20px auto 0;
+}
+
+.detailsContainer {
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 0 20px;
+}
+
+.orderMadeBtn {
+    width: 80%;
+    height: 60px;
+    background-color: #b5d8f7;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    margin: 30px auto;
+    padding-top: 12px;
+    border-radius: 7px;
+}
+
+.formOrder {
+    display: flex;
+    flex-direction: column;
+}
+
+.orderMadeBtn:hover {
+    color: whitesmoke;
+    cursor: pointer;
+}

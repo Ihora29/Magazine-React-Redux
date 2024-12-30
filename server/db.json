@@ -1,0 +1,295 @@
+{
+    "sushi": [
+        {
+            "id": 1,
+            "name": "Філадельфія з лососем",
+            "weight": 280,
+            "details": "Риc, крем сир, огірок, лосось",
+            "type": "filadelfia",
+            "price": 310,
+            "count": 100
+        },
+        {
+            "id": 2,
+            "name": "Філадельфія в кунжуті",
+            "weight": 240,
+            "details": "Рис, крем сир, огірок, лосось, кунжут",
+            "type": "filadelfia",
+            "price": 270,
+            "count": 100
+        },
+        {
+            "id": 3,
+            "name": "Філадельфія з тунцем",
+            "weight": 260,
+            "details": "Риc, крем сир, авокадо, тунець, cоус солодкий чилі",
+            "type": "filadelfia",
+            "price": 330,
+            "option": "best",
+            "count": 100
+        },
+        {
+            "id": 4,
+            "name": "Філадельфія з вугрем",
+            "weight": 300,
+            "details": "Рис, крем сир, авокадо, вугор, унагі соус, кунжут",
+            "type": "filadelfia",
+            "option": "sale",
+            "price": 290,
+            "count": 100
+        },
+        {
+            "id": 5,
+            "name": "Філадельфія з креветкою",
+            "weight": 240,
+            "details": "Рис, крем сир, огірок, креветка, лосось",
+            "type": "filadelfia",
+            "price": 340,
+            "option": "sale",
+            "count": 100
+        },
+        {
+            "id": 7,
+            "name": "Філадельфія грін з креветкою",
+            "weight": 290,
+            "details": "Рис, крем сир, огірок, креветка, авокадо, спайсі соус, унагі соус",
+            "type": "filadelfia",
+            "price": 280,
+            "option": "best",
+            "count": 100
+        },
+        {
+            "id": 8,
+            "name": "Каліфорнія з крабом",
+            "weight": 250,
+            "details": "Рис, спайсі соус, авокадо, огірок, краб, кунжут",
+            "type": "california",
+            "price": 250,
+            "option": "best",
+            "count": 100
+        },
+        {
+            "id": 9,
+            "name": "Каліфорнія з лососем",
+            "weight": 270,
+            "details": "Рис, авокадо, огірок, лосось, кунжут",
+            "type": "california",
+            "price": 220,
+            "option": "sale",
+            "count": 100
+        },
+        {
+            "id": 10,
+            "name": "Каліфорнія з вугрем",
+            "weight": 290,
+            "details": "Рис, авокадо, огірок, вугор, чорний кунжут, унагі соус",
+            "type": "california",
+            "price": 230,
+            "count": 100
+        },
+        {
+            "id": 11,
+            "name": "Вегетаріанський з чукою",
+            "weight": 270,
+            "details": "Рис, крем сир, авокадо, айсберг, кунжут, чука, горіховий соус, мигдаль",
+            "type": "firm",
+            "price": 200,
+            "option": "best",
+            "count": 100
+        },
+        {
+            "id": 12,
+            "name": "Сирний",
+            "weight": 260,
+            "details": "Рис, крем сир, фета, кунжут",
+            "type": "firm",
+            "price": 280,
+            "option": "best",
+            "count": 100
+        },
+        {
+            "id": 13,
+            "name": "Фелікс з креветкою",
+            "weight": 290,
+            "details": "Рис, крем сир, авокадо, салат айсберг, кунжут, креветка, спайсі соус",
+            "type": "firm",
+            "price": 330,
+            "option": "sale",
+            "count": 100
+        },
+        {
+            "id": 14,
+            "name": "Фелікс з лососем",
+            "weight": 300,
+            "details": "Рис, крем сир, авокадо, салат айсберг, кунжут, лосось, спайсі соус",
+            "type": "firm",
+            "option": "sale",
+            "price": 290,
+            "count": 100
+        },
+        {
+            "id": 15,
+            "name": "Філадельфія солена карамель",
+            "weight": 300,
+            "details": "Рис, крем сир, авокадо, обпалений лосось, унагі соус",
+            "type": "premium",
+            "price": 360,
+            "option": "best",
+            "count": 100
+        },
+        {
+            "id": 16,
+            "name": "Філадельфія грін з креветкою",
+            "weight": 310,
+            "details": "Рис, крем сир, креветка, огірок, кунжут, лосось, гуакамоле, шрірача",
+            "type": "premium",
+            "price": 310,
+            "option": "best",
+            "count": 100
+        },
+        {
+            "id": 17,
+            "name": "Макі з огірком",
+            "weight": 150,
+            "details": "Рис, норі, огірок",
+            "type": "maki",
+            "price": 80,
+            "option": "sale",
+            "count": 100
+        },
+        {
+            "id": 18,
+            "name": "Макі з лососем",
+            "weight": 170,
+            "details": "Рис, норі, лосось",
+            "type": "maki",
+            "price": 120,
+            "count": 100
+        },
+        {
+            "id": 19,
+            "name": "Макі з креветкою",
+            "weight": 190,
+            "details": "Рис, норі, креветка",
+            "type": "maki",
+            "price": 200,
+            "count": 100
+        }
+    ],
+    "sushi-sets": [
+        {
+            "id": 1,
+            "name": "Сет Філадельфія",
+            "weight": 1040,
+            "details": "Філадельфія: з лососем / в кунжуті / з тунцем / з вугрем",
+            "type": "filadelfia-set",
+            "price": 1200,
+            "count": 100
+        },
+        {
+            "id": 2,
+            "name": "Сет Каліфорнія",
+            "weight": 1000,
+            "details": "Каліфорнія: з лососем / з креветкою / з крабом / з вугрем",
+            "type": "california-set",
+            "price": 1100,
+            "count": 100
+        },
+        {
+            "id": 3,
+            "name": "Сет Каліфорнія",
+            "weight": 600,
+            "details": "Макі: з авокадо / з лососем / з огірком / з вугрем",
+            "type": "maki-set",
+            "price": 700,
+            "count": 100
+        }
+    ],
+    "drinks": [
+        {
+            "id": 1,
+            "name": "Coca-Cola",
+            "weight": 0.5,
+            "type": "drinks",
+            "price": 20,
+            "count": 100
+        },
+        {
+            "id": 2,
+            "name": "Fanta",
+            "weight": 0.5,
+            "type": "drinks",
+            "price": 20,
+            "count": 100
+        },
+        {
+            "id": 3,
+            "name": "Сік Sandora",
+            "weight": 1,
+            "type": "drinks",
+            "price": 40,
+            "count": 100
+        },
+        {
+            "id": 4,
+            "name": "Вода",
+            "weight": 0.5,
+            "type": "drinks",
+            "price": 20,
+            "count": 100
+        }
+    ],
+    "moti": [
+        {
+            "id": 1,
+            "name": "Моті – Лічі",
+            "weight": 70,
+            "type": "moti",
+            "price": 100,
+            "count": 100
+        },
+        {
+            "id": 2,
+            "name": "Вода",
+            "weight": 70.5,
+            "type": "moti",
+            "price": 100,
+            "count": 100
+        },
+        {
+            "id": 3,
+            "name": "Вода",
+            "weight": 70,
+            "type": "moti",
+            "price": 100,
+            "count": 100
+        },
+        {
+            "id": 4,
+            "name": "Вода",
+            "weight": 70.5,
+            "type": "moti",
+            "price": 100,
+            "count": 100
+        }
+    ],
+    "users-login": [
+        {
+            "id": 1,
+            "name": "User",
+            "type": "login-user",
+            "email": "hgjh<",
+            "password": "hgjh<",
+            "buyers": "hgjh<"
+        }
+    ],
+    "user-admin": [
+        {
+            "id": 1,
+            "name": "Admin",
+            "type": "admin-user",
+            "email": "hgjh<",
+            "password": ""
+        }
+    ]
+}

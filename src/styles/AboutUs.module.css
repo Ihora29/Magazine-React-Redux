@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainNamepage {
+    font-size: 38px;
+    margin-top: 150px;
+    color: black;
+
+}
+
+.mainNamepage::after {
+    content: "";
+    width: 140px;
+    height: 5px;
+    background-color: #b5d8f7;
+    left: 46%;
+    position: absolute;
+
+}
+
+.descrContainer {
+    width: 50%;
+    margin: 20px auto;
+}
+
+h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+ul {
+    margin: 10px 0 0 15px;
+}
+
+.secondContainer {
+    display: flex;
+    margin-top: 50px;
+}
+
+.secondImgCont {
+    width: 45%;
+    border-radius: 5px;
+}
+
+.blockOfsecondCont {
+    padding-top: 30px;
+    margin-left: 20px;
+}
+
+.thirdContainer {
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-around;
+}
+
+.descrpText {
+    font-size: 22px;
+}
+
+.imgOfThirdCont {
+    width: 90px;
+    height: 90px;
+    margin: 0px auto;
+    background-color: #93cdff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h6 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+.blockOfThirdContainer {
+    border-right: 1px solid grey;
+    width: 25%;
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+}
+
+.thirdContainerText {
+    margin: 10px auto;
+    font-size: 20px;
+    text-align: center;
+}
+
+h5 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.arrowPic {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 0;
+    top: 18px;
+
+}
+
+h5 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.questionBlock {
+    width: 100%;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 15px 0;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.descrpQuest {
+    font-size: 20px;
+}
+
+#arrUp {
+    display: none;
+}
