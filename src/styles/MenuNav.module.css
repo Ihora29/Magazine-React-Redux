@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menuNav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    font-size: 22px;
+    color: #b5d8f7;
+    font-weight: bold;
+
+}
+
+
+.menuOption {
+    text-decoration: none;
+}
+
+.menuOption:active {
+    text-decoration: underline;
+}

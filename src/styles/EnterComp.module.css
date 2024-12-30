@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.container {
+    width: 500px;
+    height: 320px;
+    border: 2px solid #7ab9f0;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    background-color: whitesmoke;
+    top: 22%;
+    left: 35%;
+
+}
+
+
+
+.loginInput {
+    width: 70%;
+    height: 33px;
+    border-radius: 3px;
+    margin: 10px auto;
+    border: 1px solid grey;
+}
+
+.enterBtn {
+    width: 70%;
+    height: 33px;
+    margin: 15px auto;
+    background-color: #7ab9f0;
+    border-radius: 3px;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 22px;
+}
+
+.enterBtn:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.footContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.textLogin,
+.textForgot {
+    color: #7ab9f0;
+    text-decoration: underline;
+    font-style: italic;
+    cursor: pointer;
+}
+
+.headEnterCont {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.nameContainer {
+    text-align: center;
+    color: black;
+    font-size: 25px;
+    margin: 16px auto;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.closeImg {
+    width: 25px;
+    height: 25px;
+}
+
+.closeBtn {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}

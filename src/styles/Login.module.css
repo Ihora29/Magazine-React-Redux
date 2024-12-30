@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.loginCard {
+    width: 500px;
+    height: 420px;
+    border: 2px solid #7ab9f0;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    background-color: whitesmoke;
+    top: 22%;
+    left: 35%;
+}
+
+.nameBlok {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+
+.inputName {
+    width: 40%;
+    height: 33px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+
+.inputContacts {
+    width: 80%;
+    margin: 15px auto;
+    height: 33px;
+    border-radius: 3px;
+    border: 1px solid grey;
+}
+
+.inputPassword {
+    width: 40%;
+    height: 33px;
+    border-radius: 3px;
+    border: 1px solid grey;
+}
+
+.textRegister {
+    margin: 15px auto;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.rulesContainer {
+    margin-top: 15px;
+    display: flex;
+    margin-left: 20px;
+}
+
+.agreeRules {
+    color: black;
+}
+
+.registerBtn {
+    width: 40%;
+    margin: 20px auto;
+    border-radius: 3px;
+    background-color: #7ab9f0;
+    height: 40px;
+    border: none;
+    color: white;
+    font-size: 22px;
+}
+
+
+
+.closeImg {
+    width: 25px;
+    height: 25px;
+}
+
+.closeBtn {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.headRegistrCont {
+    display: flex;
+    position: relative;
+}

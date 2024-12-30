@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.deliveryContainer {
+    margin-top: 45px;
+    width: 100%;
+
+    height: 170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #b5d8f7;
+
+}
+
+.sect1,
+.sect2,
+.sect3 {
+    width: 30%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.deliveryPictures1 {
+    width: 135px;
+    height: 135px;
+}
+
+.deliveryPictures2 {
+    width: 90px;
+    height: 90px;
+}
+
+.deliveryPictures3 {
+    width: 85px;
+    height: 85px;
+}
+
+.buttonDelivery {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+}
+
+.deliveryDescr {
+    font-size: 18px;
+    font-weight: bold;
+}

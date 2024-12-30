@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainContainer {
+    margin: 150px auto;
+    width: 100%;
+
+    display: flex;
+}
+
+.navSideRoutes {
+    width: 200px;
+
+
+    margin: 50px 0 0 15px;
+}
+
+.blockForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.userDataContainer {
+    width: 70%;
+    height: 430px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 100px;
+}
+
+.inputParms {
+    width: 50%;
+    height: 35px;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: 2px solid silver;
+}
+
+.birthdayInput {
+    width: 20%;
+    height: 35px;
+    margin: 10px auto 0;
+}
+
+.nameUserContainer {
+    width: 56%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.inputNameParams {
+    width: 40%;
+    height: 35px;
+    border-radius: 5px;
+    margin: 10px auto;
+    border: 2px solid silver;
+}
+
+.adressContainer {
+    width: 50%;
+    margin: 0 auto 100px;
+
+}
+
+.navSideRoutes li {
+    list-style: none;
+    width: 100%;
+    height: 70px;
+    border: 2px solid silver;
+    border-radius: 5px;
+    display: flex;
+    padding-top: 20px;
+    margin: 10px auto 20px;
+    justify-content: center;
+}
+
+.navSideRoutes li:hover {
+    background-color: #b5d8f7;
+    border-color: #6aa2d3;
+}
+
+.linkInCabinet {
+    text-decoration: none;
+    font-size: 18px;
+    color: #6aa2d3;
+    font-weight: bold;
+}
+
+.linkInCabinet:hover {
+    color: aliceblue;
+}
+
+.saveButtonsGroup {
+    width: 90%;
+
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.saveButtonsGroup {
+    margin: 140px auto 20px;
+}
+
+.buttonsParamsStyle {
+    width: 34%;
+    height: 55px;
+    background-color: #b5d8f7;
+    border: none;
+    border-radius: 7px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.buttonsParamsStyle:hover {
+    cursor: pointer;
+    border: 2px solid rgb(47, 120, 255);
+    background-color: #6aa2d3;
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+.adressListBlock {
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid grey;
+    border-radius: 7px;
+}
+
+.adressListBlock li {
+    list-style: none;
+    height: 29px;
+}
+
+.mainContainerPass {
+
+    width: 100%;
+}
+
+.passContainer {
+    width: 60%;
+    margin: 15px auto;
+
+    border: 3px solid #b5d8f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ChangePassForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.userDataContainer {
+    width: 80%;
+    margin: 15px auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.changeNameBlock {
+    margin-top: 150px;
+}
