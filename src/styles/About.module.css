@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.about {
+    width: 100%;
+    margin-top: 100px;
+}
+
+.footerMainText {
+    font-weight: bold;
+    margin: 0 auto;
+    font-size: 35px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.footparagraf {
+    width: 75%;
+    margin: 0 auto;
+    font-size: 22px;
+}
+
+.knowMoreBtn {
+    margin: 15px 0 0 200px;
+    width: 160px;
+    height: 35px;
+    background-color: white;
+    color: #b5d8f7;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    text-decoration: underline;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.aboutContainer {
+    width: 75%;
+    margin: 50px auto;
+}
+
+.aboutH1,
+.aboutH3 {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+.aboutH1 {
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+
+.aboutH3 {
+    margin-top: 15px;
+    font-size: 30px;
+
+}
+
+.aboutText {
+    font-size: 26px;
+}

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainConatiner {
+    width: 50%;
+    margin: 150px auto;
+
+}
+
+.nameOfPage::after {
+    content: "";
+    width: 120px;
+    height: 5px;
+    background-color: #b5d8f7;
+    left: 46%;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.nameOfPage {
+    margin-top: 15px;
+}
+
+.textDescribe {
+    font-size: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.headerText {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: start;
+}

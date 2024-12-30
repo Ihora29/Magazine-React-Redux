@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main_HB_container {
+    width: 100%;
+}
+
+.boxName {
+    width: 60%;
+    height: 200px;
+    margin: 20px auto;
+    padding-top: 40px;
+    border-radius: 14px;
+    background-color: #b5d8f7;
+
+}
+
+#HBText {
+
+    text-decoration: overline;
+
+}
+
+h2 {
+    text-align: center;
+    font-size: 39px;
+}
+
+.aboutHBCont {
+    width: 60%;
+    margin: 3px auto;
+
+}
+
+
+.HBText_h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+
+}
+
+.HBText_p {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.HBText_list {
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 80px;
+    margin-bottom: 30px;
+    /* list-style-type: disc !important; */
+}
+
+.HBLink {
+    text-decoration: none;
+}
+
+.HBText_h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+#RolOfWeek_h2 {
+    font-size: 50px;
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bolder;
+}
+
+.RolOfWeek_h1 {
+    font-size: 55px;
+}
+
+.RolOfWeek_list {
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 40px 0 40px 80px;
+}
+
+
+.firstBlok {
+    width: 100%;
+    display: flex;
+
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.actionText {
+    text-decoration: overline;
+    color: #b5d8f7;
+    margin: 120px 0 20px 20px;
+}
+
+.actionParagraf {
+    display: block;
+
+    margin: 20px auto 30px;
+    font-size: 22px;
+
+}
+
+.actionContainer {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    border: 1px solid #b5d8f7;
+    border-radius: 5px;
+}
+
+.nameAction {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px auto;
+}
+
+.btnActionMore {
+    width: 200px;
+    height: 65px;
+    background-color: #b5d8f7;
+    border: none;
+    margin: 10px auto;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.action_ul_list {
+    font-size: 25px;
+    margin: 10px 0 15px 40px;
+}
+
+.action3in5_h1 {
+    margin-top: 10px;
+    font-size: 50px;
+    font-weight: bold;
+
+    text-decoration: overline;
+}
+
+
+.action3in5_h2 {
+    margin: 30px 0 30px 0;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.action3in5_list {
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 30px 0 30px 80px;
+}
+
+.takeYoureslf_h2 {
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+}
+
+.takeYoureslf_h1 {
+    font-size: 60px;
+    margin-top: 10px;
+    text-decoration: overline;
+}
+
+.takeYoureslf_span {
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 10px 0 20px 0;
+    font-weight: bold;
+}
+
+.takeYoureslf_ul_list,
+.takeYoureslf_ol_list {
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 15px 0 15px 80px;
+}

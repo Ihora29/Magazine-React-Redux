@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.basketContainer {
+    width: 40%;
+    min-height: 300px;
+    border: 1px solid rgb(150, 150, 150);
+    background-color: aliceblue;
+    position: fixed;
+    top: 100px;
+    z-index: 10;
+    right: 0;
+}
+
+.orderItem {
+
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid rgb(150, 150, 150);
+    display: flex;
+    justify-content: space-between;
+    /* margin: 5px 0 5px; */
+    align-items: center;
+
+}
+
+.textTryAlways {
+    color: black;
+    margin-top: 15px;
+    text-align: start;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.emptyBasketBtn {
+    width: 150px;
+    height: 55px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    padding-top: 15px;
+    font-weight: bold;
+    background-color: #60a8e7;
+    display: block;
+    position: relative;
+    margin: 10px auto;
+}
+
+.orderName {
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.orderImg {
+    width: 100px;
+    height: 75px;
+    margin-left: 10px;
+    object-fit: contain;
+}
+
+.changeContainer {
+    width: 130px;
+    display: flex;
+}
+
+.btnOrder {
+    width: 30%;
+    height: 85%;
+    border: none;
+    background-color: white;
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+.btnOrder:hover {
+    background-color: #b5d8f7;
+}
+
+.count,
+.itemsPrice {
+    color: black;
+}
+
+.itemsPrice {
+    font-weight: bold;
+    margin: 10px auto;
+}
+
+
+
+.orderCount {
+    width: 50px;
+    height: 30px;
+    border: 2px solid rgb(196, 195, 195);
+    margin-top: 7px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.makeOrderBtn {
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    margin: 7px 0 5px 100px;
+    background-color: #b5d8f7;
+    height: 40px;
+    width: 170px;
+
+}
+
+.emptyBasketPic {
+
+    display: block;
+    position: relative;
+    margin: 20px auto;
+}
+
+.emptyBasketText {
+    color: black;
+    text-align: center;
+}
+
+.makeOrderBtn:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.total {
+    color: black;
+}
+
+.carouselDrinks {
+    width: 160px;
+    height: 170px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border: 1px solid #b5d8f7;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.drinkImg {
+    width: 80px;
+    height: 60px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.drinkName {
+    font-size: 18px;
+    /* text-decoration: none; */
+    text-align: center;
+    margin-top: 5px;
+}
+
+.aboutProduct {
+    display: flex;
+    width: 100%;
+
+}
+
+.prodPrice {
+    width: 50%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.weightProduct {
+    width: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: start;
+}
+
+.footItem {
+    margin-top: 10px;
+    display: flex;
+}
+
+.btnBuyMini {
+    width: 70px;
+    height: 35px;
+    font-size: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #b5d8f7;
+    color: black;
+}
