@@ -48,7 +48,7 @@ function CardMoti() {
                                 </div>
 
                                 <div className={styles.footItem}>
-                                    <span className={styles.prodPrice}>{item.price * currentItem.totalCount} hrn.</span>
+                                    <span className={styles.prodPrice}>{item.price * currentItem.totalCount} грн.</span>
                                     <div className={styles.orderCount}>
                                         <button className={styles.btnOrder}
                                             onClick={(e) => decrement(item.id, e)}

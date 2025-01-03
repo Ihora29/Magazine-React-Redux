@@ -5,8 +5,8 @@
 }
 
 .loginCard {
-    width: 500px;
-    height: 420px;
+    width: 560px;
+    height: 450px;
     border: 2px solid #7ab9f0;
     margin: 0 auto;
     border-radius: 5px;
@@ -35,10 +35,18 @@
 
 .inputContacts {
     width: 80%;
-    margin: 15px auto;
+    margin: 15px auto 5px;
     height: 33px;
+
     border-radius: 3px;
     border: 1px solid grey;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
 }
 
 .inputPassword {
@@ -77,7 +85,11 @@
     font-size: 22px;
 }
 
+.registerBtn:hover {
+    cursor: pointer;
+    color: black;
 
+}
 
 .closeImg {
     width: 25px;

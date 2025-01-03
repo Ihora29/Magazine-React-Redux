@@ -18,8 +18,8 @@ function Footer() {
                 <div className={styles.footAboutUs}>
                     <a href="#"> <img src="https://monosushi.com.ua/wp-content/uploads/2021/06/logo.svg" alt="" /></a>
                     <NavLink to="actions" href="#">Акції</NavLink >
-                    <a href="#">Про нас</a>
-                    <a href="#">Оферта</a>
+                    <NavLink to="about-us">Про нас</NavLink>
+                    <NavLink to="oferta">Оферта</NavLink>
                     <p className={styles.footDelivery}><b>Точки самовивозу</b>
                         <br />
                         вул. Володимира Великого, 10в

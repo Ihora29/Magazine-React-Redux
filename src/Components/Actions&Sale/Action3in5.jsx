@@ -5,7 +5,7 @@ import styles from '../../styles/Actions.module.css'
 
 export const Action3in5 = () => {
     return (
-        <div>
+        <div className={styles.container3in5}>
             <div className={styles.boxName}>
                 <h1 className={styles.action3in5_h1}>"3+1=5"</h1>
             </div>

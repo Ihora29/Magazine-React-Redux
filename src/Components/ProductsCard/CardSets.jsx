@@ -11,7 +11,7 @@ function CardSets() {
     const productsData = useSelector((state) => state.products.products); //
     const sets = productsData[1];
 
-    const { counts, increment, decrement, setCounts } = useCounts()
+    const { counts, increment, decrement, setCounts, cartItems, setCartItems, addToCart } = useCounts();
 
     useEffect(() => {
         if (sets) {
@@ -48,7 +48,7 @@ function CardSets() {
                                 </div>
 
                                 <div className={styles.footItem}>
-                                    <span className={styles.prodPrice}>{item.price * currentItem.totalCount} hrn.</span>
+                                    <span className={styles.prodPrice}>{item.price * currentItem.totalCount} грн.</span>
                                     <div className={styles.orderCount}>
                                         <button className={styles.btnOrder}
                                             onClick={(e) => decrement(item.id, e)}
@@ -58,7 +58,9 @@ function CardSets() {
                                             onClick={(e) => increment(item.id, e)}
                                         >+</button>
                                     </div>
-                                    <button className={styles.btnBuy}>ЗАМОВИТИ</button>
+                                    <button
+                                        onClick={(e) => addToCart(item, currentItem.totalCount, e)}
+                                        className={styles.btnBuy}>ЗАМОВИТИ</button>
                                 </div>
                             </NavLink>
                         );
