@@ -20,7 +20,7 @@ function EnterComp({ onClose }) {
 
     return (
         <>
-            {showLogin ? <LoginComp /> : (<>
+            {showLogin ? <LoginComp onClose={onClose} /> : (<>
                 <div className={styles.container} style={{ display: showEnter ? "flex" : "none" }}>
 
                     <div className={styles.headEnterCont}>

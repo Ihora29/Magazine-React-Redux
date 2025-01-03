@@ -12,10 +12,16 @@
     width: 60%;
     height: 200px;
     margin: 20px auto;
-    padding-top: 40px;
+    padding-top: 10px;
     border-radius: 14px;
     background-color: #b5d8f7;
 
+}
+
+.weekRollContainer,
+.container3in5,
+.main_HB_container {
+    margin-top: 150px;
 }
 
 #HBText {
@@ -113,6 +119,8 @@ h2 {
     width: 600px;
     border: 1px solid #b5d8f7;
     border-radius: 5px;
+    text-decoration: none;
+    color: black;
 }
 
 .nameAction {
@@ -129,6 +137,11 @@ h2 {
     margin: 10px auto;
     border-radius: 5px;
     font-size: 18px;
+}
+
+.btnActionMore:hover {
+    cursor: pointer;
+    color: whitesmoke;
 }
 
 .action_ul_list {

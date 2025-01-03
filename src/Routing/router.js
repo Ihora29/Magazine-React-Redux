@@ -7,7 +7,6 @@ import CardSushi from "../Components/ProductsCard/CardSushi";
 import CardSets from "../Components/ProductsCard/CardSets";
 import CardDrinks from "../Components/ProductsCard/CardDrinks";
 import CardMoti from "../Components/ProductsCard/CardMoti";
-
 import ErrorPage from "../Components/ErrorPage";
 import Card from "../Components/ProductsCard/Card";
 import MainPage from "../Components/MainPage";
@@ -17,7 +16,9 @@ import { HBAction } from "../Components/Actions&Sale/HBAction";
 import { ActionItemOfWeek } from "../Components/Actions&Sale/ActionItemOfWeek";
 import { Action3in5 } from "../Components/Actions&Sale/Action3in5";
 import { ActionTakeYourself } from "../Components/Actions&Sale/ActionTakeYourself";
-
+import About from "../Components/Footer/About";
+import { OfertaPage } from "../Components/Footer/OfertaPage";
+import { AboutUsPage } from "../Components/Footer/AboutUsPage";
 
 
 
@@ -63,12 +64,6 @@ export const router = createBrowserRouter([
             {
                 path: "actions",
                 element: <Actions />,
-                // children: [
-                //     {
-                //         path: "roll-of-week",
-                //         element: <ActionItemOfWeek />,
-                //     }
-                // ]
 
             },
             {
@@ -89,8 +84,21 @@ export const router = createBrowserRouter([
             {
                 path: "take-yourself",
                 element: <ActionTakeYourself />,
-
             },
+            {
+                path: "sale",
+                element: <SaleAndBestProduct />,
+            },
+            {
+                path: "oferta",
+                element: <OfertaPage />,
+            },
+            {
+                path: "about-us",
+                element: <AboutUsPage />,
+            },
+
+
         ]
     }
 ]);

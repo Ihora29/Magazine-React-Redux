@@ -40,12 +40,20 @@
     width: 60px;
     height: 60px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    text-decoration: none;
     position: relative;
 }
 
+.nameIcon {
+    font-weight: bold;
+    color: black;
+    font-size: 19px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 .productIcon::before {
     content: "";

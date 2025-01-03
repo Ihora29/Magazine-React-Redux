@@ -114,7 +114,7 @@ export default function Card() {
                     <span className={styles.itemDetails}>Склад:</span>   <span>{item.details}</span>
                     <div className={styles.detailsContainer}><span className={styles.itemDetails} >Вага:</span>   <span> {item.weight} </span></div>
                     <div className={styles.footContainer}>
-                        <span className={styles.itemPrice}>{item.price} hrn.</span>
+                        <span className={styles.itemPrice}>{item.price} грн.</span>
                         <div className={styles.orderCount}>
                             <button className={styles.btnOrder}
                                 onClick={(e) => decrement(e)}
@@ -159,7 +159,7 @@ export default function Card() {
                                 <span className={styles.weightProduct}> Вага:{item.weight}</span>
                             </div>
                             <div className={styles.footItem}>
-                                <span className={styles.prodPrice}>{item.price * item.totalCount} hrn.</span>
+                                <span className={styles.prodPrice}>{item.price * item.totalCount} грн.</span>
                                 <div className={styles.orderCount}>
                                     <button className={styles.btnOrder}
                                         onClick={(e) => handleDecrement(item.id, e)}
@@ -190,7 +190,7 @@ export default function Card() {
                                 <span className={styles.weightProduct}> Вага:{item.weight}</span>
                             </div>
                             <div className={styles.footDrink}>
-                                <span className={styles.drinkPrice}>{item.price} hrn.</span>
+                                <span className={styles.drinkPrice}>{item.price} грн.</span>
                                 <div className={styles.orderDrink}>
                                     <button className={styles.btnOrder}
                                         onClick={(e) => handleDecrement(item.id, e)}

@@ -37,13 +37,10 @@ export const ChangeUserName = () => {
         mask: '+38 (0__) ___ __ __',
         showMask: false,
         replacement: { _: /\d/ },
-
-
     });
 
     const handleMusk = () => {
         inputRef.showMask = true;
-
     }
 
     const { register,
@@ -66,10 +63,6 @@ export const ChangeUserName = () => {
 
         ///   return setUserLogin({ ...data, id: userLogin.id, phone: phoneNew });
     }
-
-
-
-
 
     return (
         <div className={styles.changeNameBlock}>
@@ -97,7 +90,7 @@ export const ChangeUserName = () => {
                             })} required
                         />
                     </div>
-                    <input ref={inputRef} className={styles.inputParms} onChange={() => handleMusk} required placeholder='Ваш номер телефону' />
+                    <input className={styles.inputParms} ref={inputRef} onChange={() => handleMusk} required placeholder='Ваш номер телефону' />
 
                     <input type="email" className={styles.inputParms} placeholder='Email' id=""
                         {...register('email', {

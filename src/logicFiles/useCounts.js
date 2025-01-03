@@ -65,46 +65,35 @@ export function useCounts() {
             count: count || localCount
         };
 
-        //    const basketItems = [];
-        // if (localStorage.length > 0) {
-        //     const basketItems = []
-        //     for (let index = 0; index < localStorage.length; index++) {
-        //         const key = localStorage.key(index);
-        //         let value = localStorage.getItem(key);
-        //         basketItems.push({ key, value })
-        //         setOrderPrice(basketItems.map(item => (item.price * item.count)))
-        //     }
-        // }
-
         setCartItems(prevCartItems => {
             const existingItem = prevCartItems.find(cartItem => cartItem.id === item.id);
             cartItems.push(existingItem)
             if (existingItem) {
 
-                localStorage.setItem(`item ${item.id}`, JSON.stringify(newCartItem));
+                // localStorage.setItem(`item ${item.id}`, JSON.stringify(newCartItem));
                 //  cartItems.push(newCartItem)
                 return prevCartItems.map(cartItem =>
                     cartItem.id === item.id
                         ? { ...cartItem, count: cartItem.count + count }
                         : cartItem
                 );
-            } else {
-
-                localStorage.setItem(`item ${item.id}`, JSON.stringify(newCartItem))
-
-                return [...prevCartItems, newCartItem,];
             }
-        });
 
+            //else {
+
+            //    localStorage.setItem(`item ${item.id}`, JSON.stringify(newCartItem))
+
+            //return [...prevCartItems, newCartItem,];
+            //     }
+        });
         console.log(cartItems);
 
         // setOrderPrice(cartItems.map(item => (item.price * item.count)))
         // //  const orderPrice = 
-
     };
 
     useEffect(() => {
-        console.log('cartItems was updated in useCount:', cartItems);
+        //  console.log('cartItems was updated in useCount:', cartItems);
     }, [cartItems]);
 
 

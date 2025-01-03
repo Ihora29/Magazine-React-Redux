@@ -49,7 +49,7 @@ function CardCarousel() {
 
             <NavLink to="3in5">  <img className={styles.img} src="https://monosushi.com.ua/wp-content/uploads/2022/12/5-tyj-v-podarunok-.jpg" alt="" /></NavLink>
 
-            <NavLink to="/*/sale"><img className={styles.img} src="https://monosushi.com.ua/wp-content/uploads/2024/08/monosushi_montazhnaya-oblast-1-kopyya.jpg" alt="" /></NavLink>
+            <NavLink to="/sale"><img className={styles.img} src="https://monosushi.com.ua/wp-content/uploads/2024/08/monosushi_montazhnaya-oblast-1-kopyya.jpg" alt="" /></NavLink>
 
             <NavLink to="take-yourself"><img className={styles.img} src="https://monosushi.com.ua/wp-content/uploads/2022/12/samovyviz.jpg" alt="" /></NavLink>
 

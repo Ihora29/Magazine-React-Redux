@@ -73,6 +73,16 @@ h1 {
     background-color: #b5d8f7;
 }
 
+.btnBuyMini:hover {
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.btnBuyDrink:hover {
+    cursor: pointer;
+    color: whitesmoke;
+}
+
 .footContainer {
     display: flex;
     justify-content: space-between;
@@ -210,7 +220,7 @@ h1 {
 
 .drink_Item {
     width: 290px;
-    height: 350px;
+    height: 365px;
     border: 1px solid #b5d8f7;
     border-radius: 5px;
     display: flex;

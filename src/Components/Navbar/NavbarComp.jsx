@@ -42,8 +42,6 @@ function NavbarComp({ cartItems = [] }) {
 
 
     useEffect(() => {
-
-
         //   const totalCount = basketItems.reduce((accumulator, item) => accumulator + item.count, 0);
     })
 
@@ -65,11 +63,21 @@ function NavbarComp({ cartItems = [] }) {
                 </div>
 
                 <div className={styles.productsPanel} >
-                    <Link className={styles.productIcon} to="actions"><img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="" /></Link>
-                    <Link to="sushi" className={styles.productIcon} ><img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="" /></Link>
-                    <Link to="moti" className={styles.productIcon} ><img src="https://monosushi.com.ua/wp-content/uploads/2024/04/moti.svg" alt="" /></Link>
-                    <Link to="sets" className={styles.productIcon} ><img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg" alt="" /></Link>
-                    <Link to="drinks" className={styles.productIcon} ><img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg" alt="" /></Link>
+                    <Link className={styles.productIcon} to="actions"><img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="" />
+                        <span className={styles.nameIcon}>акції</span>
+                    </Link>
+                    <Link to="sushi" className={styles.productIcon} ><img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="" />
+                        <span className={styles.nameIcon}>роли</span>
+                    </Link>
+                    <Link to="moti" className={styles.productIcon} ><img src="https://monosushi.com.ua/wp-content/uploads/2024/04/moti.svg" alt="" />
+                        <span className={styles.nameIcon}>моті</span>
+                    </Link>
+                    <Link to="sets" className={styles.productIcon} ><img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg" alt="" />
+                        <span className={styles.nameIcon}>сети</span>
+                    </Link>
+                    <Link to="drinks" className={styles.productIcon} ><img src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg" alt="" />
+                        <span className={styles.nameIcon}>напої</span>
+                    </Link>
                 </div>
 
                 <div className={styles.hamburger}>
@@ -84,31 +92,32 @@ function NavbarComp({ cartItems = [] }) {
 
                 {showPhoneComp ? <Backdrop sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
                     open={true}
-                    onClick={closeBackDrop} >
+
+                >
                     <WeCallComp onClose={closeBackDrop} />
                 </Backdrop> : null}
 
                 <div onClick={openContact} className={styles.phoneContact}>
                     <div className={styles.blockPhone}>
-                        <img className={styles.phoneImg} src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg" alt="" data-pagespeed-url-hash="3217005976" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" oncontextmenu="return false"></img>
+                        <img className={styles.phoneImg} src="https://monosushi.com.ua/wp-content/uploads/2020/10/phone.svg" alt="" ></img>
                         <span className={styles.weCall}>МИ ЗАТЕЛЕФОНУЄМО</span>
                     </div>
                 </div>
 
                 <div className={styles.workTime}>
-                    <h3>+380978780837</h3>
+                    <div><b>+380978780837</b></div>
                     <span>Працюємо з </span> <span>11:00-23:00</span>
                 </div>
 
                 <div onClick={handleClick} className={styles.userLogin}>
-                    <img className={styles.userLogo} src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" data-pagespeed-url-hash="1440881552" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" oncontextmenu="return false"></img>
+                    <img className={styles.userLogo} src="https://monosushi.com.ua/wp-content/themes/monosushi/img/user.svg" alt="" ></img>
                 </div>
 
                 {
                     openEnter ? <Backdrop
                         sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
                         open={true}
-                        onClick={closeBackDrop}
+                    //onClick={closeBackDrop}
                     >
                         <EnterComp onClose={closeBackDrop} />
                     </Backdrop> : null
@@ -119,7 +128,7 @@ function NavbarComp({ cartItems = [] }) {
 
 
                     <div onClick={checkBasket} style={showBasket ? { backgroundColor: "transparent" } : null} className={styles.packageBuy}>
-                        <img className={styles.packageLogo} src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="basket" data-pagespeed-url-hash="1577746355" onload="pagespeed.CriticalImages.checkImageForCriticality(this);" oncontextmenu="return false"></img>
+                        <img className={styles.packageLogo} src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="basket" ></img>
                         <span className={styles.totalPrice}>{orderPrice}hrn.</span>
                         <span className={styles.buyCount}>{orderPrice}</span>
                     </div>
