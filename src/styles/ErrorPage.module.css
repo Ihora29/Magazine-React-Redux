@@ -16,3 +16,34 @@
     letter-spacing: 0.3cm;
     text-decoration: underline;
 }
+
+
+.workPopUp {
+    width: 500px;
+    height: 300px;
+    margin: 200px auto;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #b5d8f7;
+    border-radius: 5px;
+}
+
+.closePopUpPic {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 5px;
+    top: 5px;
+}
+
+.popUpPic {
+    width: 120px;
+    height: 120px;
+    margin: 0px auto 10px;
+}
+
+.popuph5 {
+    color: black;
+}

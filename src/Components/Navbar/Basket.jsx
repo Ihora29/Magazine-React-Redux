@@ -2,47 +2,51 @@ import React, { useEffect, useState } from 'react'
 import styles from "../../styles/Basket.module.css";
 import { useCounts } from "../../logicFiles/useCounts.js";
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import basketImg from "./../../images/reshot-icon-trash-2ZNJ9PUBQL.svg"
+import { removeFromBasket } from '../redux/basketSlice.js';
+import { increseBasket } from '../redux/basketSlice.js';
 
 export default function Basket() {
 
-  const { cartItems, setCartItems } = useCounts()
-  // useEffect(() => {
-  //   console.log('cartItems was updated in Basket:', cartItems);
-  //   console.log(localStorage);
+  const basket = useSelector((state) => state.basketItems.basketItems);
 
-  // }, [cartItems]);
-  // const getStorage = () => {
-  //   return localStorage
-  // }
+  const [totalSum, setTotalSum] = useState(0)
+  useEffect(() => {
+    if (basket && basket.length > 0) {
+      //   const orderCount = cartItems.reduce((accumulator, item) => accumulator + item.count, 0);
+      const totalSumRes = basket.reduce((accumulator, item) => accumulator + item.price, 0);
+      setTotalSum(totalSumRes)
+    } else if (basket.length === 0) {
+      setTotalSum(0)
+    }
+    console.log(basket);
 
 
-  //const [storageArray, setStorageArray] = useState([]);
+  }, [basket]);
+  const dispatch = useDispatch()
+
+  const handleDelete = (e, item) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    dispatch(removeFromBasket(item))
+  }
+
+  const basketIncrement = (e, item_id) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    dispatch(increseBasket(item_id))
+  }
 
   useEffect(() => {
-
-    const basketItems = []
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      let value = localStorage.getItem(key);
-
-
-
-      basketItems.push({ key, value })
-
-
-    }
-    const newBasketItems = basketItems.map(item => JSON.parse(item.value))
-
-    setCartItems(newBasketItems)
-
-    console.log(cartItems);
-
-
   }, []);
-  //const { orderPrice } = useCounts()
+
   const responsive = {
     superLargeDesktop: {
 
@@ -63,8 +67,6 @@ export default function Basket() {
       items: 1
     }
   }
-  //const orderCount = cartItems.reduce((accumulator, item) => accumulator + item.count, 0);
-  const totalSum = cartItems.reduce((accumulator, item) => accumulator + item.price, 0);
 
   const productsData = useSelector((state) => state.products.products);
   const productsDrinks = productsData[2];
@@ -73,20 +75,21 @@ export default function Basket() {
     <div className={styles.basketContainer}>
 
 
-      {cartItems && cartItems.length > 0 ? (
-        cartItems.map((item, index) => (
+      {basket.length > 0 ? (
+        basket.map((item, index) => (
           <li className={styles.orderItem} key={index}>
-            <img className={styles.orderImg} src={item.pic} alt="" />
+            <img className={styles.orderImg} src={item.imgSrc} alt="" />
             <span className={styles.orderName}> {item.name}</span>
-
+            <img className={styles.trashPic} src={basketImg} onClick={(e) => handleDelete(e, item)} alt="" />
             <div className={styles.changeContainer}>
               <div className={styles.orderCount}>
                 <button className={styles.btnOrder} >-</button>
-                <span className={styles.count}>{item.count}</span>
-                <button className={styles.btnOrder}  >+</button>
-
+                <span className={styles.count}>{item.totalCount}</span>
+                <button className={styles.btnOrder}
+                  onClick={(e) => basketIncrement(e, item.id)}
+                >+</button>
               </div>
-              <span className={styles.itemsPrice}>{item.count * item.price}hrn.</span>
+              <span className={styles.itemsPrice}>{item.totalCount * item.price}грн.</span>
             </div>
 
           </li>
@@ -119,29 +122,28 @@ export default function Basket() {
         itemClass={styles.carouselPadding}
       >
         {productsDrinks.map((item) => {
-          const currentItem = productsDrinks.find((count) => count.id === item.id) || { totalCount: 1 };
           return (
             <NavLink to={`/product/${item.id}`} key={item.id} className={styles.carouselDrinks}>
               <img src={item.imgSrc} className={styles.drinkImg} alt="" />
               <h2 className={styles.drinkName}>{item.name}</h2>
               <div className={styles.itemOption}>{item.option}</div>
               <div className={styles.aboutProduct}>
-
                 <span className={styles.weightProduct}> Вага:{item.weight}</span>
               </div>
               <div className={styles.footItem}>
-                <span className={styles.prodPrice}>{item.price * item.totalCount} hrn.</span>
-
+                <span className={styles.prodPrice}>{item.price * item.totalCount} грн.</span>
                 <button
-                  //onClick={(e) => addToCart(item, currentItem.totalCount, e)}
                   className={styles.btnBuyMini}>ЗАМОВИТИ</button>
+
               </div>
             </NavLink>
           );
         })}
       </Carousel>
-      <span className={styles.total}></span>
-      <button className={styles.makeOrderBtn} >Оформити замовлення</button>
+      <div className={styles.bottomBasketContainer}>
+        <span className={styles.total}><b>{totalSum}</b> грн.</span>
+        <NavLink className={styles.makeOrderBtn} to='create-order' >Оформити замовлення</NavLink>
+      </div>
     </div>
   )
 }

@@ -14,8 +14,7 @@ import { useLocation } from 'react-router-dom';
 
 export const MakeOrderPage = () => {
 
-    const { cartItems, setCartItems } = useCounts() || [];
-    const { counts, increment, decrement, setCounts, addToCart } = useCounts();
+    const basket = useSelector((state) => state.basketItems.basketItems);
 
     const [canHelpPopUp, setCanHelpPopUp] = useState(false);
 
@@ -27,13 +26,12 @@ export const MakeOrderPage = () => {
 
     }
 
-
     const handleDelete = (id, e) => {
         if (e) {
             e.preventDefault();
             e.stopPropagation();
         }
-        setCartItems(prevItems => prevItems.filter((item) => item.id !== id))
+
 
     }
 
@@ -42,25 +40,9 @@ export const MakeOrderPage = () => {
 
     useEffect(() => {
 
-        if (Array.isArray(cartItems) && cartItems.length > 0) {
-            setCanHelpPopUp(true);
-            setShowContainerDelivery(true);
-            const updateCheckSum = cartItems.reduce((acc, item) => acc + item.price * item.count, 0);
-            setCheckSum(updateCheckSum);
-        } else {
-            setCanHelpPopUp(false);
-            setShowContainerDelivery(false)
-        };
 
-        if (cartItems) {
-            const initialCounts = cartItems.map((item) => ({
-                id: item.id,
-                totalCount: item.count,
-            }));
-            setCounts(initialCounts);
-        }
 
-    }, [cartItems])
+    }, [])
 
     const inputRef = useMask({
         mask: '+38 (0__) ___ __ __',
@@ -106,14 +88,13 @@ export const MakeOrderPage = () => {
     const productsData = useSelector((state) => state.products.products);
 
 
-    //console.log(productsData[3]);
 
     return (
 
         <>
 
 
-            {Array.isArray(cartItems) && cartItems.length > 0 ?
+            {Array.isArray(basket) && basket.length > 0 ?
                 <div style={showHelpMessage ? { display: 'none' }
                     : { display: 'flex' }} className={styles.canHelpContainer}>
                     <h6 className={styles.namePopUp}>У Вас виникли проблеми з замовленням?<br />
@@ -146,22 +127,21 @@ export const MakeOrderPage = () => {
             <div className={styles.makeOrderContainer}>
                 <h1 className={styles.MakeOrdertext}>Оформити замовлення</h1>
                 <div className={styles.itemsContainer}>
-                    {cartItems.length > 0 ? cartItems.map((item) => {
-                        const currentItem = counts.find((count) => count.id === item.id) || { totalCount: 1 };
+                    {basket.length > 0 ? basket.map((item) => {
+
                         return (<li key={item.id} className={styles.itemContainer}>
                             <img className={styles.orderPictire} src={item.pic} alt="" />
                             <div className={styles.orderName}>{item.name}</div>
                             <span className={styles.trashAndCounContainer}>
-                                <img className={styles.trashOrder} src={imgTrash} alt="trash" onClick={(e) => { handleDelete(item.id, e) }} />
+                                <img className={styles.trashOrder} src={imgTrash} alt="trash" />
                                 <div className={styles.orderCount} >
                                     <button className={styles.btnOrder} aria-hidden='false'
-                                        onClick={(e) => decrement(item.id, e)}
+                                    // onClick={(e) => decrement(item.id, e)}
                                     >-</button>
-                                    <span className={styles.count} onClick={() => {
-                                        console.log(cartItems);
-                                    }}>{currentItem.totalCount}</span>
+                                    <span className={styles.count}
+                                    >{item.totalCount}</span>
                                     <button className={styles.btnOrder} aria-hidden='false'
-                                        onClick={(e) => increment(item.id, e)}
+                                    // onClick={(e) => increment(item.id, e)}
                                     >+</button>
                                 </div>
                             </span>
@@ -180,13 +160,7 @@ export const MakeOrderPage = () => {
 
 
                 <h4>Може солоденького?</h4>
-                {/* {productsData && productsData > 0 ? productsData[3].map((item, index) => {
-                    if (index < 1) {
-                        { <span>{item.name}</span> }
-                    }
-                }
 
-                ) : <h3>nema moti</h3>} */}
                 <div style={{ margin: '20px auto' }}>
 
                     {productsData[3]?.map((item, index) => index < 1 ? <NavLink className={styles.motiContainer} to={`/product/${item.id}`} key={index}>

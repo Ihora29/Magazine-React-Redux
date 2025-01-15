@@ -52,6 +52,7 @@ export const ChangeUserName = () => {
     const onSubmit = (data) => {
         const phoneNew = inputRef?.current.value;
         //  console.log(userLogin);
+        console.log(data);
 
         // axios.patch(`http://localhost:3001/users-login/${userLogin.id}`, {
         //     firstName: data.firstName,

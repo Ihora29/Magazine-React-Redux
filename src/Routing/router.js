@@ -19,6 +19,7 @@ import { ActionTakeYourself } from "../Components/Actions&Sale/ActionTakeYoursel
 import About from "../Components/Footer/About";
 import { OfertaPage } from "../Components/Footer/OfertaPage";
 import { AboutUsPage } from "../Components/Footer/AboutUsPage";
+import { MakeOrderPage } from "../Components/MakeOrderPage";
 
 
 
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
             {
                 path: "about-us",
                 element: <AboutUsPage />,
+            },
+            {
+                path: "create-order",
+                element: <MakeOrderPage />,
             },
 
 

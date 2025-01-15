@@ -7,11 +7,13 @@
 .basketContainer {
     width: 40%;
     min-height: 300px;
+
     border: 1px solid rgb(150, 150, 150);
     background-color: aliceblue;
     position: fixed;
     top: 100px;
     z-index: 10;
+    overflow: scroll;
     right: 0;
 }
 
@@ -110,11 +112,19 @@
     font-weight: bold;
     border-radius: 5px;
     border: none;
-    margin: 7px 0 5px 100px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
     background-color: #b5d8f7;
-    height: 40px;
+    height: 50px;
+    margin-left: 20px;
     width: 170px;
 
+}
+
+.bottomBasketContainer {
+    width: 55%;
+    display: flex;
 }
 
 .emptyBasketPic {
@@ -136,12 +146,15 @@
 
 .total {
     color: black;
+    margin-left: 20px;
+    font-size: 22px;
 }
 
 .carouselDrinks {
     width: 160px;
     height: 190px;
     color: black;
+
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -174,29 +187,46 @@
     width: 50%;
     font-size: 14px;
     font-weight: bold;
+    margin-left: 20px;
 }
 
 .weightProduct {
     width: 50%;
     font-size: 12px;
     display: flex;
-    justify-content: start;
+    margin-left: 20px;
 }
 
 .footItem {
     margin-top: 10px;
+    width: 100%;
     display: flex;
+    justify-content: space-around;
 }
 
 .btnBuyMini {
-    width: 70px;
-    height: 35px;
-    font-size: 10px;
+    width: 60px;
+    height: 25px;
+    font-size: 8px;
     border-radius: 5px;
     border: none;
+
     font-weight: bold;
     background-color: #b5d8f7;
     color: black;
+    margin-right: 15px;
+}
+
+.trashPic {
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    right: 130px;
+}
+
+.trashPic {
+    cursor: pointer;
+    fill: #60a8e7;
 }
 
 .btnBuyMini:hover {
