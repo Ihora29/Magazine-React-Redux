@@ -52,52 +52,8 @@ export function useCounts() {
     };
 
 
-    const addToCart = (item, count, e) => {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        };
-        const newCartItem = {
-            id: item.id,
-            name: item.name,
-            pic: item.imgSrc,
-            price: item.price,
-            count: count || localCount
-        };
-
-        setCartItems(prevCartItems => {
-            const existingItem = prevCartItems.find(cartItem => cartItem.id === item.id);
-            cartItems.push(existingItem)
-            if (existingItem) {
-
-                // localStorage.setItem(`item ${item.id}`, JSON.stringify(newCartItem));
-                //  cartItems.push(newCartItem)
-                return prevCartItems.map(cartItem =>
-                    cartItem.id === item.id
-                        ? { ...cartItem, count: cartItem.count + count }
-                        : cartItem
-                );
-            }
-
-            //else {
-
-            //    localStorage.setItem(`item ${item.id}`, JSON.stringify(newCartItem))
-
-            //return [...prevCartItems, newCartItem,];
-            //     }
-        });
-        console.log(cartItems);
-
-        // setOrderPrice(cartItems.map(item => (item.price * item.count)))
-        // //  const orderPrice = 
-    };
-
-    useEffect(() => {
-        //  console.log('cartItems was updated in useCount:', cartItems);
-    }, [cartItems]);
 
 
 
-
-    return { counts, increment, decrement, setCounts, cartItems, setCartItems, addToCart, localCount, setLocalCount, orderPrice, setOrderPrice };
+    return { counts, increment, decrement, setCounts, cartItems, setCartItems, localCount, setLocalCount, orderPrice, setOrderPrice };
 }

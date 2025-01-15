@@ -8,10 +8,10 @@ import Backdrop from '@mui/material/Backdrop';
 import WeCallComp from "./WeCallComp.jsx";
 import zIndex from "@mui/material/styles/zIndex.js";
 import { useCounts } from "../../logicFiles/useCounts.js";
-// import zIndex from "@mui/material/styles/zIndex.js";
+import { useSelector } from "react-redux";
 
 
-function NavbarComp({ cartItems = [] }) {
+function NavbarComp() {
     const [isOpen, setOpen] = useState(false)
 
     const [openEnter, setOpenEnter] = useState(false)
@@ -27,23 +27,31 @@ function NavbarComp({ cartItems = [] }) {
         setShowPhoneComp(false)
     }
 
-
-    const { orderPrice, setOrderPrice } = useCounts()
-
-    const totalSum = cartItems.reduce((accumulator, item) => accumulator + item.price, 0);
-
     const [showBasket, setShowBasket] = useState(false);
+
+    const basket = useSelector((state) => state.basketItems.basketItems);
+
+
+    const [totalCount, setTotalCount] = useState(0);
+    const [orderPrice, setOrderPrice] = useState(0);
 
     const checkBasket = () => {
         setShowBasket(!showBasket)
     }
 
-    const [totalCount, setTotalCount] = useState(0)
-
-
     useEffect(() => {
-        //   const totalCount = basketItems.reduce((accumulator, item) => accumulator + item.count, 0);
-    })
+
+        if (basket && basket.length > 0) {
+            const totalOrderCount = basket.reduce((accumulator, item) => accumulator + item.totalCount, 0);
+            const totalOrderSum = basket.reduce((accumulator, item) => accumulator + item.price * item.totalCount, 0);
+            setTotalCount(totalOrderCount);
+            setOrderPrice(totalOrderSum);
+        } else if (basket.length == 0) {
+            setOrderPrice(0);
+            setTotalCount(0)
+        }
+
+    }, [basket])
 
     const [showPhoneComp, setShowPhoneComp] = useState(false)
 
@@ -117,7 +125,7 @@ function NavbarComp({ cartItems = [] }) {
                     openEnter ? <Backdrop
                         sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
                         open={true}
-                    //onClick={closeBackDrop}
+
                     >
                         <EnterComp onClose={closeBackDrop} />
                     </Backdrop> : null
@@ -129,8 +137,8 @@ function NavbarComp({ cartItems = [] }) {
 
                     <div onClick={checkBasket} style={showBasket ? { backgroundColor: "transparent" } : null} className={styles.packageBuy}>
                         <img className={styles.packageLogo} src="https://monosushi.com.ua/wp-content/themes/monosushi/img/basket.svg" alt="basket" ></img>
-                        <span className={styles.totalPrice}>{orderPrice}hrn.</span>
-                        <span className={styles.buyCount}>{orderPrice}</span>
+                        <span className={styles.totalPrice}>{orderPrice}грн.</span>
+                        <span className={styles.buyCount}>{totalCount}</span>
                     </div>
 
                     <div style={showBasket ? { display: "block" } : { display: "none" }} className={styles.baketOpenCheck}></div>

@@ -3,7 +3,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    products: []
+    products: [],
+
 };
 
 export const fetchProducts = createAsyncThunk('getProducts', async () => {
@@ -14,12 +15,15 @@ export const fetchProducts = createAsyncThunk('getProducts', async () => {
 export const sliceProducts = createSlice({
     name: 'productSlice',
     initialState,
-    reducers: {},
+    reducers: {
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchProducts.fulfilled, (state, action) => {
             state.products = action.payload;
         });
     }
 });
+
+
 
 export default sliceProducts.reducer;
