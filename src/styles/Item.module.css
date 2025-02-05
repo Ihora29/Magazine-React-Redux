@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     width: 1000px;
-    margin: 30px auto;
+    margin: 50px auto;
 }
 
 .itemIcon {
@@ -110,6 +110,7 @@ h1 {
     border: 1px solid #b5d8f7;
     border-radius: 5px;
     display: flex;
+    color: black;
     text-decoration: none;
     flex-direction: column;
     position: relative;
@@ -211,10 +212,11 @@ h1 {
 
 .drinksContainer {
     display: flex;
-    width: 43%;
+    width: 750px;
     margin: 15px auto;
+
     padding: 0 60px;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
 

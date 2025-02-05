@@ -11,7 +11,7 @@ import { addToBasket } from "../redux/basketSlice";
 
 function CardSets() {
 
-    const productsData = useSelector((state) => state.products.products); //
+    const productsData = useSelector((state) => state.products.products);
     const sets = productsData[1];
 
     const dispatch = useDispatch();

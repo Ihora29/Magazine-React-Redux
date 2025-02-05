@@ -7,45 +7,113 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import basketImg from "./../../images/reshot-icon-trash-2ZNJ9PUBQL.svg"
 import { removeFromBasket } from '../redux/basketSlice.js';
-import { increseBasket } from '../redux/basketSlice.js';
-
+import { addToBasket } from '../redux/basketSlice.js';
+import { Link } from 'react-router-dom';
+import { fetchProducts } from '../redux/getProductsSlice';
 export default function Basket() {
 
-  const basket = useSelector((state) => state.basketItems.basketItems);
 
-  const [totalSum, setTotalSum] = useState(0)
+
+  const [totalSum, setTotalSum] = useState(0);
+  const [basketItemCount, setBasketItemCount] = useState([]);
+  const dispatch = useDispatch();
+
+  const mapbox = useSelector(state => {
+    return {
+      productsData: state.products?.products,
+      basket: state.basketItems.basketItems
+    }
+  });
+  const basket = mapbox.basket
+  //console.log(basket);
+
   useEffect(() => {
-    if (basket && basket.length > 0) {
-      //   const orderCount = cartItems.reduce((accumulator, item) => accumulator + item.count, 0);
-      const totalSumRes = basket.reduce((accumulator, item) => accumulator + item.price, 0);
-      setTotalSum(totalSumRes)
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  // const productsData = useSelector((state) => state.products.products);
+  // const allProducts = productsData
+  //   .filter((item) => item)
+  //   .reduce((acc, curr) => acc.concat(curr), []);
+  const productsDrinks = mapbox.productsData[2];
+
+
+  useEffect(() => {
+    if (basket) {
+
+      setBasketItemCount(basket);
     } else if (basket.length === 0) {
       setTotalSum(0)
     }
-    console.log(basket);
-
 
   }, [basket]);
-  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const totalSumRes = basketItemCount.reduce((accumulator, item) => accumulator + item.price * item.totalCount, 0);
+    setTotalSum(totalSumRes);
+    if (basketItemCount.length == 0) {
+      setTotalSum(0)
+    };
+
+
+  }, [basketItemCount])
+
+  const handleIncrese = (e, item_id) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setBasketItemCount(
+      basketItemCount.map(item => {
+        if (item_id === item.id) {
+          return { ...item, totalCount: item.totalCount + 1 }
+        }
+        else {
+          return item
+        }
+      })
+    )
+  }
+
+  const handleDecrese = (e, item_id) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setBasketItemCount(
+      basketItemCount.map(item => {
+        if (item_id === item.id) {
+          return { ...item, totalCount: item.totalCount - (item.totalCount > 1 ? 1 : 0) }
+        }
+        else {
+          return item
+        }
+      })
+
+    )
+  }
+
+
 
   const handleDelete = (e, item) => {
     if (e) {
       e.preventDefault();
       e.stopPropagation();
     }
-    dispatch(removeFromBasket(item))
-  }
+    dispatch(removeFromBasket(item));
+    console.log(basketItemCount);
 
-  const basketIncrement = (e, item_id) => {
+    console.log(item);
+
+  };
+
+  const handleAddBasket = (e, item) => {
     if (e) {
       e.preventDefault();
       e.stopPropagation();
     }
-    dispatch(increseBasket(item_id))
-  }
-
-  useEffect(() => {
-  }, []);
+    dispatch(addToBasket(item))
+  };
 
   const responsive = {
     superLargeDesktop: {
@@ -68,25 +136,23 @@ export default function Basket() {
     }
   }
 
-  const productsData = useSelector((state) => state.products.products);
-  const productsDrinks = productsData[2];
-
   return (
     <div className={styles.basketContainer}>
 
-
-      {basket.length > 0 ? (
-        basket.map((item, index) => (
+      {basketItemCount.length > 0 ? (
+        basketItemCount.map((item, index) => (
           <li className={styles.orderItem} key={index}>
             <img className={styles.orderImg} src={item.imgSrc} alt="" />
             <span className={styles.orderName}> {item.name}</span>
             <img className={styles.trashPic} src={basketImg} onClick={(e) => handleDelete(e, item)} alt="" />
             <div className={styles.changeContainer}>
               <div className={styles.orderCount}>
-                <button className={styles.btnOrder} >-</button>
+                <button className={styles.btnOrder}
+                  onClick={(e) => handleDecrese(e, item.id)}
+                >-</button>
                 <span className={styles.count}>{item.totalCount}</span>
                 <button className={styles.btnOrder}
-                  onClick={(e) => basketIncrement(e, item.id)}
+                  onClick={(e) => handleIncrese(e, item.id)}
                 >+</button>
               </div>
               <span className={styles.itemsPrice}>{item.totalCount * item.price}грн.</span>
@@ -100,7 +166,6 @@ export default function Basket() {
         <NavLink to='/' className={styles.emptyBasketBtn} >Перейти до каталогу</NavLink>
 
       </div>
-
       )}
 
       <h3 className={styles.textTryAlways}>Спробуйте також</h3>
@@ -121,7 +186,7 @@ export default function Basket() {
         dotListClass={styles.custom}
         itemClass={styles.carouselPadding}
       >
-        {productsDrinks.map((item) => {
+        {productsDrinks?.map((item) => {
           return (
             <NavLink to={`/product/${item.id}`} key={item.id} className={styles.carouselDrinks}>
               <img src={item.imgSrc} className={styles.drinkImg} alt="" />
@@ -132,7 +197,7 @@ export default function Basket() {
               </div>
               <div className={styles.footItem}>
                 <span className={styles.prodPrice}>{item.price * item.totalCount} грн.</span>
-                <button
+                <button onClick={(e) => handleAddBasket(e, item)}
                   className={styles.btnBuyMini}>ЗАМОВИТИ</button>
 
               </div>
@@ -142,7 +207,7 @@ export default function Basket() {
       </Carousel>
       <div className={styles.bottomBasketContainer}>
         <span className={styles.total}><b>{totalSum}</b> грн.</span>
-        <NavLink className={styles.makeOrderBtn} to='create-order' >Оформити замовлення</NavLink>
+        <Link className={styles.makeOrderBtn} state={basketItemCount} to='create-order' >Оформити замовлення</Link>
       </div>
     </div>
   )

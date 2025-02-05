@@ -1,5 +1,5 @@
 import styles from "../../styles/Navbar.module.css"
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import Hamburger from 'hamburger-react'
 import EnterComp from "../LoginComponents/EnterComp.jsx"
@@ -9,17 +9,42 @@ import WeCallComp from "./WeCallComp.jsx";
 import zIndex from "@mui/material/styles/zIndex.js";
 import { useCounts } from "../../logicFiles/useCounts.js";
 import { useSelector } from "react-redux";
-
+import { useLocation } from "react-router-dom";
 
 function NavbarComp() {
-    const [isOpen, setOpen] = useState(false)
+    const [isOpen, setOpen] = useState(false);
 
-    const [openEnter, setOpenEnter] = useState(false)
+    const [openEnter, setOpenEnter] = useState(false);
+    const [showCabinet, setShowCabinet] = useState(false);
+    const location = useLocation();
+    const { state } = location || {};
+    const [isUserAuth, setIsUserAuth] = useState(null);
+    useEffect(() => {
+        setIsUserAuth(state);
+        console.log('log isUserAuth in useEffect', isUserAuth);
+
+    }, []);
+
+    const handleLogOut = () => {
+        setIsUserAuth(null);
+        console.log(isUserAuth);
+
+    }
 
     const handleClick = (e) => {
         e.stopPropagation()
-        setOpenEnter(!openEnter);
-    }
+        if (isUserAuth != null) {
+            console.log('!null', isUserAuth);
+
+            setShowCabinet(true);
+            setOpenEnter(false)
+        } else {
+
+            setShowCabinet(false);
+            setOpenEnter(true);
+            console.log('null', isUserAuth);
+        }
+    };
 
     function closeBackDrop() {
         setOpenEnter(false)
@@ -40,6 +65,7 @@ function NavbarComp() {
     }
 
     useEffect(() => {
+        //  console.log(userAuth);
 
         if (basket && basket.length > 0) {
             const totalOrderCount = basket.reduce((accumulator, item) => accumulator + item.totalCount, 0);
@@ -51,7 +77,7 @@ function NavbarComp() {
             setTotalCount(0)
         }
 
-    }, [basket])
+    },)
 
     const [showPhoneComp, setShowPhoneComp] = useState(false)
 
@@ -62,8 +88,6 @@ function NavbarComp() {
 
     return (
         <>
-
-
             <div className={styles.headerPanel} style={{ zIndex: showBasket ? 9999 : null }}>
 
                 <div className={styles.brand}>
@@ -130,7 +154,14 @@ function NavbarComp() {
                         <EnterComp onClose={closeBackDrop} />
                     </Backdrop> : null
                 }
-
+                {showCabinet ? <div className={styles.cabinetContainer}>
+                    <ul className={styles.ul_cabinet_list}>
+                        <li className={styles.itemListCabinet}><NavLink to={`/user-cabinet/:${state.id}`} className={styles.listLinkItem}>Особистий кабінет</NavLink></li>
+                        <li className={styles.itemListCabinet}><NavLink className={styles.listLinkItem}>Історія покупок</NavLink></li>
+                        <li className={styles.itemListCabinet}><NavLink className={styles.listLinkItem}>Змінити пароль</NavLink></li>
+                        <li className={styles.itemListCabinet}><button onClick={handleLogOut} className={styles.logOutBtn}>Вийти</button></li>
+                    </ul>
+                </div> : null}
 
                 <div className={styles.basketContainer}>
 

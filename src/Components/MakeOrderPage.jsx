@@ -11,49 +11,21 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from './redux/getProductsSlice';
 import { useLocation } from 'react-router-dom';
+import { removeFromBasket } from './redux/basketSlice';
+
 
 export const MakeOrderPage = () => {
 
     const basket = useSelector((state) => state.basketItems.basketItems);
 
-    const [canHelpPopUp, setCanHelpPopUp] = useState(false);
-
-    const [showHelpMessage, setShowHelpMessage] = useState(false);
-
-    const handleCloseMessage = () => {
-        setShowHelpMessage(!showHelpMessage);
-        console.log('+');
-
-    }
-
-    const handleDelete = (id, e) => {
-        if (e) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-
-
-    }
-
-    const [showContainerDelivery, setShowContainerDelivery] = useState(false)
-    const [checkSum, setCheckSum] = useState(0);
-
-    useEffect(() => {
-
-
-
-    }, [])
-
     const inputRef = useMask({
         mask: '+38 (0__) ___ __ __',
         showMask: false,
         replacement: { _: /\d/ },
-
     });
 
     const handleMusk = () => {
         inputRef.showMask = true;
-
     }
 
     const { register,
@@ -61,8 +33,6 @@ export const MakeOrderPage = () => {
         formState: { errors } } = useForm()
 
     const [userCall, setUserCall] = useState({ name: '', phone: '' });
-
-
 
     const onSubmit = (data) => {
         const phoneValue = inputRef.current?.value;
@@ -86,6 +56,73 @@ export const MakeOrderPage = () => {
     }, [dispatch]);
 
     const productsData = useSelector((state) => state.products.products);
+
+    const [canHelpPopUp, setCanHelpPopUp] = useState(false);
+
+    const [showHelpMessage, setShowHelpMessage] = useState(false);
+
+    const handleCloseMessage = () => {
+        setShowHelpMessage(!showHelpMessage);
+        console.log('+');
+
+    };
+
+    const [showContainerDelivery, setShowContainerDelivery] = useState(false);
+    const [checkSum, setCheckSum] = useState(0);
+
+    const location = useLocation();
+    const { state } = location;
+
+    const handleDelete = (e, item) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        dispatch(removeFromBasket(item))
+    }
+
+    useEffect(() => {
+        if (basket && basket) {
+            console.log(location.state);
+
+        }
+    }, []);
+    const [orderItem, setOrderItem] = useState(location.state);
+
+    const handleIncrese = (e, item_id) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setOrderItem(
+            orderItem.map(item => {
+                if (item_id === item.id) {
+                    return { ...item, totalCount: item.totalCount + 1 }
+                }
+                else {
+                    return item
+                }
+            })
+        )
+    };
+
+    const handleDecrese = (e, item_id) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setOrderItem(
+            orderItem.map(item => {
+                if (item_id === item.id) {
+                    return { ...item, totalCount: item.totalCount - (item.totalCount > 1 ? 1 : 0) }
+                }
+                else {
+                    return item
+                }
+            })
+
+        )
+    };
 
 
 
@@ -127,21 +164,21 @@ export const MakeOrderPage = () => {
             <div className={styles.makeOrderContainer}>
                 <h1 className={styles.MakeOrdertext}>Оформити замовлення</h1>
                 <div className={styles.itemsContainer}>
-                    {basket.length > 0 ? basket.map((item) => {
+                    {location.state.length > 0 ? orderItem.map((item) => {
 
                         return (<li key={item.id} className={styles.itemContainer}>
-                            <img className={styles.orderPictire} src={item.pic} alt="" />
+                            <img className={styles.orderPictire} src={item.imgSrc} alt="item name" />
                             <div className={styles.orderName}>{item.name}</div>
                             <span className={styles.trashAndCounContainer}>
-                                <img className={styles.trashOrder} src={imgTrash} alt="trash" />
+                                <img className={styles.trashOrder} src={imgTrash} onClick={(e) => handleDelete(e, item)} alt="trash" />
                                 <div className={styles.orderCount} >
                                     <button className={styles.btnOrder} aria-hidden='false'
-                                    // onClick={(e) => decrement(item.id, e)}
+                                        onClick={(e) => handleDecrese(e, item.id)}
                                     >-</button>
                                     <span className={styles.count}
                                     >{item.totalCount}</span>
                                     <button className={styles.btnOrder} aria-hidden='false'
-                                    // onClick={(e) => increment(item.id, e)}
+                                        onClick={(e) => handleIncrese(e, item.id)}
                                     >+</button>
                                 </div>
                             </span>
@@ -155,10 +192,8 @@ export const MakeOrderPage = () => {
                         <span className={styles.textClickOnMe}>Клікни на мене,щоб обрати <b>МЕНЮ</b>!</span>
 
                     </div>}
-
+                    <div>total</div>
                 </div>
-
-
                 <h4>Може солоденького?</h4>
 
                 <div style={{ margin: '20px auto' }}>
@@ -173,7 +208,7 @@ export const MakeOrderPage = () => {
 
                 <div>
 
-                    <div className={styles.formOrderPromo} style={showContainerDelivery ? { display: 'flex' } : { display: 'none' }}>
+                    <div className={styles.formOrderPromo} >
 
                         <div className={styles.salesContainer}>
                             <div className={styles.promoKode}>

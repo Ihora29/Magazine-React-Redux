@@ -97,19 +97,16 @@
 }
 
 .saveButtonsGroup {
-    width: 90%;
+    width: 100%;
 
     margin: 50px auto;
     display: flex;
+    margin: 140px auto 20px;
     justify-content: space-between;
 }
 
-.saveButtonsGroup {
-    margin: 140px auto 20px;
-}
-
 .buttonsParamsStyle {
-    width: 34%;
+    width: 220px;
     height: 55px;
     background-color: #b5d8f7;
     border: none;
