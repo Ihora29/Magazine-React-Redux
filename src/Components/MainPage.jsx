@@ -3,7 +3,7 @@ import CardCarousel from './CardCarousel'
 import Delivery from './Delivery'
 import MenuNav from './MenuNav'
 import AllProductsCard from './ProductsCard/AllProductsCard'
-import { Outlet } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import About from './Footer/About'
 import { CircularProgress } from '@mui/material'
@@ -14,33 +14,49 @@ import closeImg from "../images/close-ellipse-svgrepo-com.svg";
 function MainPage() {
 
     const [loadingProgress, setLoadingProgress] = useState(false);
-    const [workingTime, setWorkingTime] = useState(false);
 
-    const date = new Date();
+    //const [isUserAuth, setIsUserAuth] = useState(false);
+    const location = useLocation();
+    const { state } = location || {};
 
-    const [showWorkPopUp, setShowWorkPopUp] = useState(false);
+
+
 
     const handleClosePopUp = (e) => {
         if (e) {
             e.preventDefault();
             e.stopPropagation();
         }
-        setShowWorkPopUp(false)
-        console.log('work');
+        setShowWorkPopUp(false);
+
+        //    console.log('Clock work');
     }
 
+    const [showWorkPopUp, setShowWorkPopUp] = useState(false);
     useEffect(() => {
 
-        setTimeout(() => {
-            setLoadingProgress(true)
-        }, 2000);
+        const checkWorkTime = () => {
+            //  console.log(currentHour);
+            const date = new Date();
+            const currentHour = date.getHours();
+            if (currentHour >= 18 || currentHour < 11) {
+                //setWorkingTime(true);
+                console.log('Notworkingtime');
+                setShowWorkPopUp(true);
+            }
+            else {
+                setShowWorkPopUp(false)
+                console.log('work');
 
-        if (18 > date.getHours() < 11) {
-            setWorkingTime(true)
-        }
-        //   console.log(date.getHours());
+            }
+        };
+        checkWorkTime();
+        const interval = setInterval(checkWorkTime, 1800000);
 
-    },)
+        return () => clearInterval(interval);
+
+
+    }, [])
 
 
     return (
@@ -57,7 +73,7 @@ function MainPage() {
                     </div>
                 </Backdrop>
 
-                <h1 style={loadingProgress ? { display: 'flex', margin: '100px auto' } : { display: 'none' }}>Lox</h1>
+                {/* <h1 style={loadingProgress ? { display: 'none' } : { display: 'flex', margin: '400px auto' }}>Lox</h1> */}
             </>
             :
             <>

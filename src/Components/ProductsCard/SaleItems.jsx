@@ -1,11 +1,13 @@
 
-import React, { hasOwnProperty } from 'react';
+import React, { hasOwnProperty, useState } from 'react';
 import styles from "../../styles/Card.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, loadCartFromStorage } from "../redux/getProductsSlice";
 import { NavLink } from "react-router-dom";
 import { useCounts } from "../../logicFiles/useCounts";
 import { useEffect } from 'react';
+import { addToBasket } from '../redux/basketSlice';
+
 
 export const SaleItems = () => {
 
@@ -17,15 +19,59 @@ export const SaleItems = () => {
 
   const itemsWithOption = allProducts.filter(item => item.hasOwnProperty('option'));
 
-  const { counts, increment, decrement, setCounts, addToCart, cartItems } = useCounts()
+  const [saleItems, setSaleItems] = useState([]);
+
+  const handleIncrese = (e, item_id) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setSaleItems(
+      saleItems.map(item => {
+        if (item_id === item.id) {
+          return { ...item, totalCount: item.totalCount + 1 }
+        }
+        else {
+          return item
+        }
+      })
+    )
+  };
+
+  const handleDecrese = (e, item_id) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setSaleItems(
+      saleItems.map(item => {
+        if (item_id === item.id) {
+          return { ...item, totalCount: item.totalCount - (item.totalCount > 1 ? 1 : 0) }
+        }
+        else {
+          return item
+        }
+      })
+    )
+  }
+
+
+  const handleAddBasket = (e, item) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    dispatch(addToBasket(item))
+  };
+
 
   useEffect(() => {
-    const initialCounts = cartItems.map((item) => ({
-      id: item.id,
-      totalCount: 1,
-    }));
-    setCounts(initialCounts);
-  }, [cartItems]);
+    if (allProducts) {
+      setSaleItems(itemsWithOption)
+    }
+    //console.log('sales');
+
+  }, [productsData]);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -36,11 +82,11 @@ export const SaleItems = () => {
 
   return (
     <>
-      <h1 className={styles.nameOfBestItems}>Sale & Best</h1>
+      <h1 className={styles.nameOfBestItems}>Акційні товари</h1>
       <div className={styles.card}>
         {productsData && productsData.length > 0 ? (
-          itemsWithOption.map((item) => {
-            const currentItem = counts.find((count) => count.id === item.id) || { totalCount: 1 };
+          saleItems.map((item) => {
+
             return (
               <NavLink to={`/product/${item.id}`} key={item.id} className={styles.productItem}>
                 <img src={item.imgSrc} className={styles.itemIcon} alt="" />
@@ -54,25 +100,25 @@ export const SaleItems = () => {
 
                 <div className={styles.footItem}>
                   <span className={styles.prodPrice}>
-                    {item.price * currentItem.totalCount} hrn.
+                    {item.price * item.totalCount} грн.
                   </span>
                   <div className={styles.orderCount}>
                     <button
                       className={styles.btnOrder}
-                      onClick={(e) => decrement(item.id, e)}
+                      onClick={(e) => handleDecrese(e, item.id)}
                     >
                       -
                     </button>
-                    <span className={styles.count}>{currentItem.totalCount}</span>
+                    <span className={styles.count}>{item.totalCount}</span>
                     <button
                       className={styles.btnOrder}
-                      onClick={(e) => increment(item.id, e)}
+                      onClick={(e) => handleIncrese(e, item.id)}
                     >
                       +
                     </button>
                   </div>
                   <button
-                    onClick={(e) => addToCart(item, currentItem.totalCount, e)}
+                    onClick={(e) => handleAddBasket(e, item)}
                     className={styles.btnBuy}
                   >
                     ЗАМОВИТИ

@@ -33,7 +33,7 @@ export default function WeCallComp({ onClose }) {
         <div className={styles.mainContainer}
         //    style={{ display: showWeCall ? "flex" : "none" }}
         >
-            <p><b>МИ ЗАТЕЛЕФОНУЄМО</b><br />
+            <p inert="true"><b>МИ ЗАТЕЛЕФОНУЄМО</b><br />
                 Залиште номер телефону і наші менеджери зв’яжуться з вами</p>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.weCallForm}>
 
@@ -53,7 +53,7 @@ export default function WeCallComp({ onClose }) {
             </form>
 
             <button className={styles.closeBtn} aria-hidden={false} onClick={onClose}>
-                <img className={styles.closeImg} src={img} alt="" />
+                <img className={styles.closeImg} src={img} inert="true" alt="" />
             </button>
 
         </div>

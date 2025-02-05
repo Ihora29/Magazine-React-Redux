@@ -43,16 +43,15 @@ export const basketSlice = createSlice({
             state.basketItems = state.basketItems.filter(
                 (item) => item.id != action.payload.id
             )
-            localStorage.setItem('basket', JSON.stringify(state.basketItems));
-        },
-        increseBasket: (state, action) => {
-            console.log(action.payload);
+            console.log(state.basketItems);
 
+            localStorage.setItem('basket', JSON.stringify(state.basketItems));
         }
+
     },
 
 });
 
-export const { addToBasket, removeFromBasket, increseBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket } = basketSlice.actions;
 
 export default basketSlice.reducer;

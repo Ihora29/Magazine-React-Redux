@@ -9,37 +9,51 @@ import { useCounts } from "../../logicFiles/useCounts";
 import { CardFooter } from '../Footer/CardFooter';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { addToBasket } from '../redux/basketSlice';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+
 export default function Card() {
 
     const { id } = useParams();
 
-    const productsData = useSelector((state) => state.products.products);
 
-    // const [localCount, setLocalCount] = useState(1);
-    const allProducts = productsData
-        .filter((item) => item)
+    const dispatch = useDispatch();
+
+
+
+    // const productsData = useSelector((state) => state.products.products);
+    // console.log(productsData);
+
+    const [productsArr, setProductsArr] = useState([]);
+    const [drinkCount, setDrinkCount] = useState([]);
+    const [arrayWithoutDrinks, setArrayWithoutDrinks] = useState([]);
+
+    const [localItem, setLocalItem] = useState({
+        totalCount: 1
+    });
+
+
+    useEffect(() => {
+        axios.get('http://localhost:3001/products').then((resp) => {
+            const data = resp.data;
+            setProductsArr(data);
+        });
+
+    }, []);
+
+    const allProducts = productsArr?.filter((item) => item)
         .reduce((acc, curr) => acc.concat(curr), []);
 
+    const item = allProducts?.find((item) => item.id === parseInt(id));
 
-    const productsWithotDrinks = allProducts?.slice(0, 5)
-
-    const { counts, increment, decrement, setCounts, localCount, setLocalCount, addToCart } = useCounts()
-
-    const item = allProducts.find((item) => item.id === parseInt(id));
-
-    // useEffect(() => {
-    //     if (productsWithotDrinks && productsWithotDrinks.length > 0) {
-    //         const initialCounts = productsWithotDrinks.map((item) => ({
-    //             id: item.id,
-    //             totalCount: 1,
-    //         }));
-    //         setTotalCount(initialCounts);
-    //     }
-    // }, []);
-    const [arrayWithoutDrinks, setArrayWithoutDrinks] = useState(productsWithotDrinks);
-
-    const drinkArray = productsData[2]?.slice(0, 2);
-    const [drinkCount, setDrinkCount] = useState(drinkArray)
+    useEffect(() => {
+        const drinkArray = productsArr[2]?.slice(0, 2);
+        const productsWithotDrinks = allProducts?.slice(0, 5);
+        setLocalItem(item);
+        setDrinkCount(drinkArray);
+        setArrayWithoutDrinks(productsWithotDrinks);
+    }, [productsArr]);
 
 
     const handleDecrement = (id, e) => {
@@ -57,6 +71,7 @@ export default function Card() {
             id === item.id ? { ...item, totalCount: item.totalCount - (item.totalCount > 1 ? 1 : 0) } : item
         )
         );
+        // console.log(arrayWithoutDrinks);
 
     }
 
@@ -74,12 +89,31 @@ export default function Card() {
             id === item.id ? { ...item, totalCount: item.totalCount + 1 } : item
         )
         );
-    }
+    };
 
 
-    if (!item) {
-        return <h1>Товар не знайдено</h1>;
+    const localIncrese = () => {
+        setLocalItem(prevCount => ({ ...prevCount, totalCount: prevCount.totalCount + 1 }))
+        console.log(localItem);
     }
+
+    const localDecrese = () => {
+        setLocalItem(prevCount => ({ ...prevCount, totalCount: prevCount.totalCount - (prevCount.totalCount > 1 ? 1 : 0) }))
+        console.log(localItem);
+    };
+
+    const handleAddBasket = (e, item) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        dispatch(addToBasket(item))
+    };
+
+
+    // if (!item) {
+    //     return <h1>Товар не знайдено</h1>;
+    // }
 
     const responsive = {
         superLargeDesktop: {
@@ -106,26 +140,26 @@ export default function Card() {
     return (
         <>
             <div className={styles.container}>
-                <img className={styles.itemIcon} src={item.imgSrc} alt={item.name} />
+                <img className={styles.itemIcon} src={localItem?.imgSrc} alt='prodName' />
                 <div className={styles.itemInfo}>
-
-
-                    <h1>{item.name}</h1>
-                    <span className={styles.itemDetails}>Склад:</span>   <span>{item.details}</span>
-                    <div className={styles.detailsContainer}><span className={styles.itemDetails} >Вага:</span>   <span> {item.weight} </span></div>
+                    <h1>{localItem?.name}</h1>
+                    <span className={styles.itemDetails}>Склад:</span>   <span>{localItem?.details}</span>
+                    <div className={styles.detailsContainer}><span className={styles.itemDetails} ><b>Вага:</b> </span>
+                        <span style={{ fontSize: '20px' }}><b>{localItem?.weight}</b></span>
+                    </div>
                     <div className={styles.footContainer}>
-                        <span className={styles.itemPrice}>{item.price} грн.</span>
+                        <span className={styles.itemPrice}>{localItem?.price} грн.</span>
                         <div className={styles.orderCount}>
                             <button className={styles.btnOrder}
-                                onClick={(e) => decrement(e)}
+                                onClick={() => localDecrese()}
                             >-</button>
-                            <span className={styles.count}>{localCount}</span>
+                            <span className={styles.count}>{localItem?.totalCount}</span>
                             <button className={styles.btnOrder}
-                                onClick={(e) => increment(e)}
+                                onClick={() => localIncrese()}
                             >+</button>
                         </div>
                         <button className={styles.btnBuy}
-                            onClick={(e) => addToCart(item, localCount, e)}
+                            onClick={(e) => handleAddBasket(e, localItem)}
                         >ЗАМОВИТИ</button>
                     </div>
                 </div>
@@ -148,7 +182,7 @@ export default function Card() {
                 itemClass={styles.carouselPadding}
             >
                 {arrayWithoutDrinks.map((item) => {
-                    const currentItem = arrayWithoutDrinks.find((count) => count.id === item.id) || { totalCount: 1 };
+
                     return (
                         <NavLink to={`/product/${item.id}`} key={item.id} className={styles.carouselItem}>
                             <img src={item.imgSrc} className={styles.itemImg} alt="" />
@@ -156,7 +190,7 @@ export default function Card() {
                             <div className={styles.itemOption}>{item.option}</div>
                             <div className={styles.aboutProduct}>
                                 <p className={styles.itemProd}>{item.details}</p>
-                                <span className={styles.weightProduct}> Вага:{item.weight}</span>
+                                <span className={styles.weightProduct}> <b>Вага:</b>{item.weight}</span>
                             </div>
                             <div className={styles.footItem}>
                                 <span className={styles.prodPrice}>{item.price * item.totalCount} грн.</span>
@@ -168,7 +202,7 @@ export default function Card() {
                                     <button className={styles.btnOrder} onClick={(e) => handleIncrement(item.id, e)}>+</button>
                                 </div>
                                 <button
-                                    onClick={(e) => addToCart(item, currentItem.totalCount, e)}
+                                    onClick={(e) => handleAddBasket(e, item)}
                                     className={styles.btnBuyMini}>ЗАМОВИТИ</button>
                             </div>
                         </NavLink>
@@ -179,35 +213,36 @@ export default function Card() {
 
             <h1 className={styles.textAlso}>Смакує разом</h1>
             <div className={styles.drinksContainer}>
-                {drinkCount.map((item) => {
-                    const currentDrink = drinkCount.find((count) => count.id === item.id) || { totalCount: 1 };
-                    return (
-                        <NavLink key={item.id} className={styles.drink_Item}>
-                            <img src={item.imgSrc} className={styles.drinkImg} alt="" />
-                            <h2 className={styles.nameDrink}>{item.name}</h2>
-                            <div className={styles.aboutProduct}>
-                                <p className={styles.itemProd}>{item.details}</p>
-                                <span className={styles.weightProduct}> Вага:{item.weight}</span>
-                            </div>
-                            <div className={styles.footDrink}>
-                                <span className={styles.drinkPrice}>{item.price} грн.</span>
-                                <div className={styles.orderDrink}>
-                                    <button className={styles.btnOrder}
-                                        onClick={(e) => handleDecrement(item.id, e)}
-                                    >-</button>
-                                    <span className={styles.count}>{item.totalCount}</span>
-                                    <button className={styles.btnOrder}
-                                        onClick={(e) => handleIncrement(item.id, e)}
-                                    >+</button>
+                {productsArr && productsArr.length > 0 ? (
+                    drinkCount?.map((item) => {
+                        return (
+                            <NavLink key={item.id} className={styles.drink_Item}>
+                                <img src={item.imgSrc} className={styles.drinkImg} alt="" />
+                                <h2 className={styles.nameDrink}>{item.name}</h2>
+                                <div className={styles.aboutProduct}>
+                                    <p className={styles.itemProd}>{item.details}</p>
+                                    <span className={styles.weightProduct}> Вага:{item.weight}</span>
                                 </div>
-                                <button
-                                    onClick={(e) => addToCart(item, currentDrink.totalCount, e)}
-                                    className={styles.btnBuyDrink}>ЗАМОВИТИ</button>
-                            </div>
-                        </NavLink>
-                    )
-                }
-                )}
+                                <div className={styles.footDrink}>
+                                    <span className={styles.drinkPrice}>{item.price} грн.</span>
+                                    <div className={styles.orderDrink}>
+                                        <button className={styles.btnOrder}
+                                            onClick={(e) => handleDecrement(item.id, e)}
+                                        >-</button>
+                                        <span className={styles.count}>{item.totalCount}</span>
+                                        <button className={styles.btnOrder}
+                                            onClick={(e) => handleIncrement(item.id, e)}
+                                        >+</button>
+                                    </div>
+                                    <button
+                                        onClick={(e) => handleAddBasket(e, item)}
+                                        className={styles.btnBuyDrink}>ЗАМОВИТИ</button>
+                                </div>
+                            </NavLink>
+
+                        )
+                    }
+                    )) : (<h1>No products available</h1>)}
 
             </div>
 

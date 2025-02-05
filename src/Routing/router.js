@@ -10,7 +10,7 @@ import CardMoti from "../Components/ProductsCard/CardMoti";
 import ErrorPage from "../Components/ErrorPage";
 import Card from "../Components/ProductsCard/Card";
 import MainPage from "../Components/MainPage";
-import SaleAndBestProduct from "../Components/ProductsCard/SaleAndBestProduct";
+
 import Actions from "../Components/Actions&Sale/Actions";
 import { HBAction } from "../Components/Actions&Sale/HBAction";
 import { ActionItemOfWeek } from "../Components/Actions&Sale/ActionItemOfWeek";
@@ -20,6 +20,12 @@ import About from "../Components/Footer/About";
 import { OfertaPage } from "../Components/Footer/OfertaPage";
 import { AboutUsPage } from "../Components/Footer/AboutUsPage";
 import { MakeOrderPage } from "../Components/MakeOrderPage";
+import { SaleItems } from "../Components/ProductsCard/SaleItems";
+import { UserCabinet } from "../Components/user-cabinet/UserCabinet";
+import { ChangeUserName } from "../Components/user-cabinet/ChangeUserName";
+import { ChangeUserPass } from "../Components/user-cabinet/ChangeUserPass"
+import { OrderHistory } from "../Components/user-cabinet/OrderHistory";
+
 
 
 
@@ -86,10 +92,7 @@ export const router = createBrowserRouter([
                 path: "take-yourself",
                 element: <ActionTakeYourself />,
             },
-            {
-                path: "sale",
-                element: <SaleAndBestProduct />,
-            },
+
             {
                 path: "oferta",
                 element: <OfertaPage />,
@@ -102,7 +105,28 @@ export const router = createBrowserRouter([
                 path: "create-order",
                 element: <MakeOrderPage />,
             },
-
+            {
+                path: "best&sale_products",
+                element: <SaleItems />,
+            },
+            {
+                path: "user-cabinet/:id",
+                element: <UserCabinet />,
+                children: [
+                    {
+                        path: "",
+                        element: <ChangeUserName />
+                    },
+                    {
+                        path: "changepass",
+                        element: <ChangeUserPass />
+                    },
+                    {
+                        path: "orderhistory",
+                        element: <OrderHistory />
+                    }
+                ]
+            },
 
         ]
     }

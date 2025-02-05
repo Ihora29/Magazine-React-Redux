@@ -17,19 +17,19 @@ export const UserCabinet = () => {
     const [userEdit, setUserEdit] = useState(state);
 
     useEffect(() => {
-        // axios.get('http://localhost:3001/users-login')
-        //     .then(response => {
+        //     axios.get('http://localhost:3001/users-login')
+        //         .then(response => {
+        //             const data = response.data
+        //             setUsersList(data);
+        //         });
 
-        //         setUsersList(response.data);
-        //     });
 
+        //     // if (usersList && usersList.length > 0) {
+        //     //     usersList.find((user) => user.email === state.email && user.phone === state.phone ? setUserEdit(state) : null)
+        //     // }
+        //     // setUserEdit(state)
 
-        // if (usersList && usersList.length > 0) {
-        //     usersList.find((user) => user.email === state.email && user.phone === state.phone ? setUserEdit(state) : null)
-        // }
-        // setUserEdit(state)
-        console.log('render Cabinet');
-        // console.log(state);
+        //   console.log('render Cabinet');
     }, []);
 
     return (

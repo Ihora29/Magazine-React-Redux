@@ -125,6 +125,7 @@
 .bottomBasketContainer {
     width: 55%;
     display: flex;
+    margin-left: 20px;
 }
 
 .emptyBasketPic {

@@ -131,7 +131,7 @@ h5 {
     width: 140px;
     height: 90px;
     object-fit: contain;
-
+    margin-top: 5px;
 }
 
 .motiContainer {
@@ -261,7 +261,7 @@ h5 {
     background-color: #b5d8f7;
     color: black;
     border: none;
-    margin-left: 2px;
+    margin-left: 7px;
 }
 
 .promoButton:hover {
