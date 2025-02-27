@@ -10,52 +10,51 @@ import zIndex from "@mui/material/styles/zIndex.js";
 import { useCounts } from "../../logicFiles/useCounts.js";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { PopUpCabinet } from "../user-cabinet/PopUpCabinet.jsx";
 
-function NavbarComp() {
+function NavbarComp({ userLogin, setUserLogin }) {
     const [isOpen, setOpen] = useState(false);
 
     const [openEnter, setOpenEnter] = useState(false);
     const [showCabinet, setShowCabinet] = useState(false);
     const location = useLocation();
     const { state } = location || {};
-    const [isUserAuth, setIsUserAuth] = useState(null);
-    useEffect(() => {
-        setIsUserAuth(state);
-        console.log('log isUserAuth in useEffect', isUserAuth);
+    const isAuthUser = localStorage.getItem('isUserAuth');
 
+    useEffect(() => {
+
+        console.log('navbarRender');
     }, []);
 
-    const handleLogOut = () => {
-        setIsUserAuth(null);
-        console.log(isUserAuth);
 
-    }
+
 
     const handleClick = (e) => {
-        e.stopPropagation()
-        if (isUserAuth != null) {
-            console.log('!null', isUserAuth);
-
+        e.stopPropagation();
+        if (isAuthUser) {
             setShowCabinet(true);
             setOpenEnter(false)
         } else {
-
             setShowCabinet(false);
             setOpenEnter(true);
-            console.log('null', isUserAuth);
+
+        };
+        if (showCabinet) {
+            setShowCabinet(false);
         }
+
     };
 
     function closeBackDrop() {
         setOpenEnter(false)
         setShowBasket(false)
         setShowPhoneComp(false)
-    }
+    };
 
     const [showBasket, setShowBasket] = useState(false);
 
     const basket = useSelector((state) => state.basketItems.basketItems);
-
 
     const [totalCount, setTotalCount] = useState(0);
     const [orderPrice, setOrderPrice] = useState(0);
@@ -65,8 +64,6 @@ function NavbarComp() {
     }
 
     useEffect(() => {
-        //  console.log(userAuth);
-
         if (basket && basket.length > 0) {
             const totalOrderCount = basket.reduce((accumulator, item) => accumulator + item.totalCount, 0);
             const totalOrderSum = basket.reduce((accumulator, item) => accumulator + item.price * item.totalCount, 0);
@@ -148,20 +145,11 @@ function NavbarComp() {
                 {
                     openEnter ? <Backdrop
                         sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
-                        open={true}
-
-                    >
+                        open={true}>
                         <EnterComp onClose={closeBackDrop} />
                     </Backdrop> : null
                 }
-                {showCabinet ? <div className={styles.cabinetContainer}>
-                    <ul className={styles.ul_cabinet_list}>
-                        <li className={styles.itemListCabinet}><NavLink to={`/user-cabinet/:${state.id}`} className={styles.listLinkItem}>Особистий кабінет</NavLink></li>
-                        <li className={styles.itemListCabinet}><NavLink className={styles.listLinkItem}>Історія покупок</NavLink></li>
-                        <li className={styles.itemListCabinet}><NavLink className={styles.listLinkItem}>Змінити пароль</NavLink></li>
-                        <li className={styles.itemListCabinet}><button onClick={handleLogOut} className={styles.logOutBtn}>Вийти</button></li>
-                    </ul>
-                </div> : null}
+                {showCabinet ? <PopUpCabinet setShowCabinet={setShowCabinet} /> : null}
 
                 <div className={styles.basketContainer}>
 

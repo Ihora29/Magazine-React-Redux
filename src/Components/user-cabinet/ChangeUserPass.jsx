@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Backdrop from '@mui/material/Backdrop';
+import img from "../../images/close-ellipse-svgrepo-com.svg"
+
 export const ChangeUserPass = () => {
     //   const location = useLocation();
     //  const { state } = location || {};
@@ -18,9 +21,10 @@ export const ChangeUserPass = () => {
         phone: '',
         password: '',
         passwordAgain: ''
-    })
+    });
+
+
     useEffect(() => {
-        //  console.log(id);
 
         axios.get('http://localhost:3001/users-login?id=' + id)
             .then(response => {
@@ -34,7 +38,7 @@ export const ChangeUserPass = () => {
             .catch(errors => console.log(errors)
             )
     }, [])
-    // console.log('userPass', userPass);
+
 
     const { register, reset, watch,
         handleSubmit, formState: { errors } } = useForm(
@@ -47,20 +51,20 @@ export const ChangeUserPass = () => {
         );
 
     const [passIdentError, setPassIdentError] = useState(false);
+    const [showCabinetPop, setShowcabinetPop] = useState(false);
+
     const onSubmit = (data) => {
         if (data.passwordNew == data.passwordAgain) {
-            setPassIdentError(false)
-            axios.patch(`http://localhost:3001/users-login/${id}`, {
-                id: id,
-                firstName: userPass.firstName,
-                secondName: userPass.secondName,
-                phone: userPass.phone,
-                email: userPass.email,
+            setPassIdentError(false);
+            const userData = {
+                ...userPass,
                 type: "login-user",
                 password: data.passwordAgain,
                 passwordAgain: data.passwordAgain
             }
-            )
+
+            setUserPass(userData)
+            axios.patch(`http://localhost:3001/users-login/${id}`, userData)
                 .then(response => console.log(response.data))
                 .catch(error => {
                     if (error.response) {
@@ -70,8 +74,10 @@ export const ChangeUserPass = () => {
                         console.error('Error:', error.message);
                     }
                 });
-
-            navigate(`/`, { state: { userPass } })
+            setShowcabinetPop(true);
+            // navigate(`/`,
+            //     //    { state: { userPass } }
+            // )
         } else {
             setPassIdentError(true)
         }
@@ -110,30 +116,33 @@ export const ChangeUserPass = () => {
                     <input type="text" className={styles.inputNameParams}
                         {...register('password', {
                             pattern: {
-                                // value: /^[a-zA-Zа-яА-Я]{2,20}$/,
+                                value: /^[A-Za-z\d]{6,}$/,
                                 message: 'Введіть пароль коректно'
                             }, required: true
                         })} required
                         placeholder='Ваш пароль' />
-                    <input type="text"
+                    <p inert='true'>{errors.password?.message}</p>
+                    <input type="password"
                         {...register('passwordNew', {
                             pattern: {
-                                // value: /^[a-zA-Zа-яА-Я]{2,20}$/,
+                                value: /^[A-Za-z\d]{6,}$/,
                                 message: 'Введіть пароль коректно'
                             }, required: true
                         })} required
                         className={styles.inputNameParams} placeholder='Новий пароль*' />
 
-                    <input type="text" className={styles.inputNameParams}
+                    <input type="password" className={styles.inputNameParams}
                         {...register('passwordAgain', {
                             pattern: {
-                                // value: /^[a-zA-Zа-яА-Я]{2,20}$/,
+                                value: /^[A-Za-z\d]{6,}$/,
                                 message: 'Введіть пароль коректно'
                             }, required: true
                         })} required
                         onChange={handleChange}
                         placeholder='Повторіть пароль*' />
-                    {passIdentError ? <h6>coorectNewPass</h6> : null}
+                    <p inert='true'>{errors.passwordNew?.message}</p>
+                    <p inert='true'>{errors.passwordAgain?.message}</p>
+                    {passIdentError ? <p>Паролі не співпадають</p> : null}
                     <div className={styles.saveButtonsGroup}>
                         <button className={styles.buttonsParamsStyle}>Скасувати</button>
                         <input type="submit" value='Зберегти зміни' className={styles.buttonsParamsStyle} />
@@ -142,7 +151,15 @@ export const ChangeUserPass = () => {
 
 
             </div>
-
+            {showCabinetPop ? <Backdrop
+                sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+                open={true}
+            >
+                <div className={styles.cabinetPopUp}>
+                    <img src={img} onClick={() => { setShowcabinetPop(false) }} className={styles.closeImg} alt="close" />
+                    <span className={styles.popUpText}>Дані збережено!</span>
+                </div>
+            </Backdrop> : null}
 
         </div>
     )

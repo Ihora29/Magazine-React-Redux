@@ -5,9 +5,9 @@ import { InputMask, useMask } from '@react-input/mask';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import { userData } from './UserCabinet';
-import { useRef } from 'react';
+import Backdrop from '@mui/material/Backdrop';
 import { useNavigate } from 'react-router-dom';
-
+import img from "../../images/close-ellipse-svgrepo-com.svg"
 export const ChangeUserName = () => {
 
     const location = useLocation();
@@ -22,9 +22,13 @@ export const ChangeUserName = () => {
         phone: '',
         password: ''
     });
+
+    const [userAdres, setUserAdres] = useState([""]);
+
+
+
     useEffect(() => {
-        //setUserEdit(state)
-        // console.log(id);
+
         axios.get('http://localhost:3001/users-login?id=' + id)
             .then(response => {
                 //console.log(response.data[0]);
@@ -37,7 +41,7 @@ export const ChangeUserName = () => {
 
 
     }, []);
-    console.log('userName', userEdit);
+    //   console.log('userName', userEdit);
 
 
     const { register, reset, watch,
@@ -51,7 +55,6 @@ export const ChangeUserName = () => {
                 },
             }
         );
-    //   console.log(`http://localhost:3001/users-login/${id}`);
 
     useEffect(() => {
         console.log('render UserName');
@@ -64,6 +67,8 @@ export const ChangeUserName = () => {
             });
         }
     }, [userEdit, reset]);
+
+    const [showCabinetPop, setShowcabinetPop] = useState(false);
 
     const navigate = useNavigate();
 
@@ -91,8 +96,10 @@ export const ChangeUserName = () => {
                 }
             });
         if (data) {
-            setUserEdit(userData)
-            navigate(`/`, { state: { userData } })
+            setUserEdit(userData);
+            setShowcabinetPop(true);
+            console.log(userEdit);
+
         }
 
     }
@@ -108,7 +115,6 @@ export const ChangeUserName = () => {
                         <input type="text" className={styles.inputNameParams} placeholder="Ваше ім'я"
                             //value={userEdit?.firstName || ''}
                             // onChange={handleChange}
-
                             {...register('firstName', {
                                 pattern: {
                                     value: /^[a-zA-Zа-яА-Я]{2,20}$/,
@@ -158,7 +164,10 @@ export const ChangeUserName = () => {
                     <h2 style={{ margin: '10px auto 0' }}>Адреси</h2>
                     <div className={styles.adressContainer}>
                         <ul className={styles.adressListBlock}>
-                            <li>Adress1</li>
+
+                            <li className={styles.inputAdres}><input className={styles.inputAdres} type='text' placeholder='Введіть адресу' value={''} /></li>
+
+
                         </ul>
                         <div className={styles.saveButtonsGroup}>
                             <button className={styles.buttonsParamsStyle}>Додати адресу</button>
@@ -166,9 +175,16 @@ export const ChangeUserName = () => {
                         </div>
                     </div>
                 </form>
-
             </div>
-
+            {showCabinetPop ? <Backdrop
+                sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+                open={true}
+            >
+                <div className={styles.cabinetPopUp}>
+                    <img src={img} onClick={() => { setShowcabinetPop(false) }} className={styles.closeImg} alt="close" />
+                    <span className={styles.popUpText}>Дані збережено!</span>
+                </div>
+            </Backdrop> : null}
 
         </div>
 

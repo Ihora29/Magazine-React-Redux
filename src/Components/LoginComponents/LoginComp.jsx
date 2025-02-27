@@ -17,7 +17,7 @@ function LoginComp({ onClose }) {
     };
 
     const inputRef = useMask({
-        mask: '+38 (0__) ___ __ __',
+        mask: '380_________',
         showMask: false,
         replacement: { _: /\d/ },
     });
@@ -41,21 +41,36 @@ function LoginComp({ onClose }) {
             });
     });
 
+    const [showPassError, setShowpassError] = useState(false);
+
     const onSubmit = (data) => {
         const userPhone = inputRef?.current.value;
-        const user = { ...data, id: parseInt(usersList.length + 1).toString(), type: "login-user", phone: userPhone }
 
-        axios.post(`http://localhost:3001/users-login`, user)
-            .then(res => {
+        if (data.password == data.passwordAgain) {
+            const user = { ...data, id: parseInt(usersList.length + 1).toString(), type: "login-user", phone: userPhone }
+            setShowpassError(false);
 
-                console.log(res.data);
-            });
-        if (data) {
-            navigate(`user-cabinet/${user.id}`, { state: { user } })
-        };
+            // console.log(user);
 
-        closeLoginComp()
-        onClose()
+            axios.post('http://localhost:3001/users-login', user)
+                .then(res => {
+                    //console.log(res);
+                    if (res.data) {
+                        navigate(`user-cabinet/${user.id}`, { state: { user } });
+                        console.log(res.data);
+
+                    };
+
+                });
+
+            closeLoginComp()
+            onClose()
+        }
+        else {
+            setShowpassError(true);
+        }
+
+
     }
     return (
         <div className={styles.loginCard} style={{ display: closeLogin ? "flex" : "none" }}>
@@ -105,30 +120,35 @@ function LoginComp({ onClose }) {
                     <input type="password" className={styles.inputPassword} aria-hidden={false} placeholder="Пароль"
                         {...register('password', {
                             // minLength: 6,
-                            // pattern: {
+                            pattern: {
 
-                            //     value: /^[^A-Za-z0-9]$/,
-                            //     message: 'Введіть пароль не менше 6 символів',
-                            // },
+                                value: /^[A-Za-z\d]{6,}$/,
+                                message: 'Введіть пароль не менше 6 символів',
+                            },
                             //required: true
                         })
                         }
-                    //required
+                        required
                     />
 
-                    <input type="password" className={styles.inputPassword} aria-hidden={false} placeholder="Пароль знову"
+                    <input type="password" className={styles.inputPassword} onChange={() => { setShowpassError(true) }} aria-hidden={false} placeholder="Пароль знову"
                         {...register('passwordAgain', {
 
-                            // pattern: {
-                            //     value: /^[^A-Za-z0-9]$/,
-                            //     message: 'Повторіть пароль не менше 6 символів',
-                            // },
+                            pattern: {
+                                value: /^[A-Za-z\d]{6,}$/,
+                                message: 'Повторіть пароль не менше 6 символів',
+                            },
                             //required: true
                         })
+
                         }
-                    //required
+                        required
                     />
+
                 </div>
+                <p inert='true'>{errors.password?.message}</p>
+                <p inert='true'>{errors.passwordAgain?.message}</p>
+                {showPassError ? <p>Паролі не співпадають</p> : null}
                 {/* <p>{errors.password?.message}</p>
                 <p>{errors.passwordAgain?.message}</p> */}
 
