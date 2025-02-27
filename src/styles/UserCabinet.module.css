@@ -102,7 +102,7 @@
     margin: 50px auto;
     display: flex;
     margin: 140px auto 20px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .buttonsParamsStyle {
@@ -168,4 +168,33 @@
 
 .changeNameBlock {
     margin-top: 150px;
+}
+
+.closeImg {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.cabinetPopUp {
+    width: 400px;
+    height: 120px;
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+
+}
+
+.popUpText {
+    color: black;
+    position: absolute;
+    top: 50px;
+    left: 35%;
+}
+
+.inputAdrs {
+    height: 35px;
 }

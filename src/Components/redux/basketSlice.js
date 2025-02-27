@@ -43,7 +43,7 @@ export const basketSlice = createSlice({
             state.basketItems = state.basketItems.filter(
                 (item) => item.id != action.payload.id
             )
-            console.log(state.basketItems);
+            //  console.log(state.basketItems);
 
             localStorage.setItem('basket', JSON.stringify(state.basketItems));
         }

@@ -51,13 +51,14 @@ export const MakeOrderPage = () => {
 
 
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(fetchProducts());
     }, [dispatch]);
 
     const productsData = useSelector((state) => state.products.products);
 
-    const [canHelpPopUp, setCanHelpPopUp] = useState(false);
+    // const [canHelpPopUp, setCanHelpPopUp] = useState(false);
 
     const [showHelpMessage, setShowHelpMessage] = useState(false);
 
@@ -67,7 +68,7 @@ export const MakeOrderPage = () => {
 
     };
 
-    const [showContainerDelivery, setShowContainerDelivery] = useState(false);
+    //  const [showContainerDelivery, setShowContainerDelivery] = useState(false);
     const [checkSum, setCheckSum] = useState(0);
 
     const location = useLocation();
@@ -79,15 +80,29 @@ export const MakeOrderPage = () => {
             e.stopPropagation();
         }
         dispatch(removeFromBasket(item))
+        console.log('delete work', basket);
+
     }
 
-    useEffect(() => {
-        if (basket && basket) {
-            console.log(location.state);
+    const [orderItem, setOrderItem] = useState([]);
 
-        }
-    }, []);
-    const [orderItem, setOrderItem] = useState(location.state);
+    useEffect(() => {
+        setOrderItem(basket)
+
+    }, [basket]);
+
+    const [totalSum, setTotalSum] = useState(0);
+
+    useEffect(() => {
+        const totalSumRes = orderItem.reduce((accumulator, item) => accumulator + item.price * item.totalCount, 0);
+        setTotalSum(totalSumRes);
+        if (orderItem.length == 0) {
+            setTotalSum(0)
+        };
+
+
+    }, [orderItem])
+
 
     const handleIncrese = (e, item_id) => {
         if (e) {
@@ -164,7 +179,7 @@ export const MakeOrderPage = () => {
             <div className={styles.makeOrderContainer}>
                 <h1 className={styles.MakeOrdertext}>Оформити замовлення</h1>
                 <div className={styles.itemsContainer}>
-                    {location.state.length > 0 ? orderItem.map((item) => {
+                    {basket.length > 0 ? orderItem.map((item) => {
 
                         return (<li key={item.id} className={styles.itemContainer}>
                             <img className={styles.orderPictire} src={item.imgSrc} alt="item name" />
@@ -192,7 +207,10 @@ export const MakeOrderPage = () => {
                         <span className={styles.textClickOnMe}>Клікни на мене,щоб обрати <b>МЕНЮ</b>!</span>
 
                     </div>}
-                    <div>total</div>
+                    <div className={styles.totalContainer}>
+                        <span className={styles.totalTextSum}>Загальна сума: </span> <span
+                            style={{ paddingBottom: '3px', fontSize: '23px' }}><b>{totalSum}</b> </span> <span style={{ paddingTop: '3px' }}>грн.</span>
+                    </div>
                 </div>
                 <h4>Може солоденького?</h4>
 

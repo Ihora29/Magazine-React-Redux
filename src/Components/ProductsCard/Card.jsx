@@ -40,7 +40,7 @@ export default function Card() {
             setProductsArr(data);
         });
 
-    }, []);
+    }, [id]);
 
     const allProducts = productsArr?.filter((item) => item)
         .reduce((acc, curr) => acc.concat(curr), []);
@@ -94,12 +94,12 @@ export default function Card() {
 
     const localIncrese = () => {
         setLocalItem(prevCount => ({ ...prevCount, totalCount: prevCount.totalCount + 1 }))
-        console.log(localItem);
+        //   console.log(localItem);
     }
 
     const localDecrese = () => {
         setLocalItem(prevCount => ({ ...prevCount, totalCount: prevCount.totalCount - (prevCount.totalCount > 1 ? 1 : 0) }))
-        console.log(localItem);
+
     };
 
     const handleAddBasket = (e, item) => {
@@ -176,13 +176,13 @@ export default function Card() {
                 keyBoardControl={true}
                 customTransition="all 1s"
                 transitionDuration={1000}
+                shouldBlockScroll={false}
                 containerClass={styles.carouselContainer}
                 removeArrowOnDeviceType={["tablet", "mobile", "desktop", "superLargeDesktop"]}
                 dotListClass={styles.custom}
                 itemClass={styles.carouselPadding}
             >
-                {arrayWithoutDrinks.map((item) => {
-
+                {arrayWithoutDrinks?.map((item) => {
                     return (
                         <NavLink to={`/product/${item.id}`} key={item.id} className={styles.carouselItem}>
                             <img src={item.imgSrc} className={styles.itemImg} alt="" />
@@ -216,7 +216,7 @@ export default function Card() {
                 {productsArr && productsArr.length > 0 ? (
                     drinkCount?.map((item) => {
                         return (
-                            <NavLink key={item.id} className={styles.drink_Item}>
+                            <NavLink to={`/product/${item.id}`} key={item.id} className={styles.drink_Item}>
                                 <img src={item.imgSrc} className={styles.drinkImg} alt="" />
                                 <h2 className={styles.nameDrink}>{item.name}</h2>
                                 <div className={styles.aboutProduct}>

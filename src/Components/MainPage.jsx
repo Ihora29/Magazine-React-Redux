@@ -46,7 +46,7 @@ function MainPage() {
             }
             else {
                 setShowWorkPopUp(false)
-                console.log('work');
+                //    console.log('work');
 
             }
         };

@@ -10,6 +10,9 @@ import { removeFromBasket } from '../redux/basketSlice.js';
 import { addToBasket } from '../redux/basketSlice.js';
 import { Link } from 'react-router-dom';
 import { fetchProducts } from '../redux/getProductsSlice';
+
+
+
 export default function Basket() {
 
 
@@ -20,8 +23,8 @@ export default function Basket() {
 
   const mapbox = useSelector(state => {
     return {
-      productsData: state.products?.products,
-      basket: state.basketItems.basketItems
+      productsData: state.products?.products || [],
+      basket: state.basketItems.basketItems || []
     }
   });
   const basket = mapbox.basket
@@ -31,15 +34,12 @@ export default function Basket() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  // const productsData = useSelector((state) => state.products.products);
-  // const allProducts = productsData
-  //   .filter((item) => item)
-  //   .reduce((acc, curr) => acc.concat(curr), []);
-  const productsDrinks = mapbox.productsData[2];
+
+  const productsDrinks = mapbox.productsData[2] || [];
 
 
   useEffect(() => {
-    if (basket) {
+    if (basket.length >= 0) {
 
       setBasketItemCount(basket);
     } else if (basket.length === 0) {
@@ -54,8 +54,6 @@ export default function Basket() {
     if (basketItemCount.length == 0) {
       setTotalSum(0)
     };
-
-
   }, [basketItemCount])
 
   const handleIncrese = (e, item_id) => {
@@ -101,9 +99,7 @@ export default function Basket() {
       e.stopPropagation();
     }
     dispatch(removeFromBasket(item));
-    console.log(basketItemCount);
-
-    console.log(item);
+    // console.log();
 
   };
 
@@ -138,35 +134,39 @@ export default function Basket() {
 
   return (
     <div className={styles.basketContainer}>
+      <div
+        style={basketItemCount.length > 0 ? { border: '2px solid #b5d8f7' } : null}
+        className={styles.itemsCount} >
 
-      {basketItemCount.length > 0 ? (
-        basketItemCount.map((item, index) => (
-          <li className={styles.orderItem} key={index}>
-            <img className={styles.orderImg} src={item.imgSrc} alt="" />
-            <span className={styles.orderName}> {item.name}</span>
-            <img className={styles.trashPic} src={basketImg} onClick={(e) => handleDelete(e, item)} alt="" />
-            <div className={styles.changeContainer}>
-              <div className={styles.orderCount}>
-                <button className={styles.btnOrder}
-                  onClick={(e) => handleDecrese(e, item.id)}
-                >-</button>
-                <span className={styles.count}>{item.totalCount}</span>
-                <button className={styles.btnOrder}
-                  onClick={(e) => handleIncrese(e, item.id)}
-                >+</button>
+        {basketItemCount.length > 0 ? (
+
+          basketItemCount.map((item, index) => (
+            <li className={styles.orderItem} key={index}>
+              <img className={styles.orderImg} src={item.imgSrc} alt="" />
+              <span className={styles.orderName}> {item.name}</span>
+              <img className={styles.trashPic} src={basketImg} onClick={(e) => handleDelete(e, item)} alt="" />
+              <div className={styles.changeContainer}>
+                <div className={styles.orderCount}>
+                  <button className={styles.btnOrder}
+                    onClick={(e) => handleDecrese(e, item.id)}
+                  >-</button>
+                  <span className={styles.count}>{item.totalCount}</span>
+                  <button className={styles.btnOrder}
+                    onClick={(e) => handleIncrese(e, item.id)}
+                  >+</button>
+                </div>
+                <span className={styles.itemsPrice}>{item.totalCount * item.price}грн.</span>
               </div>
-              <span className={styles.itemsPrice}>{item.totalCount * item.price}грн.</span>
-            </div>
+            </li>
+          ))
+        ) : (<div>
+          <img className={styles.emptyBasketPic} src="https://monosushi.com.ua/wp-content/themes/monosushi/img/icons/cart-empty-img.svg" alt="" />
+          <h3 className={styles.emptyBasketText}>Кошик порожній</h3>
+          <NavLink to='/' className={styles.emptyBasketBtn} >Перейти до каталогу</NavLink>
 
-          </li>
-        ))
-      ) : (<div>
-        <img className={styles.emptyBasketPic} src="https://monosushi.com.ua/wp-content/themes/monosushi/img/icons/cart-empty-img.svg" alt="" />
-        <h3 className={styles.emptyBasketText}>Кошик порожній</h3>
-        <NavLink to='/' className={styles.emptyBasketBtn} >Перейти до каталогу</NavLink>
-
+        </div>
+        )}
       </div>
-      )}
 
       <h3 className={styles.textTryAlways}>Спробуйте також</h3>
 
@@ -203,12 +203,15 @@ export default function Basket() {
               </div>
             </NavLink>
           );
-        })}
+        })
+        }
       </Carousel>
       <div className={styles.bottomBasketContainer}>
         <span className={styles.total}><b>{totalSum}</b> грн.</span>
         <Link className={styles.makeOrderBtn} state={basketItemCount} to='create-order' >Оформити замовлення</Link>
       </div>
-    </div>
+
+
+    </div >
   )
 }
