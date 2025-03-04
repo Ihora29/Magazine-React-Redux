@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "../../styles/Basket.module.css";
-import { useCounts } from "../../logicFiles/useCounts.js";
+
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import Carousel from 'react-multi-carousel';

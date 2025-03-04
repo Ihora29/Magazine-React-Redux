@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useRef } from 'react'
 import { NavLink, useLocation, Outlet, useParams } from "react-router-dom";
 import styles from "../../styles/UserCabinet.module.css"
 import { InputMask, useMask } from '@react-input/mask';
@@ -23,8 +23,28 @@ export const ChangeUserName = () => {
         password: ''
     });
 
-    const [userAdres, setUserAdres] = useState([""]);
+    const [userAdres, setUserAdres] = useState(['']);
+    // const [adresName, setAdresName] = useState('');
 
+    const adresInputRef = useRef(null);
+
+    const handleAddAdrs = (e) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        if (userAdres.length >= 4) return;
+        if (adresInputRef.current.value != '') {
+            setUserAdres([...userAdres, ''])
+        }
+
+        console.log('work', adresInputRef.current.value);
+
+        //console.log();
+
+
+
+    }
 
 
     useEffect(() => {
@@ -41,7 +61,7 @@ export const ChangeUserName = () => {
 
 
     }, []);
-    //   console.log('userName', userEdit);
+
 
 
     const { register, reset, watch,
@@ -57,7 +77,7 @@ export const ChangeUserName = () => {
         );
 
     useEffect(() => {
-        console.log('render UserName');
+
         if (userEdit?.firstName && userEdit?.secondName && userEdit?.email) {
             reset({
                 firstName: userEdit.firstName,
@@ -164,13 +184,20 @@ export const ChangeUserName = () => {
                     <h2 style={{ margin: '10px auto 0' }}>Адреси</h2>
                     <div className={styles.adressContainer}>
                         <ul className={styles.adressListBlock}>
+                            {userAdres.map((adres, index) => (
 
-                            <li className={styles.inputAdres}><input className={styles.inputAdres} type='text' placeholder='Введіть адресу' value={''} /></li>
+                                <li key={index} >
+                                    <input ref={adresInputRef}
+                                        //onChange={(e) => { handleChangeAdres(index, e.target.value) }}
+                                        className={styles.inputAdres} type='text' placeholder='Введіть адресу' />
+                                </li>
+                            ))}
+
 
 
                         </ul>
                         <div className={styles.saveButtonsGroup}>
-                            <button className={styles.buttonsParamsStyle}>Додати адресу</button>
+                            <button onClick={(e) => handleAddAdrs(e)} disabled={userAdres.length >= 4} className={styles.buttonsParamsStyle}>Додати адресу</button>
                             <input type='submit' value='Зберегти зміни' className={styles.buttonsParamsStyle} />
                         </div>
                     </div>

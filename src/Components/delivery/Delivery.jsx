@@ -1,4 +1,5 @@
-import styles from "../styles/Delivery.module.css"
+import { NavLink } from 'react-router-dom';
+import styles from '../../styles/Delivery.module.css'
 
 
 function Delivery() {
@@ -7,7 +8,7 @@ function Delivery() {
 
             <div className={styles.sect1}>
                 <img className={styles.deliveryPictures1} src="	https://monosushi.com.ua/wp-content/uploads/2020/10/mn-delivery-img.svg" alt="" ></img>
-                <button className={styles.buttonDelivery}>Зона доставки</button>
+                <NavLink to="zone-delivery" className={styles.buttonDelivery}>Зона доставки</NavLink>
             </div>
 
             <div className={styles.sect2}>

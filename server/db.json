@@ -401,7 +401,47 @@
       "password": "654321",
       "passwordAgain": "654321",
       "type": "login-user",
-      "phone": "380423432432"
+      "phone": "380423432432",
+      "buyers": [
+        {
+          "id": 26,
+          "name": "Fanta",
+          "weight": 0.3,
+          "type": "drinks",
+          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2020/11/fanta-033.jpg",
+          "price": 20,
+          "totalCount": 1
+        },
+        {
+          "id": 27,
+          "name": "Сік Sandora",
+          "weight": 1,
+          "type": "drinks",
+          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2022/06/sandora-multyvitamin.png",
+          "price": 40,
+          "totalCount": 1
+        },
+        {
+          "id": 2,
+          "name": "Філадельфія в кунжуті",
+          "weight": 240,
+          "details": "Рис, крем сир, огірок, лосось, кунжут",
+          "type": "filadelfia",
+          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2020/11/2.-filadelfiya-v-kunzhuti.jpg.pagespeed.ce.OnHk5blNMI.jpg",
+          "price": 270,
+          "totalCount": 1
+        },
+        {
+          "id": 24,
+          "name": "Сет Макі",
+          "weight": 600,
+          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2020/11/imgonline-com-ua-compressed-iomk776oplygk9-scaled.jpg.pagespeed.ce.HUeAZrWFGu.jpg",
+          "details": " Макі: з авокадо / з лососем / з огірком / з вугрем",
+          "type": "maki-set",
+          "price": 700,
+          "totalCount": 3
+        }
+      ]
     }
   ],
   "user-admin": [

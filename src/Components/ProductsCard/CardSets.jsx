@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/getProductsSlice";
 import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { AboutSets } from "../Footer/AboutSets";
-import { useCounts } from "../../logicFiles/useCounts";
+
 import { NavLink } from "react-router-dom";
 import { addToBasket } from "../redux/basketSlice";
 

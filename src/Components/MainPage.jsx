@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import CardCarousel from './CardCarousel'
-import Delivery from './Delivery'
+import Delivery from './delivery/Delivery'
 import MenuNav from './MenuNav'
 import AllProductsCard from './ProductsCard/AllProductsCard'
 import { useLocation } from 'react-router-dom'
