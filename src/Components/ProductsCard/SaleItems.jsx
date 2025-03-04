@@ -4,7 +4,7 @@ import styles from "../../styles/Card.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, loadCartFromStorage } from "../redux/getProductsSlice";
 import { NavLink } from "react-router-dom";
-import { useCounts } from "../../logicFiles/useCounts";
+
 import { useEffect } from 'react';
 import { addToBasket } from '../redux/basketSlice';
 

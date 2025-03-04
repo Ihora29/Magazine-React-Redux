@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/Card.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/getProductsSlice";
-import { useCounts } from "../../logicFiles/useCounts";
+
 import { AboutDrinks } from "../Footer/AboutDrinks";
 import { NavLink } from "react-router-dom";
 import { addToBasket } from "../redux/basketSlice";

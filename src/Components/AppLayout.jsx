@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NavbarComp from "./Navbar/NavbarComp";
 import CardCarousel from "./CardCarousel";
-import Delivery from "./Delivery";
+import Delivery from "./delivery/Delivery";
 import MenuNav from "./MenuNav";
 import Footer from "./Footer/Footer";
 import axios from 'axios';

@@ -10,7 +10,7 @@ import CardMoti from "../Components/ProductsCard/CardMoti";
 import ErrorPage from "../Components/ErrorPage";
 import Card from "../Components/ProductsCard/Card";
 import MainPage from "../Components/MainPage";
-
+import { ZoneDelivery } from "../Components/delivery/ZoneDilivery";
 import Actions from "../Components/Actions&Sale/Actions";
 import { HBAction } from "../Components/Actions&Sale/HBAction";
 import { ActionItemOfWeek } from "../Components/Actions&Sale/ActionItemOfWeek";
@@ -25,7 +25,7 @@ import { UserCabinet } from "../Components/user-cabinet/UserCabinet";
 import { ChangeUserName } from "../Components/user-cabinet/ChangeUserName";
 import { ChangeUserPass } from "../Components/user-cabinet/ChangeUserPass"
 import { OrderHistory } from "../Components/user-cabinet/OrderHistory";
-
+import { CheckForBuy } from "../Components/popUp/CheckForBuy";
 
 
 
@@ -127,7 +127,15 @@ export const router = createBrowserRouter([
                     }
                 ]
             },
-
+            ,
+            {
+                path: "zone-delivery",
+                element: <ZoneDelivery />
+            },
+            {
+                path: "client-check",
+                element: <CheckForBuy />
+            }
         ]
     }
 ]);

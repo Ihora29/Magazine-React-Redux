@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import styles from "../../styles/Item.module.css"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { useCounts } from "../../logicFiles/useCounts";
+
 import { CardFooter } from '../Footer/CardFooter';
 import { useState } from 'react';
 import { useEffect } from 'react';

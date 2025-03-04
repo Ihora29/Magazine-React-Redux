@@ -7,13 +7,13 @@ import Basket from "./Basket.jsx";
 import Backdrop from '@mui/material/Backdrop';
 import WeCallComp from "./WeCallComp.jsx";
 import zIndex from "@mui/material/styles/zIndex.js";
-import { useCounts } from "../../logicFiles/useCounts.js";
+
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { PopUpCabinet } from "../user-cabinet/PopUpCabinet.jsx";
 
-function NavbarComp({ userLogin, setUserLogin }) {
+function NavbarComp() {
     const [isOpen, setOpen] = useState(false);
 
     const [openEnter, setOpenEnter] = useState(false);
@@ -26,9 +26,6 @@ function NavbarComp({ userLogin, setUserLogin }) {
 
         console.log('navbarRender');
     }, []);
-
-
-
 
     const handleClick = (e) => {
         e.stopPropagation();
@@ -109,15 +106,18 @@ function NavbarComp({ userLogin, setUserLogin }) {
                     </Link>
                 </div>
 
-                <div className={styles.hamburger}>
+                <div id={styles.hamburger}
+                >
                     <Hamburger
                         toggled={isOpen} toggle={setOpen}
+                        className={styles.hamburgerComp}
                     />
-                    {isOpen ? <div className={styles.aboutUs}>
-                        <div className={styles.infoAboutUs}>Оплата і доставка</div>
-                        <div className={styles.infoAboutUs} id={styles.infoAboutUsID}>Про нас</div>
-                    </div> : null}
+                    {isOpen && (<div className={styles.aboutUs}>
+                        <NavLink to="zone-delivery" className={styles.infoAboutUs}>Оплата і доставка</NavLink>
+                        <NavLink to="about-us" className={styles.infoAboutUs} id={styles.infoAboutUsID}>Про нас</NavLink>
+                    </div>)}
                 </div>
+
 
                 {showPhoneComp ? <Backdrop sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
                     open={true}

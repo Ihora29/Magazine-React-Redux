@@ -47,3 +47,114 @@
 .popuph5 {
     color: black;
 }
+
+.checkWrapper {
+    width: 320px;
+    min-height: 350px;
+    background-color: #d1eaff;
+    border-radius: 7px;
+    border: 2px solid #002341;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+}
+
+.checkBody {
+    width: 85%;
+    min-height: 40px;
+    border: 1px solid black;
+    margin: 20px auto;
+}
+
+.buyingItem {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemName {
+    width: 65%;
+    height: 100%;
+    font-weight: bold;
+    border: 1px solid black;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.itemCounts {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+}
+
+.totalSumCont {
+    width: 30%;
+    color: black;
+    font-size: 18px;
+    height: 30px;
+    border: 1px solid black;
+    margin: 10px auto;
+    font-weight: bolder;
+    display: flex;
+}
+
+.iconDeliver {
+    width: 100px;
+    height: 100px;
+    margin: 10px auto;
+}
+
+.iconCheck {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footerCheckH6 {
+    color: black;
+    font-size: 18px;
+}
+
+.checkBtn {
+    width: 30%;
+    margin: 10px auto;
+    height: 27px;
+    border: 2px solid black;
+    border-radius: 7px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    background-color: azure;
+}
+
+.checkBtn:hover {
+    background-color: #3b9480;
+    border: 2px solid rgb(14, 63, 14);
+    color: azure;
+}
+
+.buyingContainer {
+    width: 50%;
+    min-height: 100px;
+    border: 4px solid #b5d8f7;
+    border-radius: 17px;
+    margin: 0 auto 20px;
+}
+
+.buyedItemsLi {
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    border: 2px solid black;
+    align-items: center;
+}
+
+.buyedItemsName {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #2f70fb;
+}
