@@ -28,7 +28,7 @@ export const CheckForBuy = ({ orderItem, address, totalSum, clientDelivery }) =>
 
                     ))}
                     <div className={styles.totalSumCont}>{totalSum} <span>грн.</span></div>
-
+                    <div>{address}</div>
                 </section>
                 <div className={styles.iconCheck}>
                     <img src="https://monosushi.com.ua/wp-content/uploads/2020/10/mn-delivery-img.svg" className={styles.iconDeliver} alt="" />

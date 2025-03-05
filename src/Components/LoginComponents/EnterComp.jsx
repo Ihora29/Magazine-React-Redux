@@ -22,7 +22,7 @@ function EnterComp({ onClose }) {
             });
     }, [])
 
-    // console.log(usersData);
+
 
     const { register, reset, watch,
         handleSubmit, formState: { errors } } = useForm();
@@ -41,15 +41,12 @@ function EnterComp({ onClose }) {
                 localStorage.setItem('isUserAuth', JSON.stringify(user));
                 navigate('/');
                 onClose();
-            } else {
-                setShowErrorAuth(true)
             }
+
+            setShowErrorAuth(true)
 
 
         }
-
-
-        //  console.log(userLogin);
 
 
     }
@@ -91,7 +88,7 @@ function EnterComp({ onClose }) {
                     {showErrorAuth ? <p>Ви не зареєстровані,зареєструватися?</p> : null}
                     <input type="submit" value='Увійти' className={styles.enterBtn} />
                     <div className={styles.footContainer}>
-                        <span className={styles.textForgot}>Forgot password?</span>
+
                         <span onClick={showLoginComp} className={styles.textLogin}>Login</span>
                     </div>
 
