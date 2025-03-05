@@ -345,82 +345,34 @@
   "users-login": [
     {
       "id": "1",
-      "firstName": "pidar",
-      "secondName": "scadsd",
-      "email": "edfe@fvr.fv",
-      "password": "11111111",
-      "passwordAgain": "1111111111111",
-      "type": "login-user",
+      "firstName": "Admin",
+      "secondName": "user",
+      "email": "admin@monosushi.com",
+      "password": "qwerty123",
+      "passwordAgain": "qwerty123",
+      "type": "admin-user",
       "phone": "+38 (053) 534 53 45"
     },
     {
       "id": "2",
-      "firstName": "endru",
-      "secondName": "qq",
-      "email": "dcde@cde.cc",
-      "password": "111111111",
-      "passwordAgain": "111111111",
-      "type": "login-user",
-      "phone": "380932286632"
-    },
-    {
-      "id": "3",
-      "firstName": "viktor",
-      "secondName": "delTorro",
-      "email": "mohnat@mail.com",
-      "password": "23456789d",
-      "passwordAgain": "23456789d",
-      "type": "login-user",
-      "phone": "380234324234"
-    },
-    {
-      "id": "4",
-      "firstName": "Ihor",
-      "secondName": "аіваві",
-      "email": "dcde@cde.cc",
-      "password": "234567",
-      "passwordAgain": "234567",
-      "type": "login-user",
-      "phone": "380235353543"
-    },
-    {
-      "id": "5",
-      "firstName": "hui",
-      "secondName": "uebok",
-      "email": "edfe@fvr.fv",
+      "firstName": "Андрій",
+      "secondName": "Кукарєкін",
+      "email": "kuku@mail.com",
       "password": "123456",
       "passwordAgain": "123456",
       "type": "login-user",
-      "phone": "380356565465"
+      "phone": "380443243242"
     },
     {
-      "id": "6",
-      "firstName": "Dima",
-      "secondName": "Шумило",
-      "email": "mastur@ost.ua",
-      "password": "654321",
-      "passwordAgain": "654321",
+      "id": "3",
+      "firstName": "Grenuh",
+      "secondName": "Заріцькиий",
+      "email": "bazel@com.ua",
+      "password": "65432w",
+      "passwordAgain": "65432w",
       "type": "login-user",
-      "phone": "380423432432",
+      "phone": "380543435435",
       "buyers": [
-        {
-          "id": 26,
-          "name": "Fanta",
-          "weight": 0.3,
-          "type": "drinks",
-          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2020/11/fanta-033.jpg",
-          "price": 20,
-          "totalCount": 1
-        },
-        {
-          "id": 27,
-          "name": "Сік Sandora",
-          "weight": 1,
-          "type": "drinks",
-          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2022/06/sandora-multyvitamin.png",
-          "price": 40,
-          "totalCount": 1
-        },
         {
           "id": 2,
           "name": "Філадельфія в кунжуті",
@@ -429,29 +381,27 @@
           "type": "filadelfia",
           "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2020/11/2.-filadelfiya-v-kunzhuti.jpg.pagespeed.ce.OnHk5blNMI.jpg",
           "price": 270,
-          "totalCount": 1
+          "totalCount": 3
         },
         {
-          "id": 24,
-          "name": "Сет Макі",
-          "weight": 600,
-          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2020/11/imgonline-com-ua-compressed-iomk776oplygk9-scaled.jpg.pagespeed.ce.HUeAZrWFGu.jpg",
-          "details": " Макі: з авокадо / з лососем / з огірком / з вугрем",
-          "type": "maki-set",
-          "price": 700,
+          "id": 27,
+          "name": "Сік Sandora",
+          "weight": 1,
+          "type": "drinks",
+          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2022/06/sandora-multyvitamin.png",
+          "price": 40,
+          "totalCount": 3
+        },
+        {
+          "id": 29,
+          "name": "Моті – Лічі",
+          "weight": 70,
+          "type": "moti",
+          "imgSrc": "https://monosushi.com.ua/wp-content/uploads/2024/07/moti-lichi-3.jpg",
+          "price": 100,
           "totalCount": 3
         }
       ]
-    }
-  ],
-  "user-admin": [
-    {
-      "id": "1",
-      "name": "Admin",
-      "type": "admin-user",
-      "phone": 543254253235,
-      "email": "hgjh<",
-      "password": ""
     }
   ]
 }

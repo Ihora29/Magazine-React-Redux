@@ -28,6 +28,56 @@
     text-decoration: none;
 }
 
+.addingCont {
+    height: 500px;
+    width: 18%;
+    margin: 0 auto;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    background-color: #b5d8f7;
+}
+
+.sectionAdding {
+
+    margin: 5px auto 10px;
+}
+
+.uploadArea {
+    width: 80%;
+    height: 50px;
+    padding-top: 10px;
+    border: 1px solid black;
+    margin: 10px auto 0;
+    background-color: aliceblue;
+}
+
+.formAdding {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sendItemBtn {
+    width: 40%;
+    height: 30px;
+    background-color: #3983c3;
+    margin: 20px auto;
+    color: black;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.sendItemBtn:hover {
+    cursor: pointer;
+    background-color: rgb(74, 183, 255);
+    color: green;
+}
+
 .productItem:hover {
     border: 2px solid #b5d8f7;
     border-radius: 5px;

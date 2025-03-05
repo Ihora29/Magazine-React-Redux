@@ -21,11 +21,7 @@ function NavbarComp() {
     const location = useLocation();
     const { state } = location || {};
     const isAuthUser = localStorage.getItem('isUserAuth');
-
-    useEffect(() => {
-
-        console.log('navbarRender');
-    }, []);
+    // const isUserAdmin = localStorage.getItem('isUserAdmin');
 
     const handleClick = (e) => {
         e.stopPropagation();

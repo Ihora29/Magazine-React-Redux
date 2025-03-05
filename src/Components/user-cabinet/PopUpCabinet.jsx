@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "../../styles/Navbar.module.css";
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -10,16 +10,13 @@ import { useLocation } from 'react-router-dom';
 export const PopUpCabinet = ({ setShowCabinet }) => {
 
     const isAuthUser = localStorage.getItem('isUserAuth');
-
-    useEffect(() => {
-
-        console.log('popUpRender',);
-    }, []);
+    const navigate = useNavigate();
 
     const handleLogOut = () => {
 
         localStorage.removeItem('isUserAuth')
         setShowCabinet(false);
+        navigate("/")
     }
 
     const handleQuitIcon = () => {

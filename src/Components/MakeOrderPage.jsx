@@ -63,7 +63,7 @@ export const MakeOrderPage = () => {
 
     const handleCloseMessage = () => {
         setShowHelpMessage(false);
-        console.log('+');
+
 
     };
 
@@ -90,7 +90,7 @@ export const MakeOrderPage = () => {
             e.stopPropagation();
         }
         dispatch(removeFromBasket(item))
-        console.log('delete work', basket);
+
     };
 
     const [orderItem, setOrderItem] = useState([]);
@@ -285,14 +285,27 @@ export const MakeOrderPage = () => {
                                     <div className={styles.deliveryPlaceContainer}>
                                         <input className={styles.homeInput} type="text" {...register('name')} required placeholder='Ваше ім*я' />
                                         <input className={styles.homeInput} type="text" {...register('street')} required placeholder='Вулиця' />
-                                        <input className={styles.homeInput} type="text" {...register('entrance')} placeholder='Під*їзд' />
+                                        <input className={styles.homeInput} type="text" {...register('entrance', {
+                                            pattern: {
+                                                value: /^\d+$/,
+                                            }
+                                        }
+                                        )} placeholder='Під*їзд' />
                                     </div>
 
                                     <div className={styles.deliveryPlaceContainer}>
                                         <input className={styles.homeInput} type="text" ref={inputRef}
                                             onChange={() => handleMusk} placeholder='Ваш номер телефону' required />
-                                        <input className={styles.homeInput} type="text" {...register('house')} required placeholder='Номер будинку' />
-                                        <input className={styles.homeInput} type="text" {...register('apartment')} placeholder='Квартира' />
+                                        <input className={styles.homeInput} type="text" {...register('house', {
+                                            pattern: {
+                                                value: /^\d+$/,
+                                            }
+                                        })} required placeholder='Номер будинку' />
+                                        <input className={styles.homeInput} type="text" {...register('apartment', {
+                                            pattern: {
+                                                value: /^\d+$/,
+                                            }
+                                        })} placeholder='Квартира' />
                                     </div>
                                 </div>
 

@@ -39,7 +39,7 @@ function LoginComp({ onClose }) {
 
                 setUsersList(response.data);
             });
-    });
+    }, []);
 
     const [showPassError, setShowpassError] = useState(false);
 

@@ -148,9 +148,9 @@ export const ChangeUserName = () => {
 
                             {...register('secondName', {
                                 pattern: {
-                                    value: /^[a-zA-Zа-яА-Я]{2,20}$/,
+                                    value: /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ'-]{2,20}$/,
                                     message: 'Введіть прізвище коректно'
-                                }, required: true
+                                },
                             })} required
                         />
                     </div>
