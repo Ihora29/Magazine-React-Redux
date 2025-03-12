@@ -13,12 +13,12 @@ export const ZoneDelivery = () => {
 
     const mapRef = useRef();
 
-    const customMarker = new L.Icon({
-        iconUrl: markerIconPng,
-        shadowUrl: markerShadowPng,
-        iconSize: [25, 41],
-        iconAnchor: [12, 41]
-    });
+    // const customMarker = new L.Icon({
+    //     iconUrl: markerIconPng,
+    //     shadowUrl: markerShadowPng,
+    //     iconSize: [25, 41],
+    //     iconAnchor: [12, 41]
+    // });
 
     const customMarkerShop = new L.Icon({
         iconUrl: shopicon,
@@ -68,27 +68,7 @@ export const ZoneDelivery = () => {
         }
     ];
 
-    const reverseGeocode = async (lat, lon) => {
-        try {
-            const response = await fetch(
-                `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json&addressdetails=1`
-            );
-            const data = await response.json();
 
-            if (data && data.address) {
-                const { house_number, road, city, country } = data.address;
-                const fullAddress = `${road || ''} ${house_number || ''}, ${city || ''}, ${country || ''}`;
-
-                // console.log('Точна адреса будинку:', fullAddress);
-            } else {
-
-                console.log('Адресу не знайдено для координат:', lat, lon);
-            }
-        } catch (error) {
-            console.error('Помилка зворотного геокодування:', error);
-
-        }
-    };
 
     return (
         <div className={styles.deliveryZoneContainer}>
@@ -161,18 +141,18 @@ export const ZoneDelivery = () => {
                     <div className={styles.payCashIcon}><img src="https://monosushi.com.ua/wp-content/uploads/2020/11/pay-info-img-3.svg" alt="" /></div>
 
                     <div className={styles.payContainerDescr}>
-                        <h6>Оплата готівкою</h6>
+                        <h6 className={styles.payH6}>Оплата готівкою</h6>
                         <br />
-                        <p>Розраховуйтесь за свої улюблені сушики готівкою при отриманні.</p>
+                        <p className={styles.payP}>Розраховуйтесь за свої улюблені сушики готівкою при отриманні.</p>
                     </div>
                 </div>
 
                 <div className={styles.payCashContainer}>
                     <div className={styles.payCashIcon} > <img src="https://monosushi.com.ua/wp-content/uploads/2020/11/pay-info-img-1.svg" alt="" /></div>
                     <div className={styles.payContainerDescr}>
-                        <h6>Безготівкова оплата</h6>
+                        <h6 className={styles.payH6}>Безготівкова оплата</h6>
                         <br />
-                        <p >Розраховуйтесь за свої улюблені сушики онлайн або карткою при отриманні.</p>
+                        <p className={styles.payP}>Розраховуйтесь за свої улюблені сушики онлайн або карткою при отриманні.</p>
                     </div>
                 </div>
             </div>

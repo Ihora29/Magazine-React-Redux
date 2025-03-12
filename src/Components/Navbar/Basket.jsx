@@ -123,12 +123,14 @@ export default function Basket() {
       items: 4
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
+      breakpoint: { max: 1024, min: 768 },
+      items: 2,
+
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+
     }
   }
 
@@ -155,7 +157,7 @@ export default function Basket() {
                     onClick={(e) => handleIncrese(e, item.id)}
                   >+</button>
                 </div>
-                <span className={styles.itemsPrice}>{item.totalCount * item.price}грн.</span>
+                <span className={styles.itemsPrice}>{item.price}грн.</span>
               </div>
             </li>
           ))
@@ -170,7 +172,7 @@ export default function Basket() {
 
       <h3 className={styles.textTryAlways}>Спробуйте також</h3>
 
-      <Carousel className={styles.Carousel} swipeable={true}
+      <Carousel className={styles.karousel} swipeable={true}
         draggable={false}
         showDots={false}
         responsive={responsive}
@@ -196,7 +198,7 @@ export default function Basket() {
                 <span className={styles.weightProduct}> Вага:{item.weight}</span>
               </div>
               <div className={styles.footItem}>
-                <span className={styles.prodPrice}>{item.price * item.totalCount} грн.</span>
+                <span className={styles.prodPrice}>{item.price} грн.</span>
                 <button onClick={(e) => handleAddBasket(e, item)}
                   className={styles.btnBuyMini}>ЗАМОВИТИ</button>
 

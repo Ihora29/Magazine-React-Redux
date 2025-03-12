@@ -186,7 +186,7 @@ export const ChangeUserName = () => {
                         <ul className={styles.adressListBlock}>
                             {userAdres.map((adres, index) => (
 
-                                <li key={index} >
+                                <li key={index}  >
                                     <input ref={adresInputRef}
                                         //onChange={(e) => { handleChangeAdres(index, e.target.value) }}
                                         className={styles.inputAdres} type='text' placeholder='Введіть адресу' />

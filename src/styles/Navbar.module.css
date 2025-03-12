@@ -21,10 +21,15 @@
 
 .brand {
     width: 12%;
-    height: 100%;
-    padding-top: 20px;
-    /* padding: 5px; */
+    height: 90%;
+    display: flex;
+    justify-self: center;
+    align-items: center;
     background-color: #b5d8f7;
+}
+
+.brandIcon {
+    width: 95%;
 }
 
 .productsPanel {
@@ -148,7 +153,7 @@
 
 .aboutUs {
     width: 200px;
-    height: 140px;
+    min-height: 140px;
     border: 1px solid #4e9bdf;
     position: absolute;
     background-color: #b5d8f7;
@@ -168,6 +173,7 @@
     border: 1px solid #b5d8f7;
     font-weight: bold;
     border-radius: 5px;
+    padding-bottom: 10px;
     text-align: center;
     text-decoration: none;
     color: black;
@@ -297,8 +303,9 @@
 }
 
 .blockPhone {
-
+    border: 1px solid black;
     height: 40px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -315,6 +322,7 @@
 .weCall {
     font-weight: bold;
     font-size: 12px;
+    display: flex;
 }
 
 .workTime {
@@ -427,8 +435,8 @@
 }
 
 .userLogo {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
 }
 
 .packageBuy {
@@ -446,7 +454,7 @@
 }
 
 .basketContainer {
-    width: 10%;
+    width: 12%;
     display: flex;
     flex-direction: column;
 }
@@ -489,7 +497,7 @@
 }
 
 .cabinetContainer {
-    width: 205px;
+    width: 19%;
     height: 185px;
     border-bottom: 2px solid #8fcbff;
     border-left: 2px solid #8fcbff;
@@ -498,7 +506,6 @@
     right: 150px;
     position: fixed;
     background-color: aliceblue;
-
 }
 
 .ul_cabinet_list {
@@ -556,7 +563,299 @@
     color: black;
 }
 
+.infoActions {
+    display: none;
+}
+
 .listLinkItem:hover {
     cursor: pointer;
     background-color: white;
+}
+
+.brandIconMobile {
+    display: none;
+}
+
+.workTimeAboutUs {
+    display: none;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .weCall {
+        display: none;
+
+    }
+
+    .workTime {
+        margin: 0 auto;
+        width: 14%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .totalPrice {
+        font-size: 12px;
+    }
+
+    .packageLogo {
+        width: 30%;
+        margin-left: 20px;
+    }
+
+    .phoneContact {
+        width: 4%;
+    }
+
+
+    .workTimeText {
+        font-size: 12px;
+
+    }
+
+    .workTimeNumber {
+        font-size: 13px;
+    }
+
+    .packageBuy {
+        position: relative;
+        align-items: center;
+    }
+
+    .brand {
+        height: 90%;
+
+    }
+
+    .brandIcon {
+        width: 96%;
+
+        object-fit: contain;
+    }
+
+    .basketContainer {
+        width: 14%;
+    }
+
+    .productsPanel {
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    .linkIcon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .workTime {
+
+        height: 100%;
+        margin-left: 30px;
+    }
+
+    .nameIcon {
+        font-size: 16px;
+    }
+
+    .headerPanel {
+        height: 90px;
+    }
+
+    .cabinetContainer {
+        width: 26%;
+        top: 90px;
+
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+    .productsPanel {
+        bottom: 0px;
+        background-color: aliceblue;
+        position: fixed;
+        width: 100%;
+    }
+
+    .headerPanel {
+        height: 80px;
+    }
+
+    .totalPrice {
+        font-size: 13px;
+    }
+
+    .workTimeAboutUs {
+        flex-direction: column;
+        display: flex;
+        margin-top: 40px;
+    }
+
+    .brandIcon {
+        display: none;
+    }
+
+    .brand {
+        display: flex;
+        justify-content: center;
+    }
+
+    .brandIconMobile {
+        display: block;
+
+        width: 60%;
+        height: 90px;
+
+
+    }
+
+    .weCall {
+        display: none;
+    }
+
+    .workTime {
+        width: 16%;
+
+        margin-left: 55px;
+        padding-left: 17px;
+        display: none;
+        height: 100%;
+    }
+
+    .phoneContact {
+        width: 8%;
+    }
+
+    .workTimeNumber {
+        font-size: 13px;
+    }
+
+    .workTimeText {
+        font-size: 12px;
+
+    }
+
+    #hamburger {
+        width: 50px;
+        height: 50px;
+        margin: 20px auto;
+    }
+
+    .basketContainer {
+        width: 17%;
+    }
+
+    .packageLogo {
+        width: 30px;
+        height: 30px;
+        margin: 0 10px 0 15px;
+    }
+
+    .buyCount {
+        left: 38px;
+    }
+
+
+    .aboutUs {
+        position: fixed;
+        top: 80px;
+        height: 100%;
+        bottom: 80px;
+        right: 0;
+        border-bottom: none;
+        border-top: none;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Центрування NavLink горизонтально */
+        justify-content: flex-start;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: #fff;
+        /* Для наочності */
+        z-index: 5;
+    }
+
+    .infoActions {
+        width: 70%;
+        border: 1px solid #4e9bdf;
+        font-size: 22px;
+        display: flex;
+        font-weight: bold;
+        border-radius: 5px;
+        line-height: 40px;
+        justify-content: center;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+
+    }
+
+    .infoAboutUs {
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: 1px solid #4e9bdf;
+        text-decoration: none;
+        color: black;
+        padding-top: 10px;
+        margin: 15px auto 10px;
+        height: 50px;
+    }
+
+    .infoAboutUs:hover {
+        background-color: #b5d8f7;
+        border: 1px solid black;
+    }
+
+    .infoActions:hover {
+        background-color: #b5d8f7;
+        border: 1px solid black;
+    }
+
+    #actionMenu {
+        display: none;
+    }
+
+    .cabinetContainer {
+        width: 22%;
+        height: 185px;
+        border-bottom: 2px solid #8fcbff;
+        border-left: 2px solid #8fcbff;
+        border-right: 2px solid #8fcbff;
+        top: 70px;
+        right: 150px;
+        position: fixed;
+        background-color: aliceblue;
+    }
+
+    .itemListCabinet {
+        list-style: none;
+        height: 37px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        margin-left: 7px;
+        width: 92%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 10px;
+        border: 1px solid #8fcbff;
+        border-radius: 5px;
+        text-align: center;
+        position: relative;
+        /* border-bottom: 2px solid #8fcbff; */
+    }
+
+    .listLinkItem {
+        font-size: 13px;
+        display: block;
+        margin-top: 5px;
+
+    }
+
+
 }

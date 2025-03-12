@@ -5,7 +5,7 @@
 }
 
 .deliveryContainer {
-    margin-top: 45px;
+    margin-top: 5px;
     width: 100%;
 
     height: 170px;
@@ -147,8 +147,8 @@
 }
 
 .mapDelivery {
-    width: 90%;
-    height: 450px;
+    width: 80%;
+
     margin: 30px auto;
 }
 
@@ -211,4 +211,141 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 24px;
     text-align: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .deliveryContainer {
+        height: 140px;
+    }
+
+    .deliveryPictures1 {
+        width: 37%;
+    }
+
+    .deliveryPictures2 {
+        width: 27%;
+    }
+
+    .deliveryPictures3 {
+        width: 20%;
+
+    }
+
+    .deliveryDescr {
+        font-size: 16px;
+    }
+
+    .h1line::after {
+        display: none;
+    }
+
+    .buttonDelivery {
+        width: 45%;
+        height: 30%;
+        font-size: 12px;
+    }
+
+    .deliveryIcon {
+        width: 45%;
+    }
+
+    .describePtext {
+        font-size: 16px;
+    }
+
+    .descrOptionsGreen,
+    .descrOptionsYellow {
+        font-size: 18px;
+    }
+
+
+    .payCashIcon {
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        margin-left: 25px;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .deliveryContainer {
+        display: none;
+    }
+
+    .h1line::after {
+        display: none;
+    }
+
+    .deliveryZoneContainer {
+        width: 100vh;
+    }
+
+    .h1line {
+        margin: 0 auto;
+    }
+
+    .deliveryIcon {
+        width: 130px;
+        height: 100px;
+        margin-top: 55px;
+
+    }
+
+    .describePtext {
+        display: inline;
+        font-size: 14px;
+        margin-left: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+
+    .descrybDelivery {
+        margin-left: 5px;
+    }
+
+    .payContainer {
+        width: 70%;
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .payCashContainer {
+        width: 50%;
+
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .payH6 {
+        font-size: 18px;
+    }
+
+    .payP {
+        font-size: 14px;
+    }
+
+    .payCashIcon {
+        width: 60px;
+        height: 60px;
+        margin-top: 35px;
+        margin-left: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 7px;
+        background-color: #b5d8f7;
+    }
+
+
+
+
+
+
+
+
 }

@@ -67,3 +67,9 @@
 .aboutText {
     font-size: 26px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .footerMainText {
+        width: 100%;
+    }
+}

@@ -76,13 +76,13 @@ function MainPage() {
                 {/* <h1 style={loadingProgress ? { display: 'none' } : { display: 'flex', margin: '400px auto' }}>Lox</h1> */}
             </>
             :
-            <>
+            <div className={styles.mainWrapper}>
                 <CardCarousel />
                 <Delivery />
                 <MenuNav />
                 <AllProductsCard />
                 <About />
-            </>
+            </ div>
 
         </>
     )

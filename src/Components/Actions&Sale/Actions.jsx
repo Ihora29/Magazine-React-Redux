@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function Actions() {
     return (
-        <div>
+        <div className={styles.actionMainCont}>
             <h1 className={styles.actionText}>Акції на суші</h1>
             <div className={styles.firstBlok}>
 
