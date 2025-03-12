@@ -103,13 +103,8 @@ export const ChangeUserPass = () => {
         }
     }, [userPass, reset])
 
-
-
-
     return (
         <div className={styles.mainContainer}>
-
-
             <div className={styles.passContainer}>
                 <h1 style={{ textAlign: 'center' }}>Зміна паролю </h1>
                 <form className={styles.ChangePassForm} onSubmit={handleSubmit(onSubmit)}>

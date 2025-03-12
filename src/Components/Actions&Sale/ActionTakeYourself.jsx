@@ -3,7 +3,7 @@ import styles from '../../styles/Actions.module.css'
 
 export const ActionTakeYourself = () => {
     return (
-        <div style={{ width: "100%", marginTop: '150px' }}>
+        <div style={{ width: "100vh", margin: '150px auto' }}>
             <div className={styles.boxName}>
                 <h1 className={styles.takeYoureslf_h1}>Самовивіз</h1>
             </div>

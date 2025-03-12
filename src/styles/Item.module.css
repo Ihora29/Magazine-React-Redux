@@ -307,3 +307,170 @@ h1 {
     outline: none;
     background-color: rgba(102, 102, 216, 0.897);
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .carouselItem {
+        width: 220px;
+        height: 290px;
+
+    }
+
+    .container {
+        width: 96%;
+    }
+
+    .carouselContainer {
+        width: 80%;
+
+    }
+
+    .itemImg {
+        height: 30%;
+    }
+
+    .nameProduct {
+        font-size: 16px;
+        margin: 0 auto 0;
+    }
+
+    .itemOption {
+        margin: 10px 0 10px 15px;
+        width: 30px;
+        font-size: 12px;
+    }
+
+    .itemIcon {
+        width: 350px;
+        height: 250px;
+    }
+
+    .carouselPadding {
+
+        width: 20%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .localItemName {
+        font-size: 26px;
+    }
+
+    .aboutProduct {
+        margin-top: 10px;
+    }
+
+    .orderCount {
+        width: 10%;
+        height: 45px;
+    }
+
+    .weightProduct {
+        font-size: 13px;
+    }
+
+    .btnBuy {
+        width: 18%;
+        height: 38px;
+        font-size: 10px;
+    }
+
+
+
+    .itemProd {
+        font-size: 9px;
+    }
+
+    .prodPrice {
+        font-size: 13px;
+    }
+
+    .orderCount {
+        width: 25%;
+        height: 35px;
+    }
+
+    .btnBuyMini {
+        width: 25%;
+        height: 30px;
+        font-size: 9px;
+        margin-left: 10px;
+    }
+
+    .footItem {
+        justify-content: space-between;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .container {
+        /* width: 100vh;
+        margin: 50px auto; */
+        width: 100vh;
+        display: flex;
+        justify-content: space-around;
+
+        justify-content: center;
+        margin-left: 20px;
+    }
+
+    .itemIcon {
+        margin-top: 95px;
+        width: 220px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .localItemName {
+        font-size: 25px;
+        margin: 0 auto;
+        width: 60%;
+        display: inline-block;
+        text-align: center;
+    }
+
+
+    .itemInfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Carousel {
+        margin: 0 auto;
+        width: 100vh;
+        margin-left: 40px;
+
+    }
+
+    .carouselItem {
+        width: 290px;
+        height: 350px;
+
+        border: 1px solid #b5d8f7;
+        border-radius: 5px;
+        display: flex;
+        color: black;
+        text-decoration: none;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .carouselPadding {
+        padding: 5px;
+        /* Зменште значення */
+        margin: 0;
+        /* Можливо, варто прибрати зовнішні відступи */
+    }
+
+
+
+
+
+
+
+
+
+
+}

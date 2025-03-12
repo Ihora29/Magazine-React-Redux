@@ -95,3 +95,39 @@
     top: 5px;
     right: 5px;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        width: 450px;
+        height: 320px;
+        border: 2px solid #7ab9f0;
+        margin: 0 auto;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 1;
+        background-color: whitesmoke;
+        top: 22%;
+        left: 20%;
+
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .container {
+        width: 450px;
+        height: 320px;
+        border: 2px solid #7ab9f0;
+        margin: 0 auto;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        z-index: 1;
+        background-color: whitesmoke;
+        top: 22%;
+        left: 20%;
+
+    }
+}

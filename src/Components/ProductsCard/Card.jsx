@@ -127,12 +127,12 @@ export default function Card() {
             items: 4
         },
         tablet: {
-            breakpoint: { max: 1024, min: 464 },
+            breakpoint: { max: 1024, min: 768 },
             items: 2
         },
         mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1
+            breakpoint: { max: 768, min: 0 },
+            items: 2
         }
     }
 
@@ -142,10 +142,10 @@ export default function Card() {
             <div className={styles.container}>
                 <img className={styles.itemIcon} src={localItem?.imgSrc} alt='prodName' />
                 <div className={styles.itemInfo}>
-                    <h1>{localItem?.name}</h1>
+                    <h1 className={styles.localItemName}>{localItem?.name}</h1>
                     <span className={styles.itemDetails}>Склад:</span>   <span>{localItem?.details}</span>
                     <div className={styles.detailsContainer}><span className={styles.itemDetails} ><b>Вага:</b> </span>
-                        <span style={{ fontSize: '20px' }}><b>{localItem?.weight}</b></span>
+                        <span style={{ fontSize: '20px' }} className={styles.localItemWeight}><b>{localItem?.weight}</b></span>
                     </div>
                     <div className={styles.footContainer}>
                         <span className={styles.itemPrice}>{localItem?.price} грн.</span>

@@ -23,3 +23,9 @@
 .menuOption:active {
     text-decoration: underline;
 }
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .menuNav {
+        display: none;
+    }
+}

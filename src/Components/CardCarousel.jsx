@@ -16,11 +16,11 @@ function CardCarousel() {
             items: 2
         },
         tablet: {
-            breakpoint: { max: 1024, min: 464 },
+            breakpoint: { max: 1024, min: 768 },
             items: 2
         },
         mobile: {
-            breakpoint: { max: 464, min: 0 },
+            breakpoint: { max: 768, min: 0 },
             items: 1
         }
     };
@@ -28,7 +28,7 @@ function CardCarousel() {
 
     return (<div className={styles.saleContainer}>
 
-        <Carousel className={styles.Carousel} swipeable={true}
+        <Carousel className={styles.karousel} swipeable={true}
             draggable={false}
             showDots={true}
             responsive={responsive}
@@ -43,7 +43,8 @@ function CardCarousel() {
             removeArrowOnDeviceType={["tablet", "mobile", "desktop", "superLargeDesktop"]}
             dotListClass={styles.custom}
 
-            itemClass="carousel-item-padding-40-px">
+            itemClass={styles.itemClass}
+        >
 
             <NavLink to="roll-of-week"><img className={styles.img} aria-hidden='false' src="https://monosushi.com.ua/wp-content/uploads/2022/12/rol-tyzhnya.jpg" alt="" /></NavLink>
 

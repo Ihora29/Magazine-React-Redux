@@ -415,3 +415,92 @@ h5 {
     color: whitesmoke;
     cursor: pointer;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .orderPictire {
+        width: 20%;
+    }
+
+    .orderName {
+        font-size: 19px;
+
+
+        height: 30%;
+        margin-left: 20px;
+    }
+
+    .itemsContainer {
+        width: 65%;
+    }
+
+    .formOrderPromo {
+
+        width: 65%;
+
+    }
+
+    .canHelpContainer {
+
+        left: 20%;
+        position: absolute;
+    }
+
+
+    .MakeOrdertext::after {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .makeOrderContainer {
+        width: 100vh;
+        display: flex;
+        margin-top: 100px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .canHelpContainer {
+
+        left: 20%;
+        position: absolute;
+    }
+
+    .MakeOrdertext {
+        margin-left: 20px;
+        width: 100%;
+    }
+
+    .MakeOrdertext::after {
+        display: none;
+    }
+
+    .itemsContainer {
+        width: 80%;
+        min-height: 0px;
+        margin: 40px auto;
+
+    }
+
+    .orderPictire {
+        width: 25%;
+        height: 90px;
+        object-fit: contain;
+        margin-top: 5px;
+    }
+
+    .orderName {
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .formOrderPromo {
+        width: 85%;
+    }
+
+
+}

@@ -16,10 +16,10 @@ function Footer() {
 
             <div className={styles.lastFoot}>
                 <div className={styles.footAboutUs}>
-                    <a href="#"> <img src="https://monosushi.com.ua/wp-content/uploads/2021/06/logo.svg" alt="" /></a>
-                    <NavLink to="actions" href="#">Акції</NavLink >
-                    <NavLink to="about-us">Про нас</NavLink>
-                    <NavLink to="oferta">Оферта</NavLink>
+                    <img className={styles.footIcon} src="https://monosushi.com.ua/wp-content/uploads/2021/06/logo.svg" alt="" />
+                    <NavLink className={styles.footerLink} to="actions" href="#">Акції</NavLink >
+                    <NavLink className={styles.footerLink} to="about-us">Про нас</NavLink>
+                    <NavLink className={styles.footerLink} to="oferta">Оферта</NavLink>
                     <p className={styles.footDelivery}><b>Точки самовивозу</b>
                         <br />
                         вул. Володимира Великого, 10в
@@ -28,7 +28,7 @@ function Footer() {
                     <p className={styles.footOrder}>Оформити замовлення
                         <br />
                         +380978780837</p>
-                    <p className={styles.footWorkTime}>Працюємо з 11:00-23:00</p>
+                    <p className={styles.footWorkTime}><b>Працюємо з 11:00-23:00</b></p>
                 </div>
                 <div className={styles.siteFoot}>
 
