@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.73176315.css",
-    "main.js": "/static/js/main.f2f8d80d.js",
-    "static/js/488.feefe78b.chunk.js": "/static/js/488.feefe78b.chunk.js",
-    "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
-    "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
-    "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
-    "static/media/shop-svgrepo-com.svg": "/static/media/shop-svgrepo-com.5a198ae26f1424317b1f5332a8935c45.svg",
-    "static/media/close-ellipse-svgrepo-com.svg": "/static/media/close-ellipse-svgrepo-com.99cefdd21ec3442f5b58cdfd5e9c3495.svg",
-    "index.html": "/index.html",
-    "static/media/reshot-icon-trash-2ZNJ9PUBQL.svg": "/static/media/reshot-icon-trash-2ZNJ9PUBQL.1be1d0213d6a61a1326dd91ce8fcc926.svg",
-    "static/media/reshot-icon-down-2GNMF7CK9P.svg": "/static/media/reshot-icon-down-2GNMF7CK9P.8a6b4fceadc249e7b83b7802e255dfa5.svg",
-    "static/media/reshot-icon-up-MB34E6VNCW.svg": "/static/media/reshot-icon-up-MB34E6VNCW.db814fa276e8bf18945957c643742392.svg",
-    "main.73176315.css.map": "/static/css/main.73176315.css.map",
-    "main.f2f8d80d.js.map": "/static/js/main.f2f8d80d.js.map",
-    "488.feefe78b.chunk.js.map": "/static/js/488.feefe78b.chunk.js.map"
+    "main.css": "/Magazine-React-Redux/static/css/main.bf9a209a.css",
+    "main.js": "/Magazine-React-Redux/static/js/main.06296bd3.js",
+    "static/js/488.feefe78b.chunk.js": "/Magazine-React-Redux/static/js/488.feefe78b.chunk.js",
+    "static/media/revicons.eot": "/Magazine-React-Redux/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/Magazine-React-Redux/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/Magazine-React-Redux/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/shop-svgrepo-com.svg": "/Magazine-React-Redux/static/media/shop-svgrepo-com.5a198ae26f1424317b1f5332a8935c45.svg",
+    "static/media/close-ellipse-svgrepo-com.svg": "/Magazine-React-Redux/static/media/close-ellipse-svgrepo-com.99cefdd21ec3442f5b58cdfd5e9c3495.svg",
+    "index.html": "/Magazine-React-Redux/index.html",
+    "static/media/reshot-icon-trash-2ZNJ9PUBQL.svg": "/Magazine-React-Redux/static/media/reshot-icon-trash-2ZNJ9PUBQL.1be1d0213d6a61a1326dd91ce8fcc926.svg",
+    "static/media/reshot-icon-down-2GNMF7CK9P.svg": "/Magazine-React-Redux/static/media/reshot-icon-down-2GNMF7CK9P.8a6b4fceadc249e7b83b7802e255dfa5.svg",
+    "static/media/reshot-icon-up-MB34E6VNCW.svg": "/Magazine-React-Redux/static/media/reshot-icon-up-MB34E6VNCW.db814fa276e8bf18945957c643742392.svg",
+    "main.bf9a209a.css.map": "/Magazine-React-Redux/static/css/main.bf9a209a.css.map",
+    "main.06296bd3.js.map": "/Magazine-React-Redux/static/js/main.06296bd3.js.map",
+    "488.feefe78b.chunk.js.map": "/Magazine-React-Redux/static/js/488.feefe78b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73176315.css",
-    "static/js/main.f2f8d80d.js"
+    "static/css/main.bf9a209a.css",
+    "static/js/main.06296bd3.js"
   ]
 }
