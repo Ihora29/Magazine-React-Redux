@@ -5,10 +5,12 @@ import img from "../../images/close-ellipse-svgrepo-com.svg"
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from "../redux/authSlice";
+import api from "../../api";
 
 function EnterComp({ onClose }) {
-
+    const dispatch = useDispatch();
     const [showLogin, setShowLogin] = useState(false);
     const [showEnter, setShowEnter] = useState(true);
     const [showErrorAuth, setShowErrorAuth] = useState(false)
@@ -34,7 +36,8 @@ function EnterComp({ onClose }) {
 
     const navigate = useNavigate();
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
+
         if (usersData) {
             const user = usersData.find(user => user.email === data.email && user.password === data.password);
             if (user) {
@@ -42,14 +45,35 @@ function EnterComp({ onClose }) {
                 navigate('/');
                 onClose();
             }
-
-            setShowErrorAuth(true)
-
-
+            setShowErrorAuth(true);
         }
 
+        // try {
+        //     // Відправляємо запит на сервер для отримання токена
+        //     const response = await api.post('/login', {
+        //         email: data.email,
+        //         password: data.password,
+        //     });
 
-    }
+        //     if (response.data?.token) {
+        //         const { token, user: userData } = response.data;
+        //         console.log(response.data);
+
+        //         localStorage.setItem("token", token);
+        //         navigate(`user-cabinet/${userData.id}`, { state: { user: userData } });
+        //         console.log("Логін успішний", response.data);
+        //         navigate('/');
+        //         onClose();
+        //     }
+        // } catch (error) {
+        //     console.log(error)
+        //     setShowErrorAuth(true);
+        // }
+    };
+
+
+
+
 
     return (
         <>

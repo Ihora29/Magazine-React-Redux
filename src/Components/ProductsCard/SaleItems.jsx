@@ -201,7 +201,7 @@ export const SaleItems = () => {
             <p>{errors.price?.message}</p>
           </div>
           <br />
-          <div className={styles.sectionAdding}>
+          <div className={styles.sectionofItem}>
             <span style={{ marginLeft: '30px' }} ><b>weight of Item:</b></span> <input style={{ marginLeft: '30px', width: '20%' }}
               {...register('weight', {
                 pattern: {
@@ -213,7 +213,7 @@ export const SaleItems = () => {
             <p>{errors.weight?.message}</p>
           </div>
 
-          <div className={styles.sectionAdding}>
+          <div className={styles.sectionDescr}>
             <span><b>descrition Item:</b></span> <input {...register('descrItem')} style={{ width: '80%', height: '60px', marginLeft: '30px' }} required type="text" />
           </div>
 

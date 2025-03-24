@@ -11,16 +11,15 @@ import { Backdrop } from '@mui/material'
 import styles from "../styles/ErrorPage.module.css";
 import closeImg from "../images/close-ellipse-svgrepo-com.svg";
 
+// import { useDispatch, useSelector } from "react-redux";
+// import { loginUser } from "./authSlice";
+
 function MainPage() {
 
     const [loadingProgress, setLoadingProgress] = useState(false);
 
-    //const [isUserAuth, setIsUserAuth] = useState(false);
     const location = useLocation();
     const { state } = location || {};
-
-
-
 
     const handleClosePopUp = (e) => {
         if (e) {
@@ -29,10 +28,12 @@ function MainPage() {
         }
         setShowWorkPopUp(false);
 
-        //    console.log('Clock work');
     }
 
     const [showWorkPopUp, setShowWorkPopUp] = useState(false);
+
+
+
     useEffect(() => {
 
         const checkWorkTime = () => {

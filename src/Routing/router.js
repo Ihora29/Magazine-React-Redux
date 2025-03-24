@@ -11,7 +11,7 @@ import ErrorPage from "../Components/ErrorPage";
 import Card from "../Components/ProductsCard/Card";
 import MainPage from "../Components/MainPage";
 import { ZoneDelivery } from "../Components/delivery/ZoneDilivery";
-import Actions from "../Components/Actions&Sale/Actions";
+import Actions from "../../src/Components/Actions&Sale/Actions"
 import { HBAction } from "../Components/Actions&Sale/HBAction";
 import { ActionItemOfWeek } from "../Components/Actions&Sale/ActionItemOfWeek";
 import { Action3in5 } from "../Components/Actions&Sale/Action3in5";

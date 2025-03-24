@@ -139,31 +139,34 @@ export default function Card() {
 
     return (
         <>
-            <div className={styles.container}>
-                <img className={styles.itemIcon} src={localItem?.imgSrc} alt='prodName' />
-                <div className={styles.itemInfo}>
-                    <h1 className={styles.localItemName}>{localItem?.name}</h1>
-                    <span className={styles.itemDetails}>Склад:</span>   <span>{localItem?.details}</span>
-                    <div className={styles.detailsContainer}><span className={styles.itemDetails} ><b>Вага:</b> </span>
-                        <span style={{ fontSize: '20px' }} className={styles.localItemWeight}><b>{localItem?.weight}</b></span>
-                    </div>
-                    <div className={styles.footContainer}>
-                        <span className={styles.itemPrice}>{localItem?.price} грн.</span>
-                        <div className={styles.orderCount}>
-                            <button className={styles.btnOrder}
-                                onClick={() => localDecrese()}
-                            >-</button>
-                            <span className={styles.count}>{localItem?.totalCount}</span>
-                            <button className={styles.btnOrder}
-                                onClick={() => localIncrese()}
-                            >+</button>
+            <div className={styles.mainContainer}>
+                <div className={styles.container}>
+                    <img className={styles.itemIcon} src={localItem?.imgSrc} alt='prodName' />
+                    <div className={styles.itemInfo}>
+                        <h1 className={styles.localItemName}>{localItem?.name}</h1>
+                        <span className={styles.itemDetails}>Склад:</span>   <span>{localItem?.details}</span>
+                        <div className={styles.detailsContainer}><span className={styles.itemDetails} ><b>Вага:</b> </span>
+                            <span style={{ fontSize: '20px' }} className={styles.localItemWeight}><b>{localItem?.weight}</b></span>
                         </div>
-                        <button className={styles.btnBuy}
-                            onClick={(e) => handleAddBasket(e, localItem)}
-                        >ЗАМОВИТИ</button>
+                        <div className={styles.footContainer}>
+                            <span className={styles.itemPrice}>{localItem?.price} грн.</span>
+                            <div className={styles.orderCount}>
+                                <button className={styles.btnOrder}
+                                    onClick={() => localDecrese()}
+                                >-</button>
+                                <span className={styles.count}>{localItem?.totalCount}</span>
+                                <button className={styles.btnOrder}
+                                    onClick={() => localIncrese()}
+                                >+</button>
+                            </div>
+                            <button className={styles.btnBuy}
+                                onClick={(e) => handleAddBasket(e, localItem)}
+                            >ЗАМОВИТИ</button>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <h1 className={styles.textAlso}>Спробуйте також</h1>
             <Carousel className={styles.Carousel} swipeable={true}
                 draggable={false}

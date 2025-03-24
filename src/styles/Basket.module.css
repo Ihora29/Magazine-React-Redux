@@ -325,7 +325,10 @@
     .basketContainer {
         top: 70px;
         width: 50%;
+
     }
+
+
 
     .orderImg {
         width: 65px;
@@ -371,5 +374,10 @@
         margin: 10px auto 10px;
     }
 
+    .itemsCount {
+        /* border: 2px solid ; */
+        max-height: 150px;
+        overflow-y: auto;
+    }
 
 }

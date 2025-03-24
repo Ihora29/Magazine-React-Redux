@@ -208,7 +208,7 @@ export default function Basket() {
         })
         }
       </Carousel>
-      <div className={styles.bottomBasketContainer}>
+      <div className={styles.bottomBasketContainer} style={basketItemCount.length == 0 ? { display: 'none' } : { display: 'flex' }}>
         <span className={styles.total}><b>{totalSum}</b> грн.</span>
         <Link className={styles.makeOrderBtn} state={basketItemCount} to='create-order' >Оформити замовлення</Link>
       </div>
