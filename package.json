@@ -1,5 +1,6 @@
 {
   "name": "my-app",
+  "homepage": "https://your-username.github.io/Magazine-React-Redux",
   "version": "1.0.0",
   "description": "React SPA з локальним API",
   "main": "index.js",
@@ -9,7 +10,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 3001"
+    "server": "json-server --watch db.json --port 3001",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -37,6 +40,7 @@
   "devDependencies": {
     "@testing-library/user-event": "^14.6.1",
     "fork-ts-checker-webpack-plugin": "^6.5.3",
+    "gh-pages": "^6.3.0",
     "json-server": "^1.0.0-beta.3"
   },
   "eslintConfig": {
