@@ -135,3 +135,47 @@ h5 {
 #arrUp {
     display: none;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .secondImgCont {
+        width: 43%;
+        object-fit: contain;
+        margin-top: 20px;
+    }
+
+    .descrContainer {
+        width: 60%;
+    }
+
+    .descrpText {
+        font-size: 16px;
+    }
+
+    .ourPrefer {
+        font-size: 19px;
+    }
+
+    .thirdContainerText {
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .mainAboutCont {
+        width: 100vh;
+    }
+
+    .mainNamepage::after {
+        display: none;
+    }
+
+    .descrContainer {
+        width: 85%;
+    }
+
+
+
+
+}

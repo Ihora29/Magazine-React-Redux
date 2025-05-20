@@ -4,11 +4,20 @@
     box-sizing: border-box;
 }
 
+.mainContainer {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
 .container {
     display: flex;
-    justify-content: space-between;
-    width: 1000px;
-    margin: 30px auto;
+    justify-content: space-around;
+    width: 80%;
+
+    margin: 50px auto;
 }
 
 .itemIcon {
@@ -110,6 +119,7 @@ h1 {
     border: 1px solid #b5d8f7;
     border-radius: 5px;
     display: flex;
+    color: black;
     text-decoration: none;
     flex-direction: column;
     position: relative;
@@ -146,27 +156,27 @@ h1 {
     color: white;
     border-radius: 5px;
     padding: 0 auto;
-    margin: 10px 0 0 5px;
+    margin: 10px 0 0 15px;
     text-align: center;
 }
 
 .aboutProduct {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 25px;
 }
 
 .itemProd {
 
     width: 60%;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
 }
 
 .weightProduct {
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: none;
     /* color: black */
 }
@@ -180,8 +190,9 @@ h1 {
 }
 
 .prodPrice {
-    margin: 15px 0 0 10px;
+    margin: 15px 0 0 20px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .orderCount {
@@ -211,15 +222,16 @@ h1 {
 
 .drinksContainer {
     display: flex;
-    width: 43%;
+    width: 60%;
     margin: 15px auto;
-    padding: 0 60px;
-    justify-content: space-between;
+
+    padding: 0 40px;
+    justify-content: space-around;
 
 }
 
 .drink_Item {
-    width: 290px;
+    width: 40%;
     height: 365px;
     border: 1px solid #b5d8f7;
     border-radius: 5px;
@@ -304,4 +316,212 @@ h1 {
 .custom li button:focus {
     outline: none;
     background-color: rgba(102, 102, 216, 0.897);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .carouselItem {
+        width: 220px;
+        height: 290px;
+
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 80%;
+
+    }
+
+    .carouselContainer {
+        width: 80%;
+
+    }
+
+    .itemImg {
+        height: 30%;
+    }
+
+    .nameProduct {
+        font-size: 16px;
+        margin: 0 auto 0;
+    }
+
+    .itemOption {
+        margin: 10px 0 10px 15px;
+        width: 30px;
+        font-size: 12px;
+    }
+
+    .itemIcon {
+        width: 350px;
+        height: 250px;
+    }
+
+    .carouselPadding {
+
+        width: 20%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .localItemName {
+        font-size: 26px;
+    }
+
+    .aboutProduct {
+        margin-top: 10px;
+    }
+
+    .orderCount {
+        width: 10%;
+        height: 45px;
+    }
+
+    .weightProduct {
+        font-size: 13px;
+    }
+
+    .btnBuy {
+        width: 25%;
+        height: 38px;
+        font-size: 10px;
+    }
+
+
+
+    .itemProd {
+        font-size: 9px;
+    }
+
+    .prodPrice {
+        font-size: 13px;
+    }
+
+    .orderCount {
+        width: 25%;
+        height: 35px;
+    }
+
+    .btnBuyMini {
+        width: 25%;
+        height: 30px;
+        font-size: 9px;
+        margin-left: 10px;
+    }
+
+    .footItem {
+        justify-content: space-between;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+
+
+    .mainContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+
+    .container {
+        /* width: 100vh;
+        margin: 50px auto; */
+        width: 80%;
+
+
+
+    }
+
+    .itemIcon {
+        margin-top: 95px;
+        width: 220px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .localItemName {
+        font-size: 25px;
+        margin: 0 auto;
+        width: 60%;
+        display: inline-block;
+        text-align: center;
+    }
+
+
+    .itemInfo {
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+
+    .Carousel {
+        margin: 0 auto;
+        width: 100vh;
+        margin-left: 40px;
+
+    }
+
+    .carouselItem {
+        width: 290px;
+        height: 350px;
+
+        border: 1px solid #b5d8f7;
+        border-radius: 5px;
+        display: flex;
+        color: black;
+        text-decoration: none;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .carouselContainer {
+        width: 100%;
+
+        margin: 0 auto;
+    }
+
+    .drinksContainer {
+        display: flex;
+        width: 90%;
+        margin: 15px auto;
+
+
+        justify-content: center;
+
+    }
+
+
+    .drink_Item {
+        width: 90%;
+        margin-left: 10px;
+    }
+
+    .orderDrink {
+        width: 80px;
+        height: 30px;
+        border: 2px solid rgb(196, 195, 195);
+        margin-top: 7px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 7px;
+    }
+
+    .btnBuyDrink {
+        width: 50px;
+        height: 30px;
+        font-size: 8px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
+        text-decoration: #7ab9f0;
+        margin-right: 5px;
+        margin-top: 5px;
+        background-color: #b5d8f7;
+    }
+
 }

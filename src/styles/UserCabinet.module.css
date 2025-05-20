@@ -64,7 +64,7 @@
 
 .adressContainer {
     width: 50%;
-    margin: 0 auto 100px;
+    margin: 0 auto 0px;
 
 }
 
@@ -97,19 +97,16 @@
 }
 
 .saveButtonsGroup {
-    width: 90%;
+    width: 100%;
 
     margin: 50px auto;
     display: flex;
-    justify-content: space-between;
-}
-
-.saveButtonsGroup {
-    margin: 140px auto 20px;
+    margin: 40px auto 100px;
+    justify-content: space-around;
 }
 
 .buttonsParamsStyle {
-    width: 34%;
+    width: 220px;
     height: 55px;
     background-color: #b5d8f7;
     border: none;
@@ -132,11 +129,14 @@
     margin: 0 auto;
     border: 2px solid grey;
     border-radius: 7px;
+    padding-top: 15px;
 }
 
 .adressListBlock li {
     list-style: none;
-    height: 29px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
 }
 
 .mainContainerPass {
@@ -171,4 +171,128 @@
 
 .changeNameBlock {
     margin-top: 150px;
+}
+
+.closeImg {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.cabinetPopUp {
+    width: 400px;
+    height: 120px;
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+
+}
+
+.popUpText {
+    color: black;
+    position: absolute;
+    top: 50px;
+    left: 35%;
+}
+
+.inputAdres {
+    height: 45px;
+    width: 90%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .buttonsParamsStyle {
+        width: 40%;
+
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .changeNameBlock,
+    .mainContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        /* border: 1px solid black; */
+        margin: 120px auto 0;
+    }
+
+
+
+    .inputNameParams {
+        width: 40%;
+    }
+
+    .nameUserContainer {
+        width: 99%;
+        display: flex;
+        /* border: 1px solid black; */
+        margin: 10px auto 0;
+    }
+
+    .inputAdres {
+        height: 35px;
+        width: 90%;
+    }
+
+    .adressListBlock {
+        width: 80%;
+        margin: 0 auto;
+        height: 20%;
+        border: 2px solid grey;
+        border-radius: 7px;
+        padding-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .saveButtonsGroup {
+        width: 100%;
+
+        margin: 50px auto;
+        display: flex;
+        margin: 40px auto 100px;
+        justify-content: space-between;
+    }
+
+    .buttonsParamsStyle {
+        width: 45%;
+        height: 55px;
+
+        background-color: #b5d8f7;
+        border: none;
+        border-radius: 7px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .linkInCabinet {
+        text-decoration: none;
+        font-size: 14px;
+        color: #6aa2d3;
+        font-weight: bold;
+    }
+
+    .navList {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+
+
+
+
 }

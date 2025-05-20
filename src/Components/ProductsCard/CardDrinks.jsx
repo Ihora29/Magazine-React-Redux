@@ -2,40 +2,79 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/Card.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/getProductsSlice";
-import { useCounts } from "../../logicFiles/useCounts";
+
 import { AboutDrinks } from "../Footer/AboutDrinks";
 import { NavLink } from "react-router-dom";
-
+import { addToBasket } from "../redux/basketSlice";
 
 function CardDrinks() {
+
     const productsData = useSelector((state) => state.products.products);
     const drinks = productsData[2];
-
-    const { counts, increment, decrement, setCounts } = useCounts();
-
-
-    useEffect(() => {
-        if (drinks) {
-            const initialCounts = drinks.map((item) => ({
-                id: item.id,
-                totalCount: 1,
-            }));
-            setCounts(initialCounts);
-        }
-    }, [drinks, setCounts]);
 
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchProducts());
     }, [dispatch]);
 
+    const [drinksProd, setDrinksProd] = useState([])
+
+    useEffect(() => {
+        if (drinks) {
+
+            setDrinksProd(drinks);
+        }
+    }, [drinks]);
+
+    const handleAddBasket = (e, item) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        dispatch(addToBasket(item))
+    };
+
+    const handleIncrese = (e, item_id) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setDrinksProd(
+            drinksProd.map(item => {
+                if (item_id === item.id) {
+                    return { ...item, totalCount: item.totalCount + 1 }
+                }
+                else {
+                    return item
+                }
+            })
+        )
+    }
+
+    const handleDecrese = (e, item_id) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setDrinksProd(
+            drinksProd.map(item => {
+                if (item_id === item.id) {
+                    return { ...item, totalCount: item.totalCount - (item.totalCount > 1 ? 1 : 0) }
+                }
+                else {
+                    return item
+                }
+            })
+        )
+    }
+
     return (
         <>
             <h1 className={styles.nameCard}>Напої</h1>
             <div className={styles.card}>
                 {productsData && productsData.length > 0 ? (
-                    drinks.map((item) => {
-                        const currentItem = counts.find((count) => count.id === item.id) || { totalCount: 0 };
+                    drinksProd.map((item) => {
+
                         return (
                             <NavLink to={`/product/${item.id}`} key={item.id} className={styles.productItem}>
                                 <img src={item.imgSrc} className={styles.itemIcon} alt="" />
@@ -47,17 +86,19 @@ function CardDrinks() {
                                 </div>
 
                                 <div className={styles.footItem}>
-                                    <span className={styles.prodPrice}>{item.price * currentItem.totalCount} грн.</span>
+                                    <span className={styles.prodPrice}>{item.price * item.totalCount} грн.</span>
                                     <div className={styles.orderCount}>
                                         <button className={styles.btnOrder}
-                                            onClick={(e) => decrement(item.id, e)}
+                                            onClick={(e) => handleDecrese(e, item.id)}
                                         >-</button>
-                                        <span className={styles.count}>{currentItem.totalCount}</span>
+                                        <span className={styles.count}>{item.totalCount}</span>
                                         <button className={styles.btnOrder}
-                                            onClick={(e) => increment(item.id, e)}
+                                            onClick={(e) => handleIncrese(e, item.id)}
                                         >+</button>
                                     </div>
-                                    <button className={styles.btnBuy}>ЗАМОВИТИ</button>
+                                    <button className={styles.btnBuy}
+                                        onClick={(e) => handleAddBasket(e, item)}
+                                    >ЗАМОВИТИ</button>
                                 </div>
                             </NavLink>
                         );

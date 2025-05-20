@@ -13,24 +13,13 @@ export const UserCabinet = () => {
     const location = useLocation();
     const { state } = location || {};
 
-    const [usersList, setUsersList] = useState([]);
-    const [userEdit, setUserEdit] = useState(state);
+    //const [usersList, setUsersList] = useState([]);
+    // const [userEdit, setUserEdit] = useState(state);
 
-    useEffect(() => {
-        // axios.get('http://localhost:3001/users-login')
-        //     .then(response => {
-
-        //         setUsersList(response.data);
-        //     });
+    // useEffect(() => {
 
 
-        // if (usersList && usersList.length > 0) {
-        //     usersList.find((user) => user.email === state.email && user.phone === state.phone ? setUserEdit(state) : null)
-        // }
-        // setUserEdit(state)
-        console.log('render Cabinet');
-        // console.log(state);
-    }, []);
+    // }, []);
 
     return (
         <>
@@ -46,7 +35,9 @@ export const UserCabinet = () => {
 
                 <div className={styles.userDataContainer}>
 
-                    <Outlet context={{ userEdit, setUserEdit }} />
+                    <Outlet
+                    // context={{ userEdit, setUserEdit }}
+                    />
                 </div>
 
             </div>

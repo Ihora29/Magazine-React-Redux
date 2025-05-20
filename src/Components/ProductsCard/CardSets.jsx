@@ -2,26 +2,17 @@ import React, { useEffect, useState } from "react";
 import styles from "../../styles/Card.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/getProductsSlice";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
+
 import { AboutSets } from "../Footer/AboutSets";
-import { useCounts } from "../../logicFiles/useCounts";
+
 import { NavLink } from "react-router-dom";
+import { addToBasket } from "../redux/basketSlice";
+
+
 function CardSets() {
 
-    const productsData = useSelector((state) => state.products.products); //
+    const productsData = useSelector((state) => state.products.products);
     const sets = productsData[1];
-
-    const { counts, increment, decrement, setCounts, cartItems, setCartItems, addToCart } = useCounts();
-
-    useEffect(() => {
-        if (sets) {
-            const initialCounts = sets.map((item) => ({
-                id: item.id,
-                totalCount: 1,
-            }));
-            setCounts(initialCounts);
-        }
-    }, [sets]);
 
     const dispatch = useDispatch();
 
@@ -29,14 +20,65 @@ function CardSets() {
         dispatch(fetchProducts());
     }, [dispatch]);
 
+    const [prodSets, setProdSets] = useState([]);
+
+    useEffect(() => {
+        if (sets) {
+            setProdSets(sets);
+        }
+    }, [sets]);
+
+    const handleAddBasket = (e, item) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        dispatch(addToBasket(item))
+    };
+
+    const handleIncrese = (e, item_id) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setProdSets(
+            prodSets.map(item => {
+                if (item_id === item.id) {
+                    return { ...item, totalCount: item.totalCount + 1 }
+                }
+                else {
+                    return item
+                }
+            })
+        )
+    };
+
+    const handleDecrese = (e, item_id) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setProdSets(
+            prodSets.map(item => {
+                if (item_id === item.id) {
+                    return { ...item, totalCount: item.totalCount - (item.totalCount > 1 ? 1 : 0) }
+                }
+                else {
+                    return item
+                }
+            })
+        )
+    }
+
+
     return (
         <>
             <h1 className={styles.nameCard}>Сети</h1>
 
             <div className={styles.card}>
                 {productsData && productsData.length > 0 ? (
-                    sets.map((item) => {
-                        const currentItem = counts.find((count) => count.id === item.id) || { totalCount: 0 };
+                    prodSets.map((item) => {
+
                         return (
                             <NavLink to={`/product/${item.id}`} key={item.id} className={styles.productItem}>
                                 <img src={item.imgSrc} className={styles.itemIcon} alt="" />
@@ -48,18 +90,18 @@ function CardSets() {
                                 </div>
 
                                 <div className={styles.footItem}>
-                                    <span className={styles.prodPrice}>{item.price * currentItem.totalCount} грн.</span>
+                                    <span className={styles.prodPrice}>{item.price * item.totalCount} грн.</span>
                                     <div className={styles.orderCount}>
                                         <button className={styles.btnOrder}
-                                            onClick={(e) => decrement(item.id, e)}
+                                            onClick={(e) => handleDecrese(e, item.id)}
                                         >-</button>
-                                        <span className={styles.count}>{currentItem.totalCount}</span>
+                                        <span className={styles.count}>{item.totalCount}</span>
                                         <button className={styles.btnOrder}
-                                            onClick={(e) => increment(item.id, e)}
+                                            onClick={(e) => handleIncrese(e, item.id)}
                                         >+</button>
                                     </div>
                                     <button
-                                        onClick={(e) => addToCart(item, currentItem.totalCount, e)}
+                                        onClick={(e) => handleAddBasket(e, item)}
                                         className={styles.btnBuy}>ЗАМОВИТИ</button>
                                 </div>
                             </NavLink>

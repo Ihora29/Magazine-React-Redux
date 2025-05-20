@@ -6,17 +6,25 @@
 
 .basketContainer {
     width: 40%;
-    min-height: 300px;
+
+    max-height: 100vh;
     border: 1px solid rgb(150, 150, 150);
     background-color: aliceblue;
     position: fixed;
     top: 100px;
     z-index: 10;
+
     right: 0;
 }
 
-.orderItem {
+.itemsCount {
+    /* border: 2px solid ; */
+    max-height: 200px;
+    overflow-y: auto;
+}
 
+.orderItem {
+    position: relative;
     width: 100%;
     height: 80px;
     border-bottom: 1px solid rgb(150, 150, 150);
@@ -36,13 +44,14 @@
 }
 
 .emptyBasketBtn {
-    width: 150px;
-    height: 55px;
+    width: 120px;
+    height: 41px;
     color: white;
-    font-size: 14px;
+    font-size: 13px;
+    text-align: center;
     border-radius: 5px;
     text-decoration: none;
-    padding-top: 15px;
+
     font-weight: bold;
     background-color: #60a8e7;
     display: block;
@@ -110,15 +119,28 @@
     font-weight: bold;
     border-radius: 5px;
     border: none;
-    margin: 7px 0 5px 100px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
     background-color: #b5d8f7;
-    height: 40px;
+    height: 50px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+
     width: 170px;
 
 }
 
-.emptyBasketPic {
+.bottomBasketContainer {
+    width: 55%;
+    display: flex;
+    height: 100%;
+    margin-left: 20px;
+}
 
+.emptyBasketPic {
+    width: 80px;
+    height: 60px;
     display: block;
     position: relative;
     margin: 20px auto;
@@ -127,6 +149,7 @@
 .emptyBasketText {
     color: black;
     text-align: center;
+    font-size: 22px;
 }
 
 .makeOrderBtn:hover {
@@ -136,12 +159,15 @@
 
 .total {
     color: black;
+    margin-left: 20px;
+    font-size: 22px;
 }
 
 .carouselDrinks {
-    width: 160px;
-    height: 190px;
+    width: 90%;
+    height: 200px;
     color: black;
+
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -172,34 +198,186 @@
 
 .prodPrice {
     width: 50%;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
+    margin-left: 10px;
 }
 
 .weightProduct {
     width: 50%;
     font-size: 12px;
     display: flex;
-    justify-content: start;
+    margin-left: 20px;
 }
 
 .footItem {
     margin-top: 10px;
+    width: 100%;
     display: flex;
+    justify-content: space-around;
 }
 
 .btnBuyMini {
-    width: 70px;
-    height: 35px;
-    font-size: 10px;
+    width: 60px;
+    height: 25px;
+    font-size: 8px;
     border-radius: 5px;
     border: none;
+
     font-weight: bold;
     background-color: #b5d8f7;
     color: black;
+    margin-right: 5px;
+}
+
+.trashPic {
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    right: 130px;
+}
+
+.trashPic {
+    cursor: pointer;
+    fill: #60a8e7;
 }
 
 .btnBuyMini:hover {
     cursor: pointer;
     color: whitesmoke;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .basketContainer {
+        top: 90px;
+        width: 50%;
+    }
+
+    .drinkImg {
+        width: 70px;
+        height: 50px;
+    }
+
+    .carouselDrinks {
+        width: 130px;
+        height: 150px;
+        margin-bottom: 20px;
+    }
+
+    .carouselPadding {
+        /* border: 1px solid black;
+        width: 15%; */
+        display: flex;
+        justify-content: center;
+    }
+
+    .prodPrice {
+        width: 50%;
+        font-size: 12px;
+        display: inline-block;
+
+    }
+
+    .trashPic {
+        width: 35px;
+        height: 25px;
+        right: 105px;
+
+    }
+
+    .btnBuyMini {
+        width: 50px;
+        height: 17px;
+        font-size: 6px;
+    }
+
+    .orderCount {
+        width: 40px;
+        height: 25px;
+
+    }
+
+    .itemsPrice {
+        font-size: 13px;
+        margin-right: 5px;
+    }
+
+    .changeContainer {
+
+        width: 26%;
+        margin: 0;
+    }
+
+    .orderName {
+        font-size: 12px;
+        margin-right: 15px;
+    }
+
+    .orderImg {
+        width: 75px;
+
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .basketContainer {
+        top: 70px;
+        width: 50%;
+
+    }
+
+
+
+    .orderImg {
+        width: 65px;
+
+    }
+
+    .orderName {
+        font-size: 10px;
+        margin-left: 10px;
+        width: 50%;
+    }
+
+    .trashPic {
+        width: 25px;
+        height: 20px;
+        right: 90px;
+
+    }
+
+    .itemsPrice {
+        font-size: 10px;
+
+    }
+
+    .orderCount {
+        width: 50%;
+        height: 25px;
+        margin-left: 20px;
+    }
+
+    .carouselContainer {
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+
+
+    }
+
+    .carouselDrinks {
+        margin: 10px auto 10px;
+    }
+
+    .itemsCount {
+        /* border: 2px solid ; */
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
 }

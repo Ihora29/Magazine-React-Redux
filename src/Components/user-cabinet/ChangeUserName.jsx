@@ -1,67 +1,127 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { NavLink, useLocation, Outlet } from "react-router-dom";
+import React, { useEffect, useState, useContext, useRef } from 'react'
+import { NavLink, useLocation, Outlet, useParams } from "react-router-dom";
 import styles from "../../styles/UserCabinet.module.css"
-import { useMask } from '@react-input/mask';
+import { InputMask, useMask } from '@react-input/mask';
 import { useForm } from "react-hook-form";
-import { useOutletContext } from 'react-router-dom';
 import axios from 'axios';
-
-
-
+import { userData } from './UserCabinet';
+import Backdrop from '@mui/material/Backdrop';
+import { useNavigate } from 'react-router-dom';
+import img from "../../images/close-ellipse-svgrepo-com.svg"
 export const ChangeUserName = () => {
 
     const location = useLocation();
     const { state } = location || {};
-    // const { userEdit, setUserEdit, } = useState({});
-    const [usersList, setUsersList] = useState([]);
-    // const [userEdit, setUserEdit] = useState({});
-    useEffect(() => {
-        //setUserEdit(state)
-        // axios.get('http://localhost:3001/users-login')
-        //     .then(response => {
 
-        //         setUsersList(response.data);
-        //     });
-
-
-        // if (usersList && usersList.length > 0 && state) {
-        //     usersList.find((user) => user.email === state.email && user.phone === state.phone ? setUserEdit(state) : null)
-        // }
-        console.log('render UserName');
-        console.log(state);
-
-        //   console.log(userEdit);
-    }, []);
-
-    const inputRef = useMask({
-        mask: '+38 (0__) ___ __ __',
-        showMask: false,
-        replacement: { _: /\d/ },
+    const { id } = useParams();
+    const [userEdit, setUserEdit] = useState({
+        id: id,
+        firstName: '',
+        secondName: '',
+        email: '',
+        phone: '',
+        password: ''
     });
 
-    const handleMusk = () => {
-        inputRef.showMask = true;
+    const [userAdres, setUserAdres] = useState(['']);
+    // const [adresName, setAdresName] = useState('');
+
+    const adresInputRef = useRef(null);
+
+    const handleAddAdrs = (e) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        if (userAdres.length >= 4) return;
+        if (adresInputRef.current.value != '') {
+            setUserAdres([...userAdres, ''])
+        }
+
+        console.log('work', adresInputRef.current.value);
+
+        //console.log();
+
+
+
     }
 
-    const { register,
-        handleSubmit, formState: { errors } } = useForm();
+
+    useEffect(() => {
+
+        axios.get('http://localhost:3001/users-login?id=' + id)
+            .then(response => {
+                //console.log(response.data[0]);
+                const dataValue = response.data[0];
+                setUserEdit({ ...userEdit, firstName: dataValue.firstName, secondName: dataValue.secondName, email: dataValue.email, phone: dataValue.phone, password: dataValue.passwordAgain });
+                //  console.log(dataValue.password);
+            })
+            .catch(errors => console.log(errors)
+            )
 
 
-    //  console.log(userEdit);
+    }, []);
+
+
+
+    const { register, reset, watch,
+        handleSubmit, formState: { errors } } = useForm(
+            {
+                defaultValues: {
+                    firstName: userEdit?.firstName || '',
+                    secondName: userEdit?.secondName || '',
+                    email: userEdit?.email || '',
+                    phone: userEdit?.phone || ''
+                },
+            }
+        );
+
+    useEffect(() => {
+
+        if (userEdit?.firstName && userEdit?.secondName && userEdit?.email) {
+            reset({
+                firstName: userEdit.firstName,
+                secondName: userEdit.secondName,
+                email: userEdit.email,
+                phone: userEdit.phone,
+            });
+        }
+    }, [userEdit, reset]);
+
+    const [showCabinetPop, setShowcabinetPop] = useState(false);
+
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        const phoneNew = inputRef?.current.value;
-        //  console.log(userLogin);
+        const userData = {
+            id: id,
+            firstName: data.firstName,
+            secondName: data.secondName,
+            email: data.email,
+            phone: data.phone,
+            type: "login-user",
+            password: userEdit.password
+        }
 
-        // axios.patch(`http://localhost:3001/users-login/${userLogin.id}`, {
-        //     firstName: data.firstName,
-        //     secondName: data.secondName,
-        //     email: data.email,
-        //     phone: phoneNew,
-        // })
-        //     .then(response => console.log(response.data))
 
-        ///   return setUserLogin({ ...data, id: userLogin.id, phone: phoneNew });
+        axios.patch(`http://localhost:3001/users-login/${id}`, userData
+        )
+            .then(response => console.log(response.data))
+            .catch(error => {
+                if (error.response) {
+                    console.error('Status:', error.response.status);
+                    console.error('Data:', error.response.data);
+                } else {
+                    console.error('Error:', error.message);
+                }
+            });
+        if (data) {
+            setUserEdit(userData);
+            setShowcabinetPop(true);
+            console.log(userEdit);
+
+        }
+
     }
 
     return (
@@ -71,7 +131,10 @@ export const ChangeUserName = () => {
                 <h1>Особисті дані</h1>
                 <form className={styles.blockForm} onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.nameUserContainer}>
-                        <input type="text" className={styles.inputNameParams} placeholder="Ваше ім'я" defaultValue={''}
+
+                        <input type="text" className={styles.inputNameParams} placeholder="Ваше ім'я"
+                            //value={userEdit?.firstName || ''}
+                            // onChange={handleChange}
                             {...register('firstName', {
                                 pattern: {
                                     value: /^[a-zA-Zа-яА-Я]{2,20}$/,
@@ -82,17 +145,30 @@ export const ChangeUserName = () => {
                         <p>{errors.firstName?.message}</p>
                         <p>{errors.secondName?.message}</p>
                         <input type="text" className={styles.inputNameParams} placeholder="Ваше прізвище"
+
                             {...register('secondName', {
                                 pattern: {
-                                    value: /^[a-zA-Zа-яА-Я]{2,20}$/,
+                                    value: /^[a-zA-Zа-яА-ЯїЇєЄіІґҐ'-]{2,20}$/,
                                     message: 'Введіть прізвище коректно'
-                                }, required: true
+                                },
                             })} required
                         />
                     </div>
-                    <input className={styles.inputParms} ref={inputRef} onChange={() => handleMusk} required placeholder='Ваш номер телефону' />
+                    <input className={styles.inputParms}
+                        {...register('phone', {
+                            required: "Введіть номер телефону",
+                            pattern: {
+                                value: /^380\d{9}$/,
+                                message: 'Введіть коректний номер телефону 380XXXXXXXXX'
+                            }
+                        })}
+                        onInput={(e) => e.target.value = e.target.value.replace(/\D/g, '')}
+                        required placeholder="380XXXXXXXXX" />
+                    <p>{errors.phone?.message}</p>
 
-                    <input type="email" className={styles.inputParms} placeholder='Email' id=""
+                    <input type="email"
+                        //   defaultValue={}
+                        className={styles.inputParms} placeholder='Email' id=""
                         {...register('email', {
                             pattern: {
 
@@ -108,17 +184,34 @@ export const ChangeUserName = () => {
                     <h2 style={{ margin: '10px auto 0' }}>Адреси</h2>
                     <div className={styles.adressContainer}>
                         <ul className={styles.adressListBlock}>
-                            <li>Adress1</li>
+                            {userAdres.map((adres, index) => (
+
+                                <li key={index}  >
+                                    <input ref={adresInputRef}
+                                        //onChange={(e) => { handleChangeAdres(index, e.target.value) }}
+                                        className={styles.inputAdres} type='text' placeholder='Введіть адресу' />
+                                </li>
+                            ))}
+
+
+
                         </ul>
                         <div className={styles.saveButtonsGroup}>
-                            <button className={styles.buttonsParamsStyle}>Додати адресу</button>
+                            <button onClick={(e) => handleAddAdrs(e)} disabled={userAdres.length >= 4} className={styles.buttonsParamsStyle}>Додати адресу</button>
                             <input type='submit' value='Зберегти зміни' className={styles.buttonsParamsStyle} />
                         </div>
                     </div>
                 </form>
-
             </div>
-
+            {showCabinetPop ? <Backdrop
+                sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
+                open={true}
+            >
+                <div className={styles.cabinetPopUp}>
+                    <img src={img} onClick={() => { setShowcabinetPop(false) }} className={styles.closeImg} alt="close" />
+                    <span className={styles.popUpText}>Дані збережено!</span>
+                </div>
+            </Backdrop> : null}
 
         </div>
 
