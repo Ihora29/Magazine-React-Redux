@@ -15,7 +15,7 @@ import styles from "../styles/ErrorPage.module.css";
 import closeImg from "../images/close-ellipse-svgrepo-com.svg";
 
 function AppLayout() {
-    // console.log('Layout');
+
     const location = useLocation();
     const { state } = location || {};
 
