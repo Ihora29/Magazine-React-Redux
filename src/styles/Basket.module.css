@@ -164,8 +164,8 @@
 }
 
 .carouselDrinks {
-    width: 160px;
-    height: 190px;
+    width: 90%;
+    height: 200px;
     color: black;
 
     display: flex;
@@ -198,9 +198,9 @@
 
 .prodPrice {
     width: 50%;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .weightProduct {
@@ -227,7 +227,7 @@
     font-weight: bold;
     background-color: #b5d8f7;
     color: black;
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .trashPic {

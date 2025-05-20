@@ -87,19 +87,19 @@ function NavbarComp() {
                 </div>
 
                 <div className={styles.productsPanel} >
-                    <Link className={styles.productIcon} id={styles.actionMenu} to="actions"><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="" />
+                    <Link className={styles.productIcon} id={styles.actionMenu} to="/actions"><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-gift.svg" alt="" />
                         <span className={styles.nameIcon}>акції</span>
                     </Link>
-                    <Link to="sushi" className={styles.productIcon} ><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="" />
+                    <Link to="/sushi" className={styles.productIcon} ><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-rolls.svg" alt="" />
                         <span className={styles.nameIcon}>роли</span>
                     </Link>
-                    <Link to="moti" className={styles.productIcon} ><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2024/04/moti.svg" alt="" />
+                    <Link to="/moti" className={styles.productIcon} ><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2024/04/moti.svg" alt="" />
                         <span className={styles.nameIcon}>моті</span>
                     </Link>
-                    <Link to="sets" className={styles.productIcon} ><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg" alt="" />
+                    <Link to="/sets" className={styles.productIcon} ><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-sets.svg" alt="" />
                         <span className={styles.nameIcon}>сети</span>
                     </Link>
-                    <Link to="drinks" className={styles.productIcon} ><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg" alt="" />
+                    <Link to="/drinks" className={styles.productIcon} ><img className={styles.linkIcon} src="https://monosushi.com.ua/wp-content/uploads/2020/10/nav-img-drinks.svg" alt="" />
                         <span className={styles.nameIcon}>напої</span>
                     </Link>
                 </div>
@@ -111,9 +111,9 @@ function NavbarComp() {
                         className={styles.hamburgerComp}
                     />
                     {isOpen && (<div className={styles.aboutUs}>
-                        <NavLink to="zone-delivery" className={styles.infoAboutUs}>Оплата і доставка</NavLink>
-                        <NavLink to="actions" className={styles.infoActions}>Акції</NavLink>
-                        <NavLink to="about-us" className={styles.infoAboutUs} id={styles.infoAboutUsID}>Про нас</NavLink>
+                        <NavLink to="/zone-delivery" style={{ paddingTop: '5px' }} className={styles.infoAboutUs}>Оплата і доставка</NavLink>
+                        <NavLink to="/actions" className={styles.infoActions}>Акції</NavLink>
+                        <NavLink to="/about-us" className={styles.infoAboutUs} id={styles.infoAboutUsID}>Про нас</NavLink>
                         <div className={styles.workTimeAboutUs}>
                             <div style={{ fontSize: '22px', margin: '0 auto' }}><b>+380978780837</b></div>
                             <span style={{ fontSize: '26px' }}>Працюємо з  <b>11:00-23:00</b></span>

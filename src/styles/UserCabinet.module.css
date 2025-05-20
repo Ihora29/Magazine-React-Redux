@@ -217,7 +217,7 @@
 
     .changeNameBlock,
     .mainContainer {
-        width: 80vh;
+        width: 100%;
         display: flex;
         justify-content: center;
         /* border: 1px solid black; */

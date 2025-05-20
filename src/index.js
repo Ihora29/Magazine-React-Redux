@@ -13,8 +13,7 @@ root.render(
 
   <Provider store={store}>
     <RouterProvider router={router} />
-    {/* <App /> */}
-    {/* <AppLayout /> */}
+
   </Provider>
 
 

@@ -106,16 +106,25 @@
        
     } */
     .saleContainer {
-        width: 100vh;
+        width: 100%;
+
     }
 
     .carouselContainer {
-        width: 100vh;
+        width: 100%;
         margin-top: 60px;
-        /* margin-left: 5px; */
 
     }
 
+    .itemClass {
+
+        margin: 0 auto;
+    }
+
+    .karousel {
+        width: 90%;
+
+    }
 
 
 

@@ -31,19 +31,14 @@ import { CheckForBuy } from "../Components/popUp/CheckForBuy";
 
 export const router = createBrowserRouter([
     {
-        path: "/*",
+        path: "/",
         element: <AppLayout />,
         errorElement: <ErrorPage />,
         children: [
             {
-                path: "/*",
+                index: true,
                 element: <MainPage />,
-                // children: [
-                //     {
-                //         path: "/*/sale",
-                //         element: <SaleAndBestProduct />
-                //     }
-                // ]
+
             },
             {
                 path: "sushi",

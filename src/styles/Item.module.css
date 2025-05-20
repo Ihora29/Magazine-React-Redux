@@ -156,27 +156,27 @@ h1 {
     color: white;
     border-radius: 5px;
     padding: 0 auto;
-    margin: 10px 0 0 5px;
+    margin: 10px 0 0 15px;
     text-align: center;
 }
 
 .aboutProduct {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 25px;
 }
 
 .itemProd {
 
     width: 60%;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
 }
 
 .weightProduct {
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: none;
     /* color: black */
 }
@@ -190,8 +190,9 @@ h1 {
 }
 
 .prodPrice {
-    margin: 15px 0 0 10px;
+    margin: 15px 0 0 20px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .orderCount {
@@ -221,16 +222,16 @@ h1 {
 
 .drinksContainer {
     display: flex;
-    width: 750px;
+    width: 60%;
     margin: 15px auto;
 
-    padding: 0 60px;
+    padding: 0 40px;
     justify-content: space-around;
 
 }
 
 .drink_Item {
-    width: 290px;
+    width: 40%;
     height: 365px;
     border: 1px solid #b5d8f7;
     border-radius: 5px;

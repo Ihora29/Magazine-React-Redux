@@ -171,11 +171,11 @@ export const SaleItems = () => {
       {isUserAuth && isUserAuth.type === "admin-user" ? (<div className={styles.addingCont}>
         <form className={styles.formAdding} onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.uploadArea}>
-            <input type="text" required {...register('imgSrc')} style={{ marginLeft: '20px' }} placeholder='url item adress' />
+            <input type="text" required {...register('imgSrc')} style={{ marginLeft: '20px', width: '80%' }} placeholder='url item adress' />
           </div>
 
           <div className={styles.sectionAdding}>
-            <span ><b>name of Item:</b></span> <input style={{ marginLeft: '50px' }} {...register('name')} type="text" required />
+            <span ><b>name of Item:</b></span> <input style={{ marginLeft: '15px', width: '80%' }} {...register('name')} type="text" required />
           </div>
           <br />
           <div className={styles.sectionAdding}>

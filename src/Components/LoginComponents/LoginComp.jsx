@@ -50,8 +50,6 @@ function LoginComp({ onClose }) {
             const user = { ...data, id: parseInt(usersList.length + 1).toString(), type: "login-user", phone: userPhone }
             setShowpassError(false);
 
-            // console.log(user);
-
             axios.post('http://localhost:3001/users-login', user)
                 .then(res => {
                     //console.log(res);
@@ -70,52 +68,6 @@ function LoginComp({ onClose }) {
             setShowpassError(true);
         }
 
-        // const userPhone = inputRef?.current.value;
-
-        // if (data.password !== data.passwordAgain) {
-        //     setShowpassError(true);
-        //     return;
-        // }
-
-        // const user = {
-        //     ...data,
-        //     id: (usersList.length + 1).toString(),
-        //     type: "login-user",
-        //     phone: userPhone,
-        // };
-        // console.log(user);
-
-
-        // try {
-        //     const res = await axios.post("http://localhost:3001/login", user);
-
-        //     if (res.data?.token) {
-        //         const { token, user: userData } = res.data;
-
-        //         // Зберігаємо токен у localStorage
-        //         localStorage.setItem("token", token);
-
-        //         // Налаштовуємо заголовки для подальших запитів
-        //         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
-        //         // Перенаправлення користувача в кабінет
-        //         navigate(`user-cabinet/${userData.id}`, { state: { user: userData } });
-
-        //         console.log("Авторизація успішна", res.data);
-        //     }
-        //     // else {
-        //     //     console.log("Помилка авторизації: токен не отримано");
-        //     // }
-        // } catch (error) {
-        //     if (error.response) {
-        //         console.error("Помилка сервера:", error.response.status, error.response.data);
-        //     } else {
-        //         console.error("Помилка мережі:", error.message);
-        //     }
-        // }
-
-        // closeLoginComp();
-        // onClose();
 
     }
     return (
@@ -195,8 +147,8 @@ function LoginComp({ onClose }) {
                 <p inert='true'>{errors.password?.message}</p>
                 <p inert='true'>{errors.passwordAgain?.message}</p>
                 {showPassError ? <p>Паролі не співпадають</p> : null}
-                {/* <p>{errors.password?.message}</p>
-                <p>{errors.passwordAgain?.message}</p> */}
+                <p>{errors.password?.message}</p>
+                <p>{errors.passwordAgain?.message}</p>
 
                 <div className={styles.rulesContainer}>
                     <input type="checkbox" aria-hidden={false} name="" id="checkRules" required />

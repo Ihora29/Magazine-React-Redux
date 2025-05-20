@@ -13,21 +13,12 @@ export const ZoneDelivery = () => {
 
     const mapRef = useRef();
 
-    // const customMarker = new L.Icon({
-    //     iconUrl: markerIconPng,
-    //     shadowUrl: markerShadowPng,
-    //     iconSize: [25, 41],
-    //     iconAnchor: [12, 41]
-    // });
-
     const customMarkerShop = new L.Icon({
         iconUrl: shopicon,
         shadowUrl: markerShadowPng,
         iconSize: [25, 41],
         iconAnchor: [12, 41]
     });
-
-
 
     const deliveryZones = [
 
@@ -67,8 +58,6 @@ export const ZoneDelivery = () => {
             ]
         }
     ];
-
-
 
     return (
         <div className={styles.deliveryZoneContainer}>

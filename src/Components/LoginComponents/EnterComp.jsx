@@ -6,8 +6,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from "../redux/authSlice";
-import api from "../../api";
+
+
 
 function EnterComp({ onClose }) {
     const dispatch = useDispatch();
@@ -48,27 +48,7 @@ function EnterComp({ onClose }) {
             setShowErrorAuth(true);
         }
 
-        // try {
-        //     // Відправляємо запит на сервер для отримання токена
-        //     const response = await api.post('/login', {
-        //         email: data.email,
-        //         password: data.password,
-        //     });
 
-        //     if (response.data?.token) {
-        //         const { token, user: userData } = response.data;
-        //         console.log(response.data);
-
-        //         localStorage.setItem("token", token);
-        //         navigate(`user-cabinet/${userData.id}`, { state: { user: userData } });
-        //         console.log("Логін успішний", response.data);
-        //         navigate('/');
-        //         onClose();
-        //     }
-        // } catch (error) {
-        //     console.log(error)
-        //     setShowErrorAuth(true);
-        // }
     };
 
 

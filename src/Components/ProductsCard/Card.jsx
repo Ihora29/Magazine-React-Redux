@@ -110,11 +110,6 @@ export default function Card() {
         dispatch(addToBasket(item))
     };
 
-
-    // if (!item) {
-    //     return <h1>Товар не знайдено</h1>;
-    // }
-
     const responsive = {
         superLargeDesktop: {
 
@@ -145,7 +140,8 @@ export default function Card() {
                     <div className={styles.itemInfo}>
                         <h1 className={styles.localItemName}>{localItem?.name}</h1>
                         <span className={styles.itemDetails}>Склад:</span>   <span>{localItem?.details}</span>
-                        <div className={styles.detailsContainer}><span className={styles.itemDetails} ><b>Вага:</b> </span>
+                        <div className={styles.detailsContainer}>
+                            <span className={styles.itemDetails} ><b>Вага:</b> </span>
                             <span style={{ fontSize: '20px' }} className={styles.localItemWeight}><b>{localItem?.weight}</b></span>
                         </div>
                         <div className={styles.footContainer}>

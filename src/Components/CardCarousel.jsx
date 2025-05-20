@@ -20,7 +20,7 @@ function CardCarousel() {
             items: 2
         },
         mobile: {
-            breakpoint: { max: 768, min: 0 },
+            breakpoint: { max: 768, min: 320 },
             items: 1
         }
     };
@@ -32,7 +32,7 @@ function CardCarousel() {
             draggable={false}
             showDots={true}
             responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
+            ssr={true}
             infinite={true}
             autoPlay={true}
             autoPlaySpeed={3000}
