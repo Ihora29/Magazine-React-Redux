@@ -1,71 +1,81 @@
-# Getting Started with Create React App
+# 🛒 Magazine React Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and responsive online store built with **React**, **Redux Toolkit**, and **SCSS**.  
+Includes product list, shopping cart, dynamic rendering via Redux, and mock backend via `json-server`.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📦 Features
 
-### `npm start`
+- 🧺 Add/remove products to/from cart
+- 🛍 View cart with total amount
+- 📦 Product cards with details
+- 🔄 Redux store with slices and actions
+- 💅 SCSS styling and media queries for responsiveness
+- 🖥 Responsive layout (desktop, tablet, mobile)
+- 🧪 Local mock API using `db.json`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-### `npm run server`
-For starting app on local db json-server;
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 How to Run the Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. 📥 Clone the repository
 
-### `npm run build`
+```bash
+git clone https://github.com/Ihora29/Magazine-React-Redux.git
+cd Magazine-React-Redux
+2. 📦 Install dependencies
+bash
+Копіювати
+Редагувати
+npm install
+3. 🧪 Run the mock server (backend)
+bash
+Копіювати
+Редагувати
+npm run server
+This uses json-server to serve data from db.json at http://localhost:3001
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. 🖥 Run the React app
+bash
+Копіювати
+Редагувати
+npm start
+App will open in your browser at http://localhost:3000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+📁 Project Structure
+bash
+Копіювати
+Редагувати
+📦 src/
+├── Components/           # UI components (Card, Cart, etc.)
+├── Routing/              # React Router config
+├── styles/               # SCSS + media queries
+├── images/               # Product images
+├── App.js
+├── index.js
+└── redux/                # Redux Toolkit slices
+🧠 Technologies Used
+React
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Redux Toolkit
 
-### `npm run eject`
+SCSS Modules
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+React Router
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+JSON Server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+JavaScript (ES6)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+📱 Responsive Design
+The UI supports the following breakpoints:
 
-## Learn More
+📱 320px (mobile)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📱 768px (tablet)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🖥 1024px+ (desktop)
 
-### Code Splitting
+Implemented using CSS media queries.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
