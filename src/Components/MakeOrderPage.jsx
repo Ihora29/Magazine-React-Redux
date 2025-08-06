@@ -6,7 +6,7 @@ import imgTrash from '../images/reshot-icon-trash-2ZNJ9PUBQL.svg';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from './redux/getProductsSlice';
-import { useLocation } from 'react-router-dom';
+
 import { removeFromBasket } from './redux/basketSlice';
 import Map from './map/Map';
 import { PopUpDelivery } from './popUp/PopUpDelivery';

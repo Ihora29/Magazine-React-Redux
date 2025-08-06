@@ -94,7 +94,7 @@ export default function Card() {
 
     const localIncrese = () => {
         setLocalItem(prevCount => ({ ...prevCount, totalCount: prevCount.totalCount + 1 }))
-        //   console.log(localItem);
+
     }
 
     const localDecrese = () => {

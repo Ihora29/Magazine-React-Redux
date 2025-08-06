@@ -19,7 +19,6 @@ function AppLayout() {
     const location = useLocation();
     const { state } = location || {};
 
-
     return (
 
 
