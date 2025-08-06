@@ -472,6 +472,7 @@ h5 {
     .MakeOrdertext {
         margin-left: 20px;
         width: 100%;
+
     }
 
     .MakeOrdertext::after {
@@ -494,13 +495,20 @@ h5 {
 
     .orderName {
         font-size: 18px;
+
         font-weight: bold;
-        margin-left: 10px;
+        width: 48%;
+        text-align: center;
+        margin-left: 20px;
     }
 
     .formOrderPromo {
         width: 85%;
     }
 
+    .trashAndCounContainer {
+        width: 21%;
+
+    }
 
 }
