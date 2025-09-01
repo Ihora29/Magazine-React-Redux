@@ -3,8 +3,6 @@ import styles from "../../styles/Card.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../redux/getProductsSlice";
 import { NavLink } from "react-router-dom";
-
-
 import { addToBasket } from "../redux/basketSlice";
 function AllProductsCard() {
 
